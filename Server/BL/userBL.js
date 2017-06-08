@@ -352,7 +352,9 @@ var userBL = function () {
             //console.log(req.email);
             var request = new sql.Request(connection);
             request
-                .execute('GetAllPersons')
+              .input('id', sql.Int, req.id)
+                .input('page', sql.NChar, req.page)
+              .execute('GetAllPersons')
                 .then(
                 function (recordset) {
                     callback(recordset);

@@ -238,10 +238,13 @@ export class HttpService extends BaseEntityService {
       .catch((error: any) => { return Observable.throw(error); });;
   }
 
-  GetAllUsers(token): Observable<any> {
+  GetAllUsers(id,page): Observable<any> {
     let params = new URLSearchParams();
 
-    params.set('token', token);
+    
+    params.set('id', id );
+    params.set('page',page );
+
     return this.http.post('http://localhost:5002/users/GetAllUsers', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpService } from 'common/services/http.service';
 import { Router } from '@angular/router';
 import { User } from 'common/Models/user';
-
+import { AuthService } from 'common/services/auth/auth.service';
 import {GridOptions} from "ag-grid";
 
 /*import * as moment from 'moment';*/
@@ -22,7 +22,7 @@ export class ReportComponent implements OnInit {
     private users: User[];
 
     ngOnInit() {
-            this.httpService.GetAllUsers(0).subscribe(
+            this.httpService.GetAllUsers(this.authService.currentUser.id,"filterReport").subscribe(
                res => {
                 this.users = res.json().users;
            
@@ -35,7 +35,7 @@ export class ReportComponent implements OnInit {
         }
 
 
-    constructor(public httpService: HttpService, public router: Router/*, private localeService: LocaleService*/) {
+    constructor(public httpService: HttpService, public router: Router, private authService: AuthService) {
         this.gridOptions = {
              enableFilter: true
         };

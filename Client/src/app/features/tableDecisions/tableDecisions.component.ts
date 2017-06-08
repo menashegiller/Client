@@ -20,7 +20,7 @@ export class TableDecisionsComponent implements OnInit {
     users: User[];
     
     ngOnInit() {
-        this.httpService.GetAllUsers(0).subscribe(
+        this.httpService.GetAllUsers(this.authService.currentUser.id,"tableDecisions").subscribe(
             res => {
                 let that = this;
                 // this.smsState = (<Response>res).ok;
