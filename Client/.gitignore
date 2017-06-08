@@ -1,0 +1,13 @@
+env.json
+.idea/
+.vscode
+/node_modules
+/bower_components
+/build
+/report
+/typings
+/src/tmp
+.DS_Store
+/src/assets/styles/*.css
+Client/config/gulp/tasks/component.js
+Client/config/gulp/tasks/component.js
