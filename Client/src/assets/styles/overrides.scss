@@ -1,0 +1,724 @@
+accordion {
+    width: 100%;
+	float: right;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.panel-group {
+    width: 100%;
+    float: right;
+    display: block;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/*.panel-title {
+	font-weight: bold;
+    color: color(primary);
+    padding-right: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    cursor: pointer;
+a {
+    text-decoration: none !important;
+	color: #FFFFFF;
+}
+}
+.panel-heading {
+    border-bottom-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+}*/
+
+.lastChild .panel-heading {
+	border-bottom-style: none;
+}
+
+.dropup {
+    background-color: #004467;    
+}
+
+.mydp .mydpicon {
+    font-family: mydatepicker !important;
+    display: block;
+}
+
+.icon-mydpremove{
+    display:none !important;
+}
+.selection {
+    width: 100%;
+    height: 50px !important;
+    color: #B2B2B2 !important;
+    font-size: 1.2em !important;
+    text-indent: 20px;
+    font-family: inherit;
+    background-color: #f6f6f6 !important;
+    box-sizing: border-box;
+    border: 1px solid #B2B2B2 !important;
+    border-image: initial;
+    outline: none !important;
+    border-radius: 10px;
+    text-align: right !important;  
+}
+
+.mydp {
+    border:none !important; 
+    display: block !important;
+}
+
+.btnpicker, .btnclearenabled {
+    width: 40px !important; 
+    height: 40px !important; 
+    margin-top: 6px !important;
+    margin-left: 6px !important;
+    outline: none !important;
+    font: inherit;
+    background-color: transparent !important;
+    border-left: none !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+
+.btnclearenabled:hover{
+    background-color: transparent !important;
+}
+
+.mydp .selectorarrow{
+    width: 100% !important;
+}
+
+.mydp .icon-mydpcalendar:before {
+    content: "\e802";
+    display: none;
+}
+
+.mydp .icon-mydpright:before, .mydp .icon-mydpleft:before {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    display: block !important;
+}
+
+.mydp .icon-mydpright:before {
+    float: right; 
+}
+
+.mydp .icon-mydpleft:before {
+    float: left;
+}
+
+.selectBtn {
+    z-index: 100;
+}
+
+my-date-picker {
+    width: 100%;
+    float: right;
+    height: 50px;
+}
+
+.mydpicon {
+    display: none;
+}
+
+.More_marginLeft {
+    margin-left: 50px !important;
+    float: right  !important;
+}
+
+.mobilePic {
+    height: 99px;
+}
+
+@media only screen and (min-width: 700px){
+    .mobilePic {
+        height: 120px;
+    }
+}
+
+@media only screen and (min-width: 860px){
+    .BeforFooter {
+        height: 99px;
+    }
+}
+
+@media only screen and (min-width: 1600px){
+    .BeforFooter {
+        height: 160px;
+    }
+}
+
+@media only screen and (min-width: 1250px){
+    .BeforFooter {
+        height: 120px;
+    }
+}
+
+@media only screen and (min-width: 1350px){
+    .BeforFooter {
+        height: 150px;
+    }
+}
+
+@media only screen and (min-width: 1920px){
+    .BeforFooter {
+        height: 202px;
+    }
+}
+
+
+mdl-dialog-host-component.open {
+    width: 374px;
+}
+
+.mdl-dialog__content {
+    color: #333333;
+}
+
+.mdl-button.mdl-color-text--primary{
+    width: 100%!important;
+    background-color: #004467 !important;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    font-weight: bold;
+    float: none;
+    clear: both;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.1em;
+    text-indent: 0px;
+    border-radius: 10px;
+    border: none;
+}
+
+.mdl-button.mdl-color-text--primary:hover{
+     background-color: #E97A2B !important; 
+}
+
+button:focus {
+    outline: none;
+}
+
+.dialog-backdrop{
+    background-color: rgba(0,0,0,0.80) !important;
+}
+
+.PopUpBoxsWrapper {
+    text-align: center;
+}
+
+mdl-dialog-host-component.mdl-dialog.open {
+    border-radius: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.disabledBtn, .disabledBtn:hover {
+    background-color: #cacaca !important;
+    cursor: default;
+}
+
+.Mypointer {
+    cursor: pointer !important;
+}
+.cleanClass {
+    
+    .downIcon, .upIcon, .selectBtn, .hideBlock{
+        display: none !important;
+        cursor: default !important;  
+    }
+
+
+.clickEn {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+    input, select, textarea {
+      cursor: default !important;
+      
+   }
+
+    select {
+      -webkit-appearance: none; 
+    }
+
+    .panel-title {
+        cursor: default !important; 
+    }
+
+    .accordionHover:hover {
+        background-color: #004467 !important; 
+        cursor: default !important; 
+    }
+    
+}
+
+/*.panel-heading{
+   border-bottom-style: none; 
+}
+.panel-title {
+    height: 57px;
+}*/
+
+accordion-group:last-child .BoxStrokeline, .HeaderStrokeline {
+    border-bottom: none;
+}
+
+.hideDiv{
+    display: none;
+}
+
+@media print {
+header {
+    display: none !important;
+}
+
+/*.MainContent {
+	 cursor: not-allowed;
+	 pointer-events: none;  
+}
+*/
+input, select, textarea {
+    width: 100%;
+    height: 50px;
+    color: #B2B2B2;
+    text-indent: 20px;
+    font-family: inherit;
+    float: right;
+    display: block;
+    background-color: #f6f6f6;
+    box-sizing: border-box;
+    border: 1px solid #B2B2B2;
+    border-image: initial;
+    outline: none;
+    border-radius: 10px;
+}
+
+select {
+    -webkit-appearance: none;	
+}
+
+textarea {
+	resize: none;
+}
+
+/* -----------------------רווח פרטים אישיים ---------------------------------*/
+.PersonalInfo {
+	margin-bottom: 220px !important;
+}
+
+.ContentPersonalInfo {
+	padding-bottom: 550px !important;	
+}
+
+.CollegeReg {
+	padding-bottom: 60px !important;
+	border-bottom: 2px solid #DCDCDC;
+	margin-bottom: 50px;
+}
+
+.ContentCollegeReg {
+	padding-bottom: 170px !important;
+}
+
+.Documents {
+	margin-bottom: 350px !important;
+}
+
+.ContentDocuments {
+	padding-bottom: 350px !important;
+}
+
+.MilitarySer  {
+	padding-bottom: 30px !important;
+	border-bottom: 2px solid #DCDCDC;
+	margin-bottom: 20px !important;
+}
+
+.ContentMilitarySer  {
+	padding-bottom: 40px !important;
+}
+
+.EconomicStat  {
+/*	padding-bottom: 280px !important;*/
+	margin-bottom: 590px;
+}
+
+.ContentEconomicStat  {
+	padding-bottom: 240px !important;
+}
+
+.StatementsLiab  {
+	padding-bottom: 250px !important;
+	/*border-bottom: 2px solid #DCDCDC;*/
+	margin-bottom: 260px;
+}
+
+/* -----------------------רווח פרטים אישיים ---------------------------------*/
+
+.Container {
+    max-width: 595px !important;
+}
+
+.AboutuserForm {
+	width: 100%;
+	float: right;
+	margin-bottom: 20px !important;
+}
+
+.AboutuserForm h1, .AboutuserForm p{
+	width: 100%;
+	float: right;
+	margin-bottom: 0px !important;
+}
+
+.AboutuserForm h1 {
+	font-size: 2.7em;
+	font-weight: bold;	
+}
+
+.AboutuserForm p{
+	font-size: 1.5em;
+}
+
+#accordion {
+	width: 100%;
+	float: left;
+	background-color: #FFFFFF;
+	margin-bottom: 20px;
+	margin-top: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.BoxStrokeline, .HeaderStrokeline {
+	border-bottom-color: #FFFFFF;
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+}
+
+.accordionHeader {
+	width: 100%;
+	float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #BFBFBF;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-right: 20px;
+}
+
+.accordionTitle {
+	float: right;
+	color: #1A1A1A;
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.BoxTopStrokeline {
+	border-bottom: 1px solid #1A1A1A;
+}
+
+.accordionContent {
+	width: 100%;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-top: 0px !important;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-bottom: 68px;
+	background-color: #FFFFFF;
+	cursor: default;
+}
+
+.accordionInputBox {
+	width: 100%;
+	float: right;
+}
+
+.userFormInstructions {
+	width: 100%;
+	float: right;
+	margin-bottom: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.userFormInstructions h2{
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.DocreqContainer, .DocreqSelect, .ProcessIcon, .DocreqUpLoudBoxLine {
+	width: 100%;
+	float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.DocreqContainer p {
+    padding-bottom: 5px;
+}
+
+.DocreqSelect {
+	max-width: 60px;
+}
+
+.ProcessIcon {
+	float: left;
+    font-size: 2.5em;
+    max-width: 40px;
+    padding-top: 4px;
+    margin-left: 5px;
+	cursor: pointer;
+}
+
+.DocreqUpLoudBoxLine {
+	border-bottom: 2px solid #DCDCDC;
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+}
+
+.accordionSend {
+	width: 100%;
+	float: left;
+}
+
+/*----------------------------------- Upload File Process -------------------------*/
+.EmptyIcon, .ChackIcon {
+	font-size: 2.5em;
+	float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.EmptyIcon, .ChackIcon {
+	display: none;	
+}
+
+.SelctedChack {
+	display: block;	
+}
+
+.UpLoudFileBtnBox {
+	width: 90%;
+	float: right;
+	margin-top: 10px;
+}
+
+.FileNotUpLoad {
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 20px;
+	margin-right: 20px;
+}
+
+.ProcessBox {
+	width: 100%;
+	height: 50px;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #E6E6E6;
+	border: 1px solid #BFBFBF;
+	border-radius: 5px;
+	margin-top: 20px;
+	display: none;
+}
+
+.ProcessColor {
+    width: 50%;
+    float: right;
+    height: 43px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #004467;
+    border-radius: 5px;
+    margin: 2px;
+    display: block;
+}
+
+/*----------------------------------- WorkingProcess Selcted -------------------------*/
+.PersonaLetter {
+	width: 100%;
+	float: right;
+}
+
+.PersonaLetterList {
+	counter-reset: subsection;
+    list-style-type: none;
+}
+
+.PersonaLetterTitle::before {
+    counter-increment: subsection;
+    content: counters(subsection,".") ".";
+	margin-left: 5px;
+}
+
+.WarrCercheckbox {
+    width: 50px;
+    float: right;
+	cursor: pointer;
+}
+
+.WarrCercheTitle {
+	width: 75%;
+    margin-right: 30px;
+}
+
+.dismiss {
+	display: none;
+}
+
+/*----------------------------------- Military -------------------------*/
+.MilitaryRadio, .MilitaryRadioBox {
+    width: 100%;
+    float: right;
+    height: 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.WarrCercheBox {
+	padding-top: 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+}
+
+.MilitaryRadioBox {
+	background-color: #F0F0F0;
+	border-radius: 10px;
+}
+
+.MilitaryRadio {
+	max-width: 25%;
+	text-align: center;
+    padding-right: 12px;
+	padding-top: 10px;
+}
+
+.RadioBtn {
+	width: 25px;
+    float: right;
+    height: 30px;
+}
+
+.DeclarationBox {
+    width: 100%;
+    float: right;
+/*	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+	margin-bottom: 10px;*/
+}
+
+.EconomicRadio {
+	width: 65px;
+    float: right;
+	text-align: center;
+}
+
+.EconomicRadioBox {
+    width: 130px;
+    float: left;	
+}
+
+.EconomicPar {
+	width: 61%;
+	float: right;
+}
+
+.DeclarationPar {
+	width: 87%;
+	float: right;
+	padding-top: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.DeclarationTitle {
+	padding-top: 30px;
+	margin-bottom: 0px;
+}
+	
+.InputBoxBig {
+	width: 100% !important;
+	margin-left: 0px !important;
+}	
+
+.accordionSend {
+	max-width: 285px;
+    display: none;
+}
+	
+	select {
+		-webkit-appearance: none;	
+	}
+
+	textarea {
+		resize: none;
+	}
+
+	.AboutuserForm h1 {
+		font-size: 2.7em;
+		font-weight: bold;	
+	}
+
+	.AboutuserForm p{
+		font-size: 1.5em;
+	}
+
+	.accordionTitle {
+		float: right;
+		color: #1A1A1A;
+		font-size: 1.8em;
+		font-weight: bold;
+	}
+}
+
+/*.blockPages{
+      cursor: not-allowed;
+       pointer-events: none;
+    }*/
+
+.mydp .selector{
+    z-index: 1000!important;
+}
+
+
+.a4Page {
+    float: none;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 595px;
+    height: 842px;
+}

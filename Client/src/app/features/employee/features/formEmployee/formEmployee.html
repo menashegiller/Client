@@ -1,0 +1,59 @@
+<form #eForm="ngForm" (ngSubmit)="onSubmit(model)" method="post" name="newUserform" id="newUserform">
+	<ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+		<li class="userFormInstructions No_marginButtom Txt-MidGray">
+			<h2>פרטי משתמש</h2>
+		</li>
+		<li class="accordionInputBox">
+			<p class="inputlabel">שם מלא</p>
+			<input type="text" required [(ngModel)]="model.FullName" name="UserFirstName"></li>
+		<li class="accordionInputBox No_marginLeft">
+			<p class="inputlabel">טלפון/נייד</p>
+			<input type="text" required [(ngModel)]="model.Mobile" name="UserMobile"></li>
+		<li class="accordionInputBox">
+			<p class="inputlabel">אימייל (שם משתמש)</p>
+			<input type="email" required [(ngModel)]="model.Email" name="UserEmail"></li>
+		<li class="accordionInputBox No_marginLeft">
+			<p class="inputlabel">סיסמה</p>
+			<input type="text" required [(ngModel)]="model.Password" name="UserPassword"></li>
+	</ul>
+
+	<ul class="EnterPass">
+		<li class="accordionInputBox">
+			<p class="inputlabel">הגדר מקום עבודה</p>
+			<label class="inputcontent">
+			<span class="selectBtn icon-08"></span>
+			<select  name="College" required [(ngModel)]="model.College">
+				<option *ngFor="let c of httpService.colleges"  [value]="c.Id">{{c.Name}}</option>
+			</select>
+		</label>
+		</li>
+
+		<li class="accordionInputBox No_marginLeft">
+			<p class="inputlabel">תפקיד</p>
+			<label class="inputcontent">
+			<span class="selectBtn icon-08"></span>
+			<select name="inputSubject" required [(ngModel)]="model.Role">
+				<option *ngFor="let r of httpService.roles" [value]="r.Role_Id">{{r.Role_name}}</option>
+			</select>
+		</label>
+		</li>
+
+		<li class="accordionInputBox">
+			<p class="inputlabel More_marginTop">* עדכון משתמש חדש ניתן לערוך בעריכת משתמשים</p>
+		</li>
+		<li *ngIf="model.Person_id > 0" class="RemarkBox">
+				<p class="RemarkTitle">חשוב לזכור לפני שמירת הנתונים !!!</p>
+				<p>לוודא שכל השדות מלאים והנתונים תקינים כי לאחר שמירה ישלח מייל למשתמש לעדכון סיסמה חדשה. </p>	
+				</li>
+		<li *ngIf="!model.Person_id" class="accordionSave accordionInputBox No_marginLeft">
+			<input class="InsideFormBtn" type="submit" value="צור/י" name="send" title="צור/י">
+			<a *ngIf="wasSave == 1" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>משתמש חדש נוצר ושמור במערכת</p></a>
+		</li>
+		<li *ngIf="model.Person_id > 0" class="accordionSave accordionInputBox No_marginLeft">
+			<input class="InsideFormBtn No_marginTop" type="submit" value="שמור/י" name="send" title="שמור/י">
+			<a *ngIf="wasSave == 1" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים עודכנו ונשמרו במערכת</p></a>
+		</li>
+	</ul>
+ 
+</form>
+		

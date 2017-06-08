@@ -1,0 +1,99 @@
+/* ScssAccordion */
+#accordion {
+  width: 100%;
+  float: left;
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #BFBFBF;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.accordionHeader {
+  width: 100%;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #B3B3B3;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-right: 20px; }
+
+.accordionHover:hover {
+  background-color: #004467;
+  cursor: pointer; }
+
+.accordionTitle {
+  float: right;
+  color: #FFFFFF;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+.downIcon, .upIcon, .SelectIcon {
+  font-size: 2em;
+  -webkit-transition: transform 1.2s ease;
+  -moz-transition: transform 1.2s ease;
+  -ms-transition: transform 1.2s ease;
+  transition: transform 1.2s ease;
+  cursor: pointer;
+  float: left;
+  display: block;
+  color: #FFFFFF !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: 10px; }
+
+.upIcon {
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg); }
+
+.SelectIcon {
+  float: right !important;
+  margin-right: 0px !important;
+  margin-left: 20px; }
+
+.accordionHeaderRaduis {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.NoBorderTop {
+  border-top: 0px none !important; }
+
+.accordionHeaderOne {
+  background-color: #004467;
+  border-bottom-color: #d2d5db;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-top-color: #d2d5db; }
+
+.accordionContent {
+  width: 100%;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 68px;
+  background-color: #FFFFFF;
+  cursor: default; }
+
+/*-------------- Start Boxline accordion -----------------*/
+.BoxStrokeline, .HeaderStrokeline {
+  border-bottom-color: #FFFFFF;
+  border-bottom-style: solid;
+  border-bottom-width: 3px; }
+
+.BoxTopStrokeline {
+  border-bottom: 1px solid #1A1A1A; }
+
+@media only screen and (min-width: 450px) {
+  .downIcon {
+    margin-left: 20px; } }
+@media only screen and (min-width: 700px) {
+  .accordionTitle {
+    font-size: 1.6em; } }

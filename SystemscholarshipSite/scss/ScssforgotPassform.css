@@ -1,0 +1,99 @@
+/* ScssforgotPassform */
+.NewPassBox {
+  width: 100%;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 15px; }
+
+.NewPassBoxTitle {
+  list-style-type: none !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100% !important;
+  font-size: 100% !important;
+  margin-right: 0px !important; }
+
+.WelcomeOptions {
+  width: 100%;
+  float: right;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-bottom: 30px; }
+  .WelcomeOptions li {
+    font-size: 1.2em;
+    list-style-type: disc;
+    margin-right: 25px; }
+
+.RegUserPass {
+  width: 100%;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-bottom: 70px; }
+
+.changePer {
+  width: 85% !important;
+  float: right; }
+
+.NoiconList {
+  padding-right: 10px  !important;
+  margin-top: 20px; }
+  .NoiconList li {
+    list-style-type: none !important; }
+
+.ResetPassBox, .ResetPassBoxBtn, .ChangeNewBoxBtn {
+  width: 100%;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.ResetInsideFormBtn {
+  margin-top: 20px; }
+
+.ResetpassTitle {
+  max-width: 108px; }
+
+.ChangeNewBoxBtn {
+  margin-top: 30px; }
+
+.ChangeNewPassIcon {
+  font-size: 2em;
+  float: right;
+  line-height: 40px;
+  margin-left: 20px; }
+
+@media only screen and (min-width: 860px) {
+  .WelcomeOptions {
+    width: 50%;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 25px; }
+
+  .RegUserPass {
+    width: 45%; }
+
+  .NoiconList {
+    margin-top: 0px; } }
+@media only screen and (min-width: 1000px) {
+  .WelcomeOptions {
+    width: 42%; }
+
+  .RegUserPass {
+    width: 55%; } }
+@media only screen and (min-width: 1200px) {
+  .NewPassBox {
+    display: block; }
+
+  .WelcomeOptions li {
+    font-size: 1.4em; } }
+@media only screen and (min-width: 1250px) {
+  .RegUserPass {
+    width: 55%; } }

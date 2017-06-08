@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* ScssFilteReport */
+
+.FilteReportRadioBox, .FilteReportRadio {
+  width: 100%;
+  float: right;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.FilteReportRadioBox {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+}
+
+.FilteReportRadio {
+  max-width: 25%;
+  text-align: right;
+  text-indent: 10px;
+  padding-right: 12px;
+  padding-top: 10px;
+}
+
+.StrockPass {
+  border-bottom-color: #FFFFFF;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+}
+
+.FilteContainer {
+  width: 100%;
+  height: 200px;
+  float: right;
+  overflow: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.FilteReportBoxHeader, .FilteReportHeader {
+  float: right;
+  padding-right: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.FilteReportBoxHeader {
+  background-color: #333333;
+}
+
+.FilteReportHeader {
+  background-color: #B3B3B3;
+  &:hover {
+    background-color: #004467;
+  }
+}
+
+.FilteReportBoxHeader p, .FilteReportHeader p {
+  width: 190px;
+  color: #FFFFFF;
+  text-align: center;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.FilteReportBoxHeader p {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+@media only screen and (min-width: 620px) {
+  .FilteReportRadio {
+    max-width: 33%;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .FilteReportBoxHeader p {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .FilteReportRadio {
+    max-width: 200px;
+  }
+}

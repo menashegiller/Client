@@ -1,0 +1,204 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="ie6 oldie"><![endif]-->
+<!--[if IE 7]><html class="ie7 oldie"><![endif]-->
+<!--[if IE 8]><html class="ie8 oldie"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="" lang="zxx" dir="rtl">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e6e6e6">
+<title>FilteReport</title>
+<link rel="stylesheet" type="text/css" href="css/GeneralElements.css">
+<link rel="stylesheet" type="text/css" href="css/GeneralFonts.css">
+<link rel="stylesheet" type="text/css" href="css/Icons.css">
+<link rel="stylesheet" type="text/css" href="css/userForm.css">
+<link rel="stylesheet" type="text/css" href="css/newUserform.css">
+<link rel="stylesheet" type="text/css" href="css/FilteReport.css">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+	<div class="gridContainer">
+		<header>
+		  <div class="Container">
+			  <ul class="TopHeaderContent">
+			  	 <li class="ContainerLogo">
+			  	  <a class="LogoConLink" href="index.html">
+					 <div class="LogoIcon icon-01"></div>
+					  <div class="LogoTxt">
+						  <h1 class="LogoTitle">מערכת מלגות</h1>
+						  <h2 class="LogoSubTitle">הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</h2>
+					  </div>
+				  </a>  
+			  	  </li>
+			  	  
+				  <li class="UserAccountForm">
+					  <div class="NameUser">
+						  <p>שלום</p>
+						  <a href="#" class="EmailUser">yosi@gmail.com</a>
+					  </div>
+						<div class="Logout">
+							<div class="FormBtn LogoutBtn">יציאה</div>
+						</div>	
+				  </li>
+			  </ul>	
+		  </div>
+		</header>
+		<div class="MainContent">
+		<div class="Container">
+			<div class="AboutuserForm">
+				<h1>קצת עלינו</h1>
+				<p>
+				הקרן לעידוד תעסוקה במגזר תעשיות עתירות ידע, מעוניינת לעזור לסטודנטים ללמוד לימודים חוץ אקדמיים.<br/>
+				העזרה הינה דרך הענקת מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
+				</p>
+			</div>
+
+		<div class="newUserContainer">
+			<div class="userFormInstructions No_marginButtom"><h2>סינון דו”ח סטאטוס מלגות</h2></div>
+			<div class="newUserBox">
+			<form action="newUserform.html" method="post" name="newUserform" id="newUserform">
+			   <input name="_redirect" type="hidden" value="">
+			   <input name="_recipients" type="hidden" value="">
+			   <input name="_subject" type="hidden" value="">
+			   
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				 <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>סינון לפי תאריך</h2></li>
+				 <li class="accordionInputBox InputBoxBig">
+				 <p class="inputlabel">בחר תאריך</p>
+				 <div class="FilteReportRadioBox">
+					 <div class="FilteReportRadio"><input class="RadioBtn" type="radio" name="FilteReportType" value="תאריך החלטה"><p>תאריך החלטה</p></div>
+					 <div class="FilteReportRadio"><input class="RadioBtn" type="radio" name="FilteReportType" value="התחלת לימודים"><p>התחלת לימודים</p></div>
+					 <div class="FilteReportRadio"><input class="RadioBtn" type="radio" name="FilteReportType" value="סיום לימודים"><p>סיום לימודים</p></div>
+				 </div>
+				 </li>
+				</ul>
+				
+			    <ul class="EnterPass">
+			      <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>אנא ציין/י טווח תאריכים לסינון</h2></li>				  				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">הגדר/י מתאריך</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י תאריך התחלה</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>
+				  		  				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">עד תאריך</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י תאריך סיום</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>	
+				  
+				  <li class="accordionInputBox"><p class="inputlabel More_marginTop">* הנתונים למטה הם להצגה בלבד ולא ניתנים לעריכה</p></li>
+				  <li class="accordionSave accordionInputBox No_marginLeft FilteReportBtn"><input class="InsideFormBtn" type="submit" value="הצג/י" name="send" title="הצג/י"></li>
+				</ul>
+				
+			</form>	
+			</div>
+		</div>   
+		<div class="userFormInstructions">
+			<h2>לפניך רשימת בקשות סטודנטים לקבלת מלגה למימון לימודים</h2>
+			<div class="More_marginTop">
+			<p>* באפשרותך לבצע סינון בלחיצה על כל שם עמודה</p>
+			<p>* כל המחירים הם בש”ח בלבד</p>
+			</div>
+		</div>
+   	   <div class="userFormInstructions"><h2>טבלת סטאטוס מלגות כללי</h2></div>
+	   <form action="FilteReportform.html" method="post">
+	   <input name="_redirect" type="hidden" value="">
+	   <input name="_recipients" type="hidden" value="">
+	   <input name="_subject" type="hidden" value="">
+
+		   <ul class="FilteContainer">
+		   <li class="FilteReportBoxHeader StrockPass">
+				   <p>שם סטודנט/ית</p>
+				   <p>תאריך הגשה</p>
+				   <p>מכללה</p>
+				   <p>הסמכה</p>
+				   <p>מחיר</p>
+				   <p>התחלת לימודים</p>
+				   <p>סיום לימודים</p>
+				   <p>סטאטוס</p>
+				   <p>החלטה בתאריך</p>
+				   <p>גובה מלגה</p>
+		   </li>
+			   
+		   <li class="FilteReportHeader StrockPass">
+				<p>אלי כהן</p>
+				<p>20/01/17</p>
+				<p>מכללת הנדסאים</p>
+				<p>תוכנה</p>
+				<p>15,000</p>
+				<p>20/01/17</p>
+				<p>20/01/19</p>
+			    <p>מתעניין</p>
+			    <p>01/01/17</p>
+			    <p>10,000</p>
+			</li>
+		   
+		   <li class="FilteReportHeader StrockPass">
+				<p>יוסי טולדנו</p>
+				<p>20/01/17</p>
+				<p>מכללה למנהל</p>
+				<p>תוכנה</p>
+				<p>10,000</p>
+				<p>20/01/17</p>
+				<p>20/01/19</p> 
+				<p>מתעניין</p>
+				<p>01/01/17</p>
+				<p>10,000</p>
+			</li>			
+
+		   <li class="FilteReportHeader">
+				<p>אילה אחיקם</p>
+				<p>20/01/17</p>
+				<p>מכללת סלע</p>
+				<p>תוכנה</p>
+				<p>20,000</p>
+				<p>20/01/17</p>
+				<p>20/01/19</p>
+				<p>מתעניין</p>
+				<p>01/01/17</p>
+				<p>10,000</p>				
+			</li>			
+		</ul>
+		</form>   
+		</div>
+                			
+		</div>
+		<div class="BeforFooter"><img src="images/footerPic.png" alt="footerPic"/></div>
+		<div class="mobilePic"><img src="images/footerPicmobile.png" alt="footerPic"/></div>
+	    <footer>
+			<div class="Container ContainerForm">
+				<div class="mainFooter">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+				</div>
+			</div>
+		</footer>	
+	</div>	
+</body>
+</html>

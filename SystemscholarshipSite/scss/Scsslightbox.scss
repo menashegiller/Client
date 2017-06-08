@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* Scsslightbox */
+
+.BoxWrapperLightbox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.BoxContainer {
+  width: 100%;
+  max-width: 400px;
+  float: right;
+  border: 1px solid #9697ab;
+  background-color: #FBFBFB;
+  position: fixed;
+  z-index: 100000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.popGroup1Content {
+  display: none;
+}
+
+.popBtn {
+  cursor: pointer;
+}
+
+.PopUpTitle {
+  text-align: center;
+}
+
+.PopUpPar {
+  text-align: center;
+  width: 100%;
+  float: right;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.PopUpBtn {
+  max-width: 285px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.PopUpBoxsWrapper {
+  width: 100%;
+  float: right;
+  margin-bottom: 10px;
+}

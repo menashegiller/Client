@@ -1,0 +1,33 @@
+accordion {
+	 cursor: not-allowed;
+	 pointer-events: none;  
+}
+/*
+  .downIcon, .upIcon, .selectBtn, .hideBlock{
+        display: none !important;
+        cursor: default !important;  
+    }
+
+
+.clickEn {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+    input, select, textarea {
+      cursor: default !important;
+      
+   }
+
+    select {
+      -webkit-appearance: none; 
+    }
+
+    .panel-title {
+        cursor: default !important; 
+    }
+
+    .accordionHover:hover {
+        background-color: #004467 !important; 
+        cursor: default !important; 
+    }*/

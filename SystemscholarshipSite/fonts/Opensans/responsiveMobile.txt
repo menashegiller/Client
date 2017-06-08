@@ -1,0 +1,1543 @@
+
+// Mobile Screens
+//////////////////////////////////////////////////
+//
+// Mobile phones (iPhone, Android etc...)
+//////////////////////////////////////////////////
+@media screen and (min-width: 300px) and (max-width: 700px)
+{
+	body
+	{
+		overflow-x:hidden;
+		margin-right:0px !important;
+	}
+
+	///// Important! Use To all Site
+	#slide-main-home, #slide-main, #slide-aboutSela, #software, #Testing, #graphics, #milgot, #Bakum, #News, #Contact, #bottomContact, #FAQ, #steps, #careerMain, #careerArticles, #openDates, #allNews,  #innerNews
+	{
+		.innerContainer
+		{
+			width:90%;
+			/*margin-right: 15%;*/
+		}
+	}
+
+	///// Important! Use To all Site slide top H1
+	#slide-main 
+	{
+		height:150px;
+		
+		.slide-rishom-top, .slide-career-top, .slide-contact-top
+		{
+			background-size: cover;
+
+			h1
+			{
+				display: block;
+				width: 100%;
+				height: 150px;
+				font-size: 4.9em;
+				line-height: 1.8em;
+				padding: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+
+				span
+				{
+					line-height: 0;
+				}
+			}		
+		}
+	}
+
+	#layout-wrapper .innerContainerNav a.close-menu
+	{
+		display:none;
+	}
+
+	#mainShell
+	{
+		height:80px;
+	}
+
+	
+	#mainShell #menuBar #menuHolder #menuWrapper
+	{
+		height:80px;
+	}
+
+	#mainShell #menuBar #menuHolder #logo
+	{
+		margin-top: 0;
+		position:fixed;
+		z-index: 55555;
+		background-color: $whiteColor;
+		border-bottom:1px solid $orangeColor;
+		right: 0;
+		width: calc(100% - 100px);
+		height: 80px;
+	
+		h1
+		{
+			height:80px;
+			margin:0;
+			a
+			{
+				background-size: contain !important;
+				width: 180px;
+				margin-right: 10%;
+			}
+		}
+	}
+
+	#layout-wrapper .innerContainerNav
+	{
+		background-color: $whiteColor;
+		position:fixed;
+		z-index:999999;
+	}
+	
+
+	//hide the inner navigation in each page
+	#innerPageMenuBG, #innerPageMenu
+	{
+		display:none;
+	}
+	// Use To all Slide containing details BTN
+
+	.viewContainer .moreDetailsDiv #content .courseViewport_c 
+	{
+		padding: 10px !important;
+	}
+	.viewContainer .moreDetailsDiv #content 
+	{
+		overflow-x: hidden !important;
+	}
+	.viewContainer .moreDetailsDiv #content .courseViewport_c .mainCourse_b_details h2.courseName
+	{
+		font-size: 19px !important;
+		margin-left: 15px;
+	}
+	.viewContainer .moreDetailsDiv #content .courseViewport_c .mainCourse_b_details h2 {
+		font-size: 15px !important;
+	}
+
+.viewContainer .moreDetailsDiv #content .courseViewport_c .mainCourse_b_details .details p, .viewContainer .moreDetailsDiv #content .courseViewport_c .mainCourse_b_details .details li {
+	font-size: 14px;
+	line-height: 1.2em;
+}
+	// Home Page
+	#slide-main-home
+	{
+		height:500px;
+	}
+
+
+	
+
+	#slide-main-home .slide-top {
+		background: url(../../../Media/Default/SelaImages/01.jpg) no-repeat center bottom;
+		//background-size: 150% 100%;
+		height:100%;
+	}
+
+	#slide-main-home .slide-top h1, #slide-main-home .slide-top .slideTitle
+	{
+		display: block;
+		width: 100%;
+		font-size:2.5em;
+		padding: 5% 0 0 0;
+	}
+	#slide-main-home .slide-top h1
+	{
+		font-size:3em;
+	}
+	#slide-main-home .slide-top #PlaceHolder_OpenDaysWidget
+	{
+		width:100%;
+	}
+	#slide-main-home .slide-top #PlaceHolder_MainAdv
+	{
+		width: 100%;
+		top: 270px;
+		font-size: 7px;
+		padding: 8px;
+	}
+	#slide-main-home .slide-top #PlaceHolder_MainAdv a, #slide-main .slide-top #PlaceHolder_OpenDaysWidget a
+	{
+		font-size: 14px;
+		min-height: 42px;
+	}
+	#slide-aboutSela .slide-about
+	{
+		min-height: 750px;
+		background-size: 100% 164%;
+	}
+	#slide-aboutSela .slide-about h1
+	{
+		font-size: 3em;
+		padding:0.5em 27px 0.5em;
+		color:$blueColor;
+
+		.fa1
+		{
+			top: 10px;
+			right: -12px;
+			font-size: 36px;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			color:$whiteColor;
+			background:$blueColor;
+		}
+	}
+	#slide-aboutSela .slide-about #PlaceHolder_Video
+	{
+		//display:none;
+		display: block;
+		width: 100%;
+		float: none;
+		margin: 0;
+
+		iframe
+		{
+			min-height: 100px  !important;
+			width: 100% !important;
+			padding-right: 0px !important;
+			height: 230px;
+		}
+	}
+	#slide-aboutSela .slide-about .slide2Txt
+	{
+		float: none;
+		width: 100%;
+		font-size: 2em;
+		color:$whiteColor;
+		line-height: 26px;
+
+		.orange_bullets
+		{
+			font-size: 15px;
+			white-space: nowrap;
+		}
+	}
+	#slide-aboutSela .slide-about .selaProgramGuide, #slide-aboutSela .slide-about #PlaceHolder_WhySelaMail
+	{
+		width:100%;
+		top: 22px;
+		right: 0;
+		margin-top: -30px;
+		background:$whiteColor;
+	}
+	#slide-aboutSela .slide-about #PlaceHolder_WhySelaMail
+	{
+		top:122px;
+	}
+
+	#software .slide-software, #graphics .slide-graphics, #milgot .slide-milgot, #Bakum .slide-bakum, #News .slide-news
+	{
+		margin-top: 80px;
+		h1
+		{
+			font-size: 23px;
+			line-height: 50px;
+			top: -70px;
+			padding-right: 40px;
+			.fa1
+			{
+				width: 50px;
+				height: 50px;
+
+				i 
+				{
+					margin-top: 12px;
+				}
+			}
+		}
+	}
+
+	#graphics .slide-graphics h1:after
+	{
+		border-left: 13px solid transparent;
+		border-right: 13px solid transparent;
+		border-bottom: 13px solid #fa9118;
+	}
+	#Testing 
+	{
+		.slide-Testing
+		{
+
+			margin-top: 95px;
+			h1
+			{
+				font-size: 25px;
+				line-height: 25px;
+				top: -70px;
+				padding-right: 40px;
+
+				&:after
+				{
+				border-left: 13px solid transparent;
+				border-right: 13px solid transparent;
+				border-bottom: 13px solid #4e57a1;
+				}
+
+				.fa1
+				{
+					width: 50px;
+					height: 50px;
+				}
+
+			}
+		}
+	}
+
+
+	#software .slide-software
+	{
+			h1:after
+			{
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;
+				border-bottom: 15px solid #fa9118;
+			}
+			.courseViewport
+			{
+				width: 74%;
+			}
+		
+    }
+	.carouselView .btnRight, .carouselView .btnLeft
+	{
+		top:210px !important;
+	}
+	.carouselView .btnRight
+	{
+		right:-15px !important;
+	}
+	.carouselView .btnLeft
+	{
+		left:-15px !important;
+	}
+	.carouselView .courses .course .mainCourse .fs
+	{
+		height: 30px !important;
+		width: 30px !important;
+		font-size: 2em !important;
+		line-height: 1.5 !important;
+	}
+	.carouselView .courses .course .mainCourse h2, .carouselView .courses .course .mainCourse p
+	{
+		margin: 0 16%;
+		font-size: 1.1em !important;
+	}
+
+	.carouselView .courses .course .mainCourse .infoSection
+	{
+		height: 60px !important;
+		
+		&:after
+		{
+			content:"";
+			width:100% !important;
+			height:1px !important;
+			position:absolute;
+			left:0;
+			top:0%;
+			bottom:0%;
+			right:0;
+			margin:auto;
+		}
+
+		& .moreInfo, & .print
+		{
+			width: 100% !important;
+			float: none !important;
+			height: 30px !important;
+
+			a
+			{
+				line-height: 30px !important;
+			}
+		}
+	}
+
+
+//milgot
+#milgot
+{
+	.slide-milgot 
+	{
+		h1:after 
+		{
+			border-left: 13px solid transparent;
+			border-right: 13px solid transparent;
+			border-bottom: 13px solid #4e57a1;
+		}
+		.milgot_p
+		{
+			font-size: 18px;
+
+			p
+			{
+				line-height: 1.3;
+				font-size: 18px;
+			}
+		}
+		.discount_container
+		{
+			height:auto;
+
+			.discount
+			{
+				display:block;
+				height: auto;
+				width: 98%;
+				margin-bottom: 11px;
+
+				.discount_img
+				{
+					display:none;
+				}
+				.discount_details
+				{
+					margin-bottom:0px;
+
+					p
+					{
+						padding-right:8px;
+						padding-bottom:3px;
+						padding-left:2px;
+					}
+				}
+			}
+		}
+	}
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+	.rec_btn
+	{
+		display:none !important;
+	}
+	.rec_btn_paragraph
+	{
+		font-size: 17px;
+		padding: 12px 0 0;
+
+		p
+		{
+			line-height:1.3;
+		}
+	}
+
+	//News
+	#News .slide-news h1:after {
+		border-left: 13px solid transparent;
+		border-right: 13px solid transparent;
+		border-bottom: 13px solid #999999;
+	}
+	#News .slide-news #PlaceHolder_Events, #News .slide-news #PlaceHolder_NewsWidget
+	{
+		height: 280px;
+		width:100%;
+		margin-top: 15px;
+
+		h2
+		{
+			font-size: 2.5em;
+		}
+	}
+
+	#News .slide-news #PlaceHolder_NewsWidget .articlesWrapper .articlesScroller .articles
+	{
+		height: 70px;
+		padding: 10px;
+		font-size: 14px;
+
+		&:hover, &:focus
+		{
+			font-size: 14px;	
+			padding-right: 10px;
+			border: none;
+
+			span
+			{
+				padding-right: 0;
+			}
+		}
+	}
+	#News .slide-news #PlaceHolder_Events
+	{
+		height: 190px;
+		width:100%;
+		.Events
+		{
+			h2
+			{
+				margin-bottom: 0em;
+			}
+
+			.oneEvent
+			{
+				display: inline-block;
+				width: 50%;
+				a, span
+				{
+					font-size:14px;
+					line-height: 17px;
+				
+				}
+				a
+				{
+					span
+					{
+						top:4px;
+					}
+				}
+			}
+		}
+	}
+	#News .slide-news .robot
+	{
+		display:none;
+	}
+	#News .slide-news .buttons
+	{
+		width: 100%;
+		.allArticles, .allNews
+		{
+			width: 100%;
+			margin: 0 0 10px 0;
+		}
+	}
+
+	//Bakum
+	#Bakum .slide-bakum
+	{
+		min-height: 403px;
+
+		h1:after 
+		{
+			border-left: 13px solid transparent;
+			border-right: 13px solid transparent;
+			border-bottom: 13px solid #536648;
+		}
+
+		& div
+		{
+			padding-top: 4px;
+			 .bakum_right
+			 {
+				display:none;
+			 }
+			 .bakum_left
+			 {
+				font-size: 8px;
+				width: 100%;
+
+				h2
+				{
+					font-size: 2.9em;
+
+				}
+				p
+				{
+					font-size: 2.55em;
+					margin-top: 7px;
+
+					&:last-child
+					{
+						font-size: 2.2em;
+					}
+				}
+
+			 }
+		}
+	}
+
+///////////////////////////////////
+	#Contact .slide-contact
+	{
+		min-height: 870px;
+		padding: 0px;
+		.form
+		{
+			width: 100%;
+			margin-top: 0px;
+			h1
+			{
+				font-size: 30px;
+				line-height: 31px;
+				margin-bottom: 32px;
+				margin-top: 10px;
+
+				.fa1
+				{
+					width: 50px;
+					height: 50px;
+					right: 0;
+					line-height: 2.2;
+				}
+			}
+			div
+			{
+				display: block;
+				width: 100%;
+				input, textarea, .send
+				{
+					width: 100%;
+					margin-bottom: 7px;
+				}
+			}
+		}
+		.contactList
+		{
+			width: 100%;
+			margin-top: -50px;
+			a.milgot, a.question
+			{
+				width: 100%;
+				font-size: 2em;
+			}
+		}
+	}
+	#bottomContact
+	{
+		min-height: 440px;
+		padding: 14px 10px 10px 10px;
+
+		.innerContainer
+		{	
+			& div 
+			{
+				&:first-child, &:last-child
+				{
+					width:100%;
+					h4
+					{
+						font-size: 18px;
+					}
+					a
+					{
+						display: inline-block;
+						font-size:30px;
+					}
+				}
+				&:last-child
+				{
+				margin-top: 10px;
+					a
+					{
+						font-size:28px;
+						
+					}
+				}
+			}
+		}
+	}
+
+	#footer
+	{
+		text-align:left;
+		padding-top:20px;
+		
+		#footer-sig
+		{
+			width:95%;
+			text-align:left;
+			font-size:18px;
+
+			.credits
+			{
+				float: left;
+				line-height:27px;
+
+				span
+				{
+					display:block;
+				}
+
+			}
+			.user-display
+			{
+				float:left;
+				padding:0px;
+				line-height:27px;
+			}
+		}
+	}
+
+
+
+
+
+	
+
+	//__slide_steps__
+	#steps .slide_steps 
+	{
+		min-height: 1223px;
+		margin-top: 80px;
+
+		.innerContainer
+		{
+			h1
+			{
+				position: absolute;
+				top: -70px;
+				font-size: 25px;
+				line-height: 25px;
+				padding-right: 49px;
+
+				&:after
+				{
+					border-left: 13px solid transparent;
+					border-right: 13px solid transparent;
+					border-bottom: 13px solid #0d71ad;
+					bottom: -21px;
+				}
+
+				.fa1
+				{
+					width: 55px;
+					height: 55px;
+					top: -6px;
+
+					i
+					{
+						margin-top: 15px;
+						font-size: 28px;
+					}
+				}
+			}
+
+			.right_side, .left_side {
+				width: 100%;
+				padding-top:0px;
+			}
+			.right_side 
+			{
+				.pretext
+				{
+					font-size: 16px;
+
+					span
+					{
+						font-size: 23px;
+						display: block;
+						font-weight: 700;
+					}
+				}
+				.blocks
+				{
+					margin: 0px;
+					margin-bottom:16px;
+					padding-right:5px;
+
+					.imageCont
+					{
+						display:none;
+					}
+					.content 
+					{
+						width: 100%;
+						font-size: 15px;
+					}
+
+
+				}
+			}
+			.left_side
+			{
+				.maslul_tabs_container {
+					min-height: 400px;
+						
+						ul.breadcrumb
+						{
+							li:nth-child(1)
+							{
+								a
+								{
+									padding-right: 12%;
+
+									&:after
+									{
+										border-right: 18px solid #eeeeee;
+									}
+
+									&:before
+									{
+										display:none;
+									}
+								}
+								a.active
+								{
+									&:after
+									{
+										border-right: 18px solid #a5630d;
+									}
+									&:before
+									{
+										display:none;
+									}
+								}
+							}
+							li:nth-child(2)
+							{
+								a 
+								{
+									padding-right: 32%;
+
+									&:after
+									{
+										border-right: 18px solid #e6e5e5;
+									}
+									
+									&:before
+									{
+										display:none;
+									}
+								}
+								a.active
+								{
+									&:before
+									{
+										display:none;
+									}
+								}
+							}
+							li:last-child
+							{
+								a
+								{
+									padding-right: 34%;
+
+									&:before
+									{
+										display:none;
+									}
+								}
+							}
+						}
+
+					.maslul_container {
+						min-height: 300px;
+
+						h3
+						{
+							span
+							{
+								font-size: 0.7em;
+							}
+						}
+
+						h4 
+						{
+							margin: 10px;
+							padding-top: 0px;
+							margin-bottom: 0px;
+							font-size: 18px;
+						}
+						label
+						{
+							padding-bottom:0px;
+						}
+						form
+						{
+							padding-top:0px;
+							div
+							{
+								width: 100%;
+
+								label
+								{
+									padding-bottom:3px;
+								}
+
+								input 
+								{
+									padding: 4px;
+								}
+
+								select
+								{
+									padding: 2px;
+								}
+								input.butt
+								{
+									margin-top: 15px;
+									margin-bottom: 5px;
+								}
+							}
+						}
+
+					}
+				}
+			}
+		}
+	}
+	/////////////////////------openDates--------///////////////////
+
+	#openDates
+	{
+		.slide_timeTable 
+		{
+			background-size: cover;
+			margin-top: 80px;
+
+			.innerContainer
+			{
+				h1
+				{
+					top: -55px;
+					font-size: 25px;
+					line-height: 25px;
+					padding-right: 49px;
+
+					&:after
+					{
+						border-left: 13px solid transparent;
+						border-right: 13px solid transparent;
+						border-bottom: 13px solid #c6c6c6;
+						bottom: -31px;
+					}
+
+					.fa1
+					{
+						width: 55px;
+						height: 55px;
+						top: -12px;
+						padding-right: 17px;
+
+						i
+						{
+							padding-top: 14px;
+							font-size: 27px;
+						}
+					}
+				}
+
+				.articlesWrapper
+				{
+					h2 
+					{
+						width: 100%;
+						font-size: 1.55em;
+						border-bottom: 1px solid #ddd;
+						margin: 0;
+						padding:0;
+						padding-right: 10px;
+						padding-bottom:5px;
+						color:#6f6f6f;
+						padding-top:3px;
+						
+						span
+						{
+						margin-left: 8px;
+						padding-top: 2px;
+						}
+						
+						span.resp-arrow {
+						border: none;
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						border-bottom: 10px solid #c1c1c1;
+						}
+					}
+					h2.resp-tab-active
+					{
+						width: 100%;
+						font-size: 1.55em;
+						margin: 0 !important;
+						padding:0 !important;
+						padding-right: 10px !important;
+						padding-bottom:5px !important;
+						padding-top:3px !important;
+						border:1px solid $whiteColor;
+
+						span
+						{
+						margin-left: 8px;
+						padding-top: 2px;
+						}
+
+						span.resp-arrow 
+						{
+						border: none;
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						border-top: 10px solid #9B9797;
+						margin-top: 7px;
+						}
+					}
+				} 
+
+				h2.resp-accordion:first-child 
+				{
+					 border-top: 1px solid $whiteColor;
+				}
+				 
+				.demo
+				{
+					#horizontalTab
+					{
+					ul.resp-tabs-list
+						{
+display:none;
+							li
+							{
+								font-size: 1.9em;
+								padding: 8px 15px;
+								border-bottom: 1px solid #a7a7a7;
+							}
+
+							li.resp-tab-active {
+								border-bottom: 1px solid #ddd;
+								background-color: $whiteColor;
+								margin-bottom: -1px !important;
+								padding: 8px 15px;
+								color: orange;
+							}
+						}
+						.resp-tabs-container
+						{
+							.resp-tab-content
+							{
+								p
+								{
+									color: #4e57a1;
+									font-size: 16px;
+									font-weight: bold;
+									padding-right: 10px;
+								}
+							}
+							.resp-tab-content, .resp-tab-content-active
+							{
+								width: 100%;
+								font-size: 16px;
+								padding:0px;
+
+								table
+								{
+									width: 100%;
+									box-sizing: content-box;
+									
+
+									thead
+									{
+										box-sizing: content-box;
+
+										th
+										{
+											font-size: 14.3px;
+											text-align:right;
+											white-space: normal;
+										}
+									}
+
+									td
+									{
+										box-sizing: content-box;
+										padding: 2px;
+										font-size:14px;
+									}
+									*
+									{
+										box-sizing: content-box;
+									}
+								}
+							}
+						}
+					}
+				}
+				.articlesWrapper .demo #horizontalTab ul.resp-tabs-list .resp-tab-active, .resp-tab-item {
+					width: 100%;
+					border-radius: 0;
+				}
+			}
+		}
+	}
+
+	////////////////---FAQ-------/////////
+
+	#FAQ .slide_faq
+	{
+		margin-top: 70px;
+
+		.innerContainer
+		{
+			h1
+			{
+				font-weight: normal;
+				position: absolute;
+				top: -48px;
+				color: #4e57a1;
+				font-size: 25px;
+				line-height: 25px;
+				padding-right: 49px;
+
+				&:after
+				{
+					border-left: 13px solid transparent;
+					border-right: 13px solid transparent;
+					border-bottom: 13px solid #4e57a1;
+					bottom: -24px;
+				}
+
+				.fa1
+				{
+					width: 55px;
+					height: 55px;
+					top: -15px;
+					border: 10px solid #4e57a1;
+
+					i
+					{
+						margin-top: 10px;
+						font-size: 28px;
+						font-weight:bold;
+					}
+				}
+			}
+			.divAll
+			{
+				.all
+				{
+				margin-top: 10px;
+				}
+			}
+		}
+	}
+
+	#allNews
+    {
+		.newsPage
+		{
+				background-size: 100% 56px;
+ 
+				.innerContainer
+				{
+					width: 100%;
+					margin:0px;
+ 
+					h1
+					{
+						color: #4e57a1;
+						font-weight: normal;
+						font-size: 3.2em;
+						line-height: 56px;
+						margin-top: 34px;
+						margin-right:10px;
+					}
+					.sideNewsPage
+					{
+						width:100%;
+ 
+						a.newsSection
+						{
+							padding:0px;
+							margin-bottom: 15px;
+							padding-right: 10px;
+							padding-left: 30px;
+							&:hover
+							{
+								margin-right: 10px;
+								padding-right: 10px;
+								margin-left: 20px;
+							}
+						}
+					}
+				}
+            }
+       }
+ 
+       #innerNews
+       {
+              .newsPageInner
+              {
+                     background-size: 100% 56px;
+ 
+                     .innerContainer
+                     {
+ 
+                           h1
+                           {
+                                  color: #4e57a1;
+                                  font-weight: normal;
+                                  font-size: 2em;
+                                  line-height: 26px;
+                                  margin-right:10px;
+                           }
+                           .innerNewsLink {
+                                  float: left;
+                                  font-size: 33px;
+                                  margin-left: 10px;
+                                  margin-top: 9px;
+                           }
+                           div
+                           {
+                                  .sideNews
+                                  {
+                                    h2
+                                    {
+										pre
+										{
+											line-height: 1.1em;
+											font-size: 16px;
+											margin-right: 10px;
+											margin-left: 10px;
+											width: 90%;
+											white-space: normal;
+										}
+                                    }
+                                    p
+                                    {
+										margin-left: 15px;
+										margin-right: 15px;
+ 
+										img
+										{
+												float:right;
+												margin-left:10px;
+												mmargin-bottom:10px;
+												max-width:140px;
+										}
+                                    }
+                                  }
+                           }
+                     }
+              }
+       }
+
+	//*//
+	#careerMain .slide_career #horizontalTab .resp-tabs-list
+	{
+		display:none;
+	}
+	#careerMain .slide_career, #careerArticles .slide-news
+	{
+		min-height: 360px;
+		margin-top: 80px;
+
+		h1
+		{
+			position: absolute;
+			top: -70px;
+			font-size: 25px;
+			line-height: 25px;
+			padding-right: 49px;
+
+			&:after
+			{
+				border-left: 13px solid transparent;
+				border-right: 13px solid transparent;
+				border-bottom: 13px solid $blueColor;
+				bottom: -21px;
+			}
+
+			.fa1
+			{
+				width: 55px;
+				height: 55px;
+				top: -6px;
+
+				i
+				{
+					margin-top: 15px;
+					font-size: 28px;
+				}
+			}
+		}
+		.icon
+		{
+			display:none;
+		}
+		.content 
+		{
+			width:100%;
+		}
+	}
+	#careerArticles .slide-news .articlesWrapper .articlesScroller:after
+	{
+		display:none;
+	}
+	#careerArticles .slide-news .articlesWrapper .articlesScroller a.newsSection
+	{
+		width:100%;
+	}
+	h2.resp-accordion, h2.resp-accordion:first-child
+	{
+		border:none;
+	}
+	.slidingSection h2.resp-accordion
+	{
+		clear: both;
+		margin-bottom: 5px;
+		border: 1px solid $orangeColor;
+	}
+	.resp-tab-content
+	{
+		margin:0;
+	}
+	#careerMain .slide_career .content{
+		height: 150px;
+		background: rgba($blackColor, 0.5);
+		padding:5px 5px 0 0;
+		margin-bottom: 5px;
+	}
+	#careerMain .slide_career .openDayWindow
+	{
+		position: fixed;
+		width: 95%;
+		height: calc(100% - 100px);
+		top: 90px;
+		left: 0;
+		margin: 0;
+		right: 0;
+		margin:auto;
+		background:$whiteColor $openDayWindowBGResponsive no-repeat right top;
+		background-size: 100% 50%;
+		z-index:9998;
+		@include vendor-prefix('box-shadow', '0px 0px 10px 0px black');
+
+		& .win_right, & .win_left
+		{
+			float: none;
+			width: 100%;
+			height: 50%;
+			display: block;
+			padding:5px;
+
+			h2
+			{
+				font-size:16px;
+			}
+
+			.win_date
+			{
+				width: 100%;
+				font-size: 13px;
+				padding: 5px;
+			}
+
+			.program
+			{
+				font-size: 13px;
+				line-height: 1;
+				width: 100%;
+				min-height: 100px;
+			}
+
+			input
+			{
+				font-size: 12px;
+				padding: 5px;
+			}
+		}
+	}
+	//#careerMain .slide_career .openDayWindow .win_right
+	//{
+	//	background:$blue2Color;
+	//}
+	//#careerMain .slide_career .openDayWindow .win_left
+	//{
+	//	background:$whiteColor;
+	//}
+	//Contact Us
+	#selaMap
+	{
+		.slide-map
+		{
+			margin-top: 77px;
+			min-height: 550px;
+ 
+			h1
+			{
+				top: -48px;
+				font-size: 39px;
+				line-height: 25px;
+				padding-right: 49px;
+ 
+				&:after
+				{
+					border-left: 13px solid transparent;
+					border-right: 13px solid transparent;
+					border-bottom: 13px solid #4e57a1;
+					bottom: -24px;
+				}
+ 
+				.fa1
+				{
+					width: 55px;
+					height: 55px;
+					top: -15px;
+					border: 10px solid #4e57a1;
+
+					i
+					{
+						font-size: 34px;
+						font-weight:bold;
+						position: relative;
+						top: -11px;
+						left: 2px;
+					}
+				}
+			}
+		
+		.address
+		{
+			width:100%;
+			color: $whiteColor;
+			margin-right:0px;
+			padding: 20px;
+
+			p
+			{
+				font-size: 15px;
+				margin-bottom: 0px;
+				line-height: 28px;
+			}
+
+			h2
+			{
+				margin-top: 0;
+				font-size: 25px;
+				margin-top: 15px;
+				margin-bottom: 12px;
+				font-weight: bold;
+			}
+			h2 + p, 
+			{
+			border-bottom: 1px solid white;
+			/*text-decoration: underline;*/
+			width: 100%;
+			}
+
+			
+			.addressHead
+			{
+				width: 20%;
+
+				p
+				{
+					height: 50px;
+					padding-top: 5px;
+				}
+
+				p:last-child
+				{
+				border-bottom: 1px solid white;
+				}
+
+			}
+			.addressCont
+			{
+				/*width: calc(100% - 30%);*/
+				width: 80%;
+				float:right;
+
+				p
+				{
+					line-height: 16px;
+					display: block;
+					height: 50px;
+					padding-top: 9px;
+				}
+				p:last-child
+				{
+					border-bottom: 1px solid white;
+				}
+			}
+			
+		}
+		.mapContainer
+		{
+			width:100%;
+			
+			iframe
+			{
+				margin-top:3px;
+			}
+		}
+	}
+	#ContactUs
+       {
+              .slide-contact
+              {
+                     .innerContainer
+                     {
+                           width: 90%;
+ 
+                           .contactSection
+                           {
+                                  width: 100%;
+ 
+                                  h2
+                                  {
+                                         font-size: 27px;
+                                         margin-top: 5px;
+                                  }
+                                  p
+                                  {
+                                         font-size: 15px;
+                                         margin-top: 8px;
+                                         margin-bottom: 8px;
+                                         line-height: 19px;
+                                  }
+                                  input
+                                  {
+                                         margin-bottom: 20px;
+                                         width: 100%;
+                                         padding: 0.2em;
+                                  }
+ 
+                                  .send
+                                  {
+                                         width: 100%;
+                                         height: 40px;
+                                         margin-bottom:13px;
+                                  }
+                                  .contactSectionInner
+                                  {
+                                         padding-top: 5px;
+                                         padding-bottom: 5px;
+ 
+                                         span
+                                         {
+                                                display:none;
+                                         }
+ 
+                                         div
+                                         {
+                                               
+                                                width: 100%;
+                                                padding-right: 0px;
+ 
+                                                p
+                                                {
+                                                font-size: 19px;
+                                                display: inline-block;
+                                                margin: 0;
+                                                line-height:24px;
+                                                }
+                                               
+                                               
+                                         }
+                                  }
+                           }
+ 
+                     }
+             
+              }
+                          
+       }
+}
+}
+
+

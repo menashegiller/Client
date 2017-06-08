@@ -1,0 +1,740 @@
+<!--<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+-->
+<div class="MainContent home" id="print-section">
+	<!--[ngClass]="{'cleanClass blockPages': this.authService.currentUser.role < 8}"-->
+
+	<div class="Container">
+		<div class="AboutuserForm">
+			<h1>קצת עלינו</h1>
+			<!--<embed src="hhttp://www.pdf995.com/samples/pdf.pdf" width="800px" height="2100px" />-->
+			<!--	http://localhost:5002/uploads/output.pdf" -->
+			<!--<pdf-viewer [src]="'http://localhost:5002/public/uploadsPDF/output.pdf'" 
+             
+              [original-size]="true" 
+              style="display: block;"
+  			></pdf-viewer>-->
+			<p>
+				הקרן לעידוד תעסוקה במגזר תעשיות עתירות ידע, מעוניינת לעזור לסטודנטים ללמוד לימודים חוץ אקדמיים.<br/> העזרה הינה דרך הענקת
+				מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
+			</p>
+		</div>
+		<div class="userFormInstructions" [ngClass]="{'hideDiv': this.authService.currentUser.role < 8}">
+			<h2>לפניך טופס בקשה לקבלת מלגה למימון לימודים</h2>
+			<h2>לתשומת ליבך!!!</h2>
+			<div class="ParagraphBox">
+				<p>על מנת למנוע עיכובים בתהליך הרישום:</p>
+				<p>* נא למלא את הפרטים ולצרף את כל המסמכים הנדרשים</p>
+				<p>* בכל שלב ניתן לשמור את הטופס המלא באופן חלקי ולחזור אליו במועד מאוחר יותר להמשך התהליך</p>
+				<p>* חובה למלא את כל השדות עם סימון באדום</p>
+			</div>
+		</div>
+		<!--<form #loginForm="ngForm" (ngSubmit)="saveAll(user)" name="Accordionform" id="Accordionform">
+-->
+
+		<!--<form #loginForm="ngForm" name="Accordionform" id="Accordionform" >-->
+
+		<!--on-mouseover='over()'-->
+		<accordion [showArrows]="true">
+
+			<accordion-group [isOpened]="true">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">פרטים אישיים</p>
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+					<form #detailsForm="ngForm" name="detailsForm" id="detailsForm">
+						<ul class="EnterPass RegUserBoxs RegUserBoxsLine PersonalInfo">
+							<li class="accordionInputBox">
+								<p class="inputlabel">שם מלא</p><input id="AcformFirstName" [(ngModel)]="user.FullName" required type="text" name="FullName" #FullName="ngModel"></li>
+
+							<li class="accordionInputBox No_marginLeft">
+								<p class="inputlabel">מספר ת"ז</p><input id="AcformID" [disabled]="true" [(ngModel)]="user.IdentityId" type="text" name="IdentityId"></li>
+							<li class="accordionInputBox">
+								<p class="inputlabel">אימייל</p><input id="AcformEmail" [disabled]="true" [(ngModel)]="user.Email" type="email" name="Email"></li>
+							<li class="accordionInputBox No_marginLeft">
+								<p class="inputlabel">טלפון נייד</p><input id="AcformPhone" [(ngModel)]="user.Mobile" required type="text" name="Mobile" #Mobile="ngModel">
+							</li>
+							<li class="accordionInputBox InputBoxBig">
+								<p class="inputlabel">כתובת מגורים</p><input id="AcformAddrees" [(ngModel)]="user.Adress" required type="text" name="Adress" #Adress="ngModel"></li>
+
+						</ul>
+						<div class="page-break"></div>
+						<ul class="EnterPass">
+							<li class="accordionInputBox InputBoxDate">
+								<p class="inputlabel">תאריך לידה</p>
+								<label class="inputcontent">
+									<span class="selectBtn icon-07" >
+									</span>
+								</label>
+								<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="datesmodel.BirthDate"
+								 required name="BirthDate" #BirthDate="ngModel" (dateChanged)="onDateChanged($event, 'BirthDate')"></my-date-picker>
+							</li>
+
+							<li class="accordionInputBox InputBoxStatos">
+								<p class="inputlabel">מצב משפחתי <span class="smullTxt">(רווק/ה, נשוי/נשואה, חד הורי/ת, גרוש/ה + ילדים)</span></p>
+								<input id="AcformStatos" [(ngModel)]="user.FamalyStatus" type="text" name="FamalyStatus" required #FamalyStatus="ngModel">
+							</li>
+
+							<li class="accordionInputBox">
+								<p class="inputlabel">ארץ לידה</p>
+								<input id="AcformCountry" [(ngModel)]="user.BirthState" type="text" name="BirthState" required #BirthState="ngModel">
+							</li>
+
+							<li class="accordionInputBox No_marginLeft">
+								<p class="inputlabel">שנת עליה</p>
+								<label class="inputcontent">
+									<span class="selectBtn icon-08"></span>
+									<select [(ngModel)]="user.AliyaYear"  name="AliyaYear"  #AliyaYear="ngModel">
+										<option *ngFor="let y of years" [value]="y.value">{{y.value}}</option>
+									</select>
+								</label>
+							</li>
+
+
+
+							<li class="accordionInputBox InputBoxBig">
+								<p class="inputlabel">הנך מתנדב/ת במקום כלשהו, נא ציין/י את שמו / שם הפרויקט</p>
+								<input id="AcformVolunteer" [(ngModel)]="user.Volunteer" type="text" name="Volunteer" required #Volunteer="ngModel">
+							</li>
+						</ul>
+
+
+					</form>
+				</div>
+			</accordion-group>
+
+			<accordion-group *ngIf="user.FormStatus == 2">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">דיווח על מקום עבודה</p>
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline"></div>
+			</accordion-group>
+			<div class="page-break"></div>
+		
+			<accordion-group [ngClass]="{'hideDiv': user.FormStatus>1}" [isOpened]=" this.authService.currentUser.role < 8 ? true : false" [disabled]="detailsForm.form.invalid">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">פרטי הרשמתך למכללה</p>
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+					<form #collegeForm="ngForm" name="collegeForm" id="collegeForm">
+						<ul class="EnterPass RegUserBoxs RegUserBoxsLine CollegeReg">
+							<li class="accordionInputBox InputBoxBig">
+								<p class="inputlabel">שם המכללה אליה נרשמת</p>
+								<!--<input id="CollegeName" type="text" name="CollegeName">-->
+								<label class="inputcontent">
+								<span class="selectBtn icon-08"></span>
+								
+								<select  [(ngModel)]="user.College" name="College" (change)="onSelect($event.target.value)"  required #College="ngModel">
+									<option *ngIf='user.College == 0' value="0">תבחר מכללה</option>
+									<option *ngFor="let c of httpService.colleges" [value]="c.Id">{{c.Name}}</option>
+								</select>
+							</label>
+							</li>
+							<li class="accordionInputBox InputBoxBig">
+								<p class="inputlabel">שם ההסמכה/קורס/תואר אליו נרשמת</p>
+								<!--<input id="qualification" type="text" name="qualification"></li>-->
+								<label class="inputcontent">
+								<span class="selectBtn icon-08"></span>
+								<select  [(ngModel)]="user.Certification_Id" name="Certification" required #Certification="ngModel">
+									
+										<option *ngFor="let certification of certifications" [value]="certification.Id">{{certification.Name}}</option>
+								</select>
+							</label>
+						</ul>
+
+						<ul class="EnterPass">
+							<li class="accordionInputBox">
+								<p class="inputlabel">מועד תחילת הלימודים</p>
+								<label class="inputcontent">
+							<span class="selectBtn icon-07"></span>
+							
+							</label>
+								<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="datesmodel.LearningSrats"
+									required name="LearningSrats" #LearningSrats="ngModel" (dateChanged)="onDateChanged($event, 'LearningSrats')"></my-date-picker>
+
+							</li>
+
+							<li class="accordionInputBox No_marginLeft">
+								<p class="inputlabel">מועד משוער לסיום לימודים</p>
+								<label class="inputcontent">
+								<span class="selectBtn icon-07"></span>
+							</label>
+								<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="datesmodel.LearningFinish"
+									required name="LearningFinish" #LearningFinish="ngModel" (dateChanged)="onDateChanged($event, 'LearningFinish')"></my-date-picker>
+							</li>
+
+							<li class="accordionInputBox">
+								<p class="inputlabel">גובה שכר הלימוד</p>
+								<input id="AcformTuitionAmount" type="text" [(ngModel)]="user.TuitionFees" name="TuitionFees" required #TuitionFees="ngModel">
+							</li>
+
+							<li class="accordionInputBox No_marginLeft">
+								<p class="inputlabel">שם איש קשר/יועץ לימודים</p>
+								<!--<input id="AcformContactName" type="text" name="AcformContactName">-->
+								<label class="inputcontent">
+								<span class="selectBtn icon-08"></span>
+								<select [(ngModel)]="user.Employee_Id" name="inputSubject" required #inputSubject="ngModel">
+									<option *ngIf='user.Person_id == 0' value="0">תבחר יועץ</option>
+									<option *ngFor="let e of employees" [value]="e.Person_id">{{e.FullName}}</option>
+								</select>
+							</label>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</accordion-group>
+			<div class="page-break"></div>
+			<accordion-group [ngClass]="{'hideDiv': user.FormStatus>1}" [isOpened]="this.authService.currentUser.role < 8 ? true : false" [disabled]="collegeForm.form.invalid">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">פרטים על שירות צבאי</p>
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+					<form #armyForm="ngForm" name="armyForm" id="armyForm">
+						<ul class="EnterPass MilitarySer" [ngClass]="{'RegUserBoxs RegUserBoxsLine': user.TypeOfService < 3 }">
+							<li class="accordionInputBox TypeServiceBox MoreInputBoxBig">
+								<p class="inputlabel">סוג שירות צבאי</p>
+								<div class="MilitaryRadioBox">
+									<div class="MilitaryRadio" *ngFor="let type of TypesOfService">
+										<input class="RadioBtn" (change)="onSelectionChange(type)" [(ngModel)]="user.TypeOfService" type="radio" name="AcformMilitaryType"
+											[value]="type.value">
+										<p>{{type.display}}</p>
+									</div>
+								</div>
+
+							</li>
+							<li *ngIf="user.TypeOfService === 3" class="accordionInputBox No_marginLeft" [ngClass]="{'InputBoxBginDate': user.TypeOfService > 1 }">
+								<p class="inputlabel">ציין/י סיבה לפטור</p>
+								<input id="Acformdismiss" [(ngModel)]="user.ReasonForExemption" type="text" name="Acformdismiss">
+							</li>
+							<li *ngIf="user.TypeOfService < 2" class="accordionInputBox WarrCercheBox No_marginLeft MoreInputBoxBig">
+								<!--<input class="WarrCercheckbox" [(ngModel)]="user.Fighter" id="AcformWarrCer" type="checkbox" name="AcformWarrCer">-->
+								<div class="DocreqSelect">
+									<span *ngIf="!user.Fighter" (click)='user.Fighter =1' class="No_curser EmptyIcon icon-10 SelctedChack"></span>
+									<span *ngIf="user.Fighter==1" (click)='user.Fighter = null' class="No_curser ChackIcon icon-11 SelctedChack"></span></div>
+								<p class="inputlabel WarrCercheTitle">ברשותי תעודת לוחם/ת</p>
+							</li>
+							<li *ngIf="user.TypeOfService < 2" class="accordionInputBox">
+								<p class="inputlabel">מספר אישי</p>
+								<input id="AcformPersonalNumber" [(ngModel)]="user.PersonalNumber" type="text" name="AcformPersonalNumber">
+							</li>
+							<li *ngIf="user.TypeOfService < 3" class="accordionInputBox No_marginLeft" [ngClass]="{'InputBoxBginDate': user.TypeOfService > 1 }">
+								<p class="inputlabel">תאריך גיוס</p>
+								<label class="inputcontent">
+								<span class="selectBtn icon-07"></span>
+							</label>
+								<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="datesmodel.ArmyDate" (dateChanged)="onDateChanged($event, 'ArmyDate')"></my-date-picker>
+							</li>
+						</ul>
+
+						<ul class="EnterPass">
+							<li *ngIf="user.TypeOfService < 3" class="userFormInstructions">
+								<h2>אנא ציין/י את תאריך השחרור משרות</h2>
+							</li>
+
+							<li *ngIf="user.TypeOfService < 3" class="accordionInputBox">
+								<!--<p class="inputlabel">{{selectedTypeOfService}}</p>-->
+								<p class="inputlabel">תאריך שחרור</p>
+								<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						</label>
+								<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="datesmodel.ShihrurDate"
+									(dateChanged)="onDateChanged($event, 'ShihrurDate')"></my-date-picker>
+							</li>
+
+
+							<li *ngIf="user.TypeOfService < 2" class="accordionInputBox No_marginLeft">
+								<p class="inputlabel">דרגה בה השתחררת</p>
+								<input id="Acformrank" [(ngModel)]="user.ArmyDegree" type="text" name="Acformrank">
+							</li>
+
+							<li *ngIf="user.TypeOfService < 3" class="accordionInputBox" [ngClass]="{'InputBoxBig': user.TypeOfService < 2, 'No_marginLeft': user.TypeOfService == 2 }">
+								<p class="inputlabel">תפקיד</p>
+								<input id="AcformJob" type="text" [(ngModel)]="user.ArmyRole" name="AcformJob">
+							</li>
+						</ul>
+					</form>
+				</div>
+			</accordion-group>
+			<div class="page-break"></div>
+			<accordion-group [ngClass]="{'hideDiv': user.FormStatus>1}" *ngIf="this.authService.currentUser.role ==8" [isOpened]="this.authService.currentUser.role < 8 ? true : false"
+				[disabled]="armyForm.form.invalid">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">מסמכים נדרשים</p>
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+					<form #docsForm="ngForm" name="docsForm" id="docsForm">
+						<div class="userFormInstructions">
+							<h2>נא לצרף את המסמכים הנדרשים</h2>
+							<p>* ניתן לעלות מקסימום גודל קובץ - 2 mb</p>
+						</div>
+
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.Bagrut_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>תעודת בגרות מלאה או חלקית הכוללת ציוני בגרות במתמטיקה ואנגלית</p>
+							<div class="UpLoudFileBtnBox Mypointer">
+								<div class="UpLoudFileBtn Mypointer">
+									<div class="Mypointer" [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.Bagrut_doc==='קובץ לא צורף', 'FilelabelSelcted':docsmodel.Bagrut_doc!=='קובץ לא צורף'}">
+										<input class="Mypointer" required='required' name='Bagrut_doc' type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif"
+											(change)="fileChangeEvent($event)">
+									</div>
+									<!--<a href="http://localhost:5002/uploads/PDFFile.pdf">dsdsf</a>-->
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.Bagrut_doc}}</p>
+							</div>
+
+
+							<!--							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+							<div class="ProcessColor"></div>
+						</div>-->
+							<!--<embed src="http://localhost:5002/public/uploadsPDF/Scan.pdf" width="800px" height="2100px" />-->
+							<!--	<pdf-viewer class="a4Page" [src]="'http://localhost:5002/public/uploadsPDF/Scan.pdf'" 
+
+								[original-size]="true" 
+								style="display: block;"
+							></pdf-viewer>-->
+
+							<!--		<div style="width:100%;height:100%;position:relative;background-color:white">
+								<object data="http://localhost:5002/public/uploadsPDF/Scan.pdf" 
+									type="application/pdf" width="100%" height="100%">
+									<param name="view" value="Fit"/>
+								</object>
+							</div>-->
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.Toar_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>תואר אקדמי / תעודה מקצועית אחרת</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.Toar_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.Toar_doc!=='קובץ לא צורף'}">
+										<input name='Toar_doc' type="file" required='required' accept="image/jpeg, image/png, image/jpg,.pdf,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.Toar_doc}}</p>
+							</div>
+							<!--<div>
+							<a *ngIf="isBigfile == true;" (click)="isBigfile=false;" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+								<p>הקובץ מידי גדול , נא לצרף קובץ </p>
+							</a>
+						</div>-->
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.Shihrur_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>תעודת שחרור מצה"ל / שירות לאומי - עד 5 שנים משירות סדיר</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.Shihrur_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.Shihrur_doc!=='קובץ לא צורף'}">
+										<input name='Shihrur_doc' type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.Shihrur_doc}}</p>
+							</div>
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+						<div class="page-break"></div>
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.CV_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>קורות חיים</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.CV_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.CV_doc!=='קובץ לא צורף'}">
+										<input name='CV_doc' #CV_doc required type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.CV_doc}}</p>
+							</div>
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.TZ_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>תעודת זהות כולל הספח / תעודת תושב / דרכון</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.TZ_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.TZ_doc!=='קובץ לא צורף'}">
+										<input name='TZ_doc' type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.TZ_doc}}</p>
+							</div>
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+
+						<div class="userFormInstructions">
+							<h2>אישורי מכללה</h2>
+						</div>
+
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+								<span *ngIf="docsmodel.IshurKabala_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>אישור קבלה ללימודים במכללה</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.IshurKabala_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.IshurKabala_doc!=='קובץ לא צורף'}">
+										<input name='IshurKabala_doc' type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.IshurKabala_doc}}</p>
+							</div>
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+
+						<div class="DocreqContainer">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.Hamlaca_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>מכתב המלצה מיועץ הלימודים של המכללה</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.Hamlaca_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.Hamlaca_doc!=='קובץ לא צורף'}">
+										<input name='Hamlaca_doc' type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.Hamlaca_doc}}</p>
+							</div>
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+						<div class="page-break"></div>
+						<div class="userFormInstructions">
+							<h2>מסמכי בנק</h2>
+						</div>
+
+						<div class="DocreqContainer DocreqPadding">
+							<div class="DocreqSelect DocreqPadding">
+
+								<span *ngIf="docsmodel.Bank_doc!='קובץ לא צורף'" class="No_curser ChackIcon icon-12 SelctedChack"></span></div>
+							<p>3 חודשי חשבון בנק (עובר ושב אחרונים)</p>
+							<div class="UpLoudFileBtnBox">
+								<div class="UpLoudFileBtn">
+									<div [ngClass]="{'FileContainer':true, 'UpLoudFilelabel':docsmodel.Bank_doc==='קובץ לא צורף', ' FilelabelSelcted':docsmodel.Bank_doc!=='קובץ לא צורף'}">
+										<input name='Bank_doc' type="file" accept="image/jpeg, image/png, image/jpg,.pdf,.doc,.docs,.gif" (change)="fileChangeEvent($event)">
+									</div>
+								</div>
+								<p class="FileNotUpLoad">{{docsmodel.Bank_doc}}</p>
+							</div>
+							<div class="ProcessBox"><span class="ProcessIcon icon-09"></span>
+								<div class="ProcessColor"></div>
+							</div>
+							<div class="DocreqUpLoudBoxLine"></div>
+						</div>
+
+						<div class="userFormInstructions">
+							<h2>פירוט סיבה לבקשת מלגה</h2>
+						</div>
+						<div class="PersonaLetter">
+							<p class="PaddingButtom">מכתב אישי עם הסיבות לבקשתך, בו יש לפרט במיוחד את הנושאים הבאים:</p>
+							<ul class="PersonaLetterList">
+								<li class="PaddingButtom">
+									<p class="inputlabel PersonaLetterTitle">מהן הסיבות שבגינן הנך מגיש/ה בקשה למילגה</p>
+									<textarea name="WhyScholarship" #WhyScholarship="ngModel" [(ngModel)]="user.WhyScholarship" id="Request" rows="5" cols="5"
+										class="inputcontent"></textarea>
+								</li>
+
+								<li class="PaddingButtom">
+									<p class="inputlabel PersonaLetterTitle">מהן הסיבות שבחרת ללמוד מקצוע זה</p>
+									<textarea name="profession" [(ngModel)]="user.WhyProfession" #WhyProfession="ngModel" id="profession" rows="5" cols="5" class="inputcontent"></textarea>
+								</li>
+
+								<li>
+									<p class="inputlabel PersonaLetterTitle">מצבים מיוחדים של המבקש/ת ו/או בני משפחתו/ה הקרובים, הורים ואחים (מחלה ממושכת / נכות / מגורים / יתמות / יתום צה"ל)</p>
+									<textarea name="SpecialSituations" [(ngModel)]="user.SpecialSituations" #SpecialSituations="ngModel" id="SpecialSituations"
+										rows="5" cols="5" class="inputcontent"></textarea>
+								</li>
+							</ul>
+						</div>
+					</form>
+
+
+				</div>
+			</accordion-group>
+
+			<div class="page-break"></div>
+			<accordion-group [ngClass]="{'hideDiv': user.FormStatus>1}" [isOpened]="this.authService.currentUser.role < 8 ? true : false" [disabled]="!this.docsValid">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">פירוט מצב כלכלי</p>
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+					<ul class="EnterPass LessRegUserBoxs RegUserBoxsLine EconomicStat">
+						<li class="accordionInputBox EconomicBoxList">
+							<p>האם יש בבעלותך דירה, או יותר מ-33% בעלות על דירה ?</p>
+							<p>האם יש בבעלותך רכב המשמש אותך לפחות 33% מהזמן?</p>
+							<p>האם עבדת ב-24 החודשים האחרונים?</p>
+						</li>
+
+						<li class="EconomicRadioBox">
+							<div class="EconomicRadio" *ngFor="let choice of choices">
+								<input [(ngModel)]="user.HaveFlat" [value]="choice.value" class="RadioBtn EconomicRadioBtn" type="radio" name="Apartment">
+								<p>{{choice.display}}</p>
+							</div>
+
+							<div class="EconomicRadio" *ngFor="let a of choices">
+								<input [(ngModel)]="user.HaveCar" [value]="a.value" class="RadioBtn EconomicRadioBtn" type="radio" name="car">
+								<p>{{a.display}}</p>
+							</div>
+
+							<div class="EconomicRadio" *ngFor="let b of choices">
+								<input [(ngModel)]="user.HaveWork" [value]="b.value" class="RadioBtn EconomicRadioBtn" type="radio" name="work">
+								<p>{{b.display}}</p>
+							</div>
+						</li>
+					</ul>
+					<ul>
+						<li *ngIf='user.HaveWork == 1' class="userFormInstructions No_marginButtom MorePaddingTop">
+							<h2>אנא ציין/י פרטים על מקום עבודה</h2>
+						</li>
+						<li *ngIf='user.HaveWork == 1' class="accordionInputBox EconomicPlaceBox">
+							<p class="inputlabel">מקום/ות עבודה ב-24 החודשים האחרונים</p>
+							<input id="EconomicPlace" [(ngModel)]="user.WorkPlace24" type="text" name="EconomicWork24">
+						</li>
+						<li *ngIf='user.HaveWork == 1' class="accordionInputBox No_marginLeft EconomicPlaceBox">
+							<p class="inputlabel">משכורת ממוצעת לחודש ברוטו ב-24 החודשים האחרונים</p>
+							<input id="EconomicAvrage" [(ngModel)]="user.SallaryAvg24" type="text" name="EconomicSalary24">
+						</li>
+					</ul>
+					<div class="page-break"></div>
+					<ul class="EnterPass">
+						<li class="userFormInstructions FloatmarginTopPrint">
+							<h2>כיצד בכוונתך לממן את הלימודים? סמן את כל רלוונטי</h2>
+						</li>
+						<li class="EconomicBox">
+							<div class="DocreqSelect">
+								<span *ngIf="!user.Work" (click)='user.Work = 1 ' class="No_curser EmptyIcon icon-10 SelctedChack"></span>
+								<span *ngIf="user.Work" (click)='user.Work = null ' class="No_curser ChackIcon icon-11 SelctedChack"></span></div>
+							<p class="EconomicPar paddingTop">עבודה בזמן הלימודים</p>
+						</li>
+
+						<li *ngIf="user.Work" class="accordionInputBox">
+							<p class="inputlabel">ציין/ני מקום עבודה</p>
+							<input id="EconomicWorkPlace" [(ngModel)]="user.WorkPlace" type="text" name="EconomicWorkPlace">
+						</li>
+
+						<li *ngIf="user.Work" class="accordionInputBox No_marginLeft MorePaddingButtom">
+							<p class="inputlabel">משכורת חודשית ברוטו צפויה</p>
+							<input id="EconomicPayment" [(ngModel)]="user.SallaryAvg" type="text" name="EconomicSalary">
+						</li>
+
+						<li class="EconomicBox MorePaddingButtom">
+							<div class="DocreqSelect">
+								<span *ngIf="!user.Parents" (click)='user.Parents = 1' class="No_curser EmptyIcon icon-10 SelctedChack"></span>
+								<span *ngIf="user.Parents" (click)='user.Parents = null' class="No_curser ChackIcon icon-11 SelctedChack"></span></div>
+							<p class="EconomicPar paddingTop">הורים / קרובי משפחה</p>
+						</li>
+
+						<li class="EconomicBox">
+							<div class="DocreqSelect">
+								<span *ngIf="!user.Loan" (click)='user.Loan = 1' class="No_curser EmptyIcon icon-10 SelctedChack"></span>
+								<span *ngIf="user.Loan" (click)='user.Loan = null' class="No_curser ChackIcon icon-11 SelctedChack"></span></div>
+							<p class="EconomicPar paddingTop">הלוואה למימון לימודים</p>
+						</li>
+
+						<li *ngIf="user.Loan" class="accordionInputBox MorePaddingButtom">
+							<p class="inputlabel">ציין/י מקור מימון</p>
+							<input id="EconomicFunding" [(ngModel)]="user.LoanPlace" type="text" name="EconomicFunding">
+						</li>
+
+						<li *ngIf="user.Loan" class="accordionInputBox No_marginLeft MorePaddingButtom">
+							<p class="inputlabel">גובה הלוואה שבכוונתך לקחת</p>
+							<input id="EconomicLoan" [(ngModel)]="user.LoanAvg" type="text" name="EconomicLoan">
+						</li>
+
+						<li class="EconomicBox">
+							<div class="DocreqSelect No_DocreqPadding">
+								<span *ngIf="!user.Other" (click)='user.Other = 1' class="No_curser EmptyIcon icon-10 SelctedChack"></span>
+								<span *ngIf="user.Other" (click)='user.Other = null' class="No_curser ChackIcon icon-11 SelctedChack"></span></div>
+							<p class="EconomicPar paddingTop">אחר</p>
+						</li>
+						<li *ngIf="user.Other" class="accordionInputBox InputBoxBig">
+							<p class="inputlabel">פרט/י</p>
+							<input id="EconomicOther" [(ngModel)]="user.OtherText" type="text" name="EconomicOther">
+						</li>
+					</ul>
+				</div>
+			</accordion-group>
+
+			<accordion-group [ngClass]="{'hideDiv': user.FormStatus>1}" class="lastChild" [isOpened]="this.authService.currentUser.role < 8 ? true : false">
+				<accordion-heading>
+					<p class="accordionTitle UserPadding">התחייבויות מקבל/ת המלגה</p>
+				</accordion-heading>
+				<div class="accordionContent">
+					<ul class="EnterPass RegUserBoxs RegUserBoxsLine MorePaddingButtom ContentStatementsLiab">
+						<li class="userFormInstructions">
+							<h2>בבקשה זו אני מצהיר/ה ומתחייב/ת כי:</h2>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								הוסברו לי מטרות ועקרונות הפעולה של הקרן על-ידי נציג המכללה והגשתי בקשה זו לאחר שהבנתי היטב נושאים אלו.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								ידוע לי כי הקרן הינה קרן עצמאית, המקבלת את החלטותיה על פי שיקולים תקציביים ואחרים, שיקולים השמורים לקרן בלבד. אשר על כן ידוע
+								לי כי הקרן אינה מתחייבת לאשר לי מלגה כלל ו/או אינה מתחייבת לגבי גובה המלגה שתאשר. החלטות הקרן הינן אישיות וסודיות
+								ואין הקרן מתחייבת לחשוף בפני את שיקוליה ו/או תהליכי קבלת ההחלטות שלה.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								אני מתחייב/ת להשתמש במלגה רק לצורך מימון לימודיי במכללה.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								ידוע לי שבמידה ואפרוש מהלימודים המלגה תוחזר לקרן ללא תלות בסיבת פרישתי.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								אני מתחייב/ת לעדכן את הקרן לגבי מקום עבודתי, תפקידי, והטכנולוגיות בהן אני עובד/ת, אחת לרבעון במשך 3 שנים ממועד סיום לימודי
+								במכללה. העדכון יתבצע במשלוח אימייל לפי ההנחיות שאקבל.
+							</p>
+						</li>
+					</ul>
+
+					<ul class="EnterPass">
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								אני מתחייב/ת שכל הפרטים שמסרתי לעיל הינם נכונים ושלמים.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								ידוע לי, כי חברי הקרן רשאים לבדוק ולאמת את הצהרותיי ואישורי ההכנסות שמסרתי.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								אני מתחייב/ת להודיע למזכירות המכללה על כל שינוי שיחול בפרטים שנמסרו בטופס.
+							</p>
+						</li>
+
+						<li class="DeclarationBox">
+
+							<p class="DeclarationPar">
+								אני מתחייב/ת בזאת, והיה ולא אעמוד בתנאים הרשומים לעיל, אחזיר לקרן את מלוא סכום המלגה שניתנה לי וזאת במועד דרישתה הראשונה
+								של הקרן בכפוף לכך שלא עמדתי בתנאים הללו. </p>
+						</li>
+						<div class="page-break"></div>
+						<li class="userFormInstructions DeclarationTitle">
+							<h2>חתימת הצהרה</h2>
+						</li>
+						<li class="accordionInputBox">
+							<p class="inputlabel">תאריך</p>
+							<!--<input id="DeclarationDate" type="text" name="DeclarationDate">-->
+							<label class="inputcontent">
+								<span class="selectBtn icon-07"></span>
+							</label>
+							<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="datesmodel.SignatureDate"
+								(dateChanged)="onDateChanged($event, 'SignatureDate')"></my-date-picker>
+						</li>
+
+						<li class="accordionInputBox No_marginLeft">
+							<p class="inputlabel">שם מלא</p>
+							<input id="DeclarationFirstName" type="text" [(ngModel)]="user.SignatureName" name="DeclarationFirstName">
+						</li>
+					</ul>
+
+				</div>
+			</accordion-group>
+			
+		</accordion>
+		<ul [ngClass]="{'hideDiv': this.authService.currentUser.role < 8 || user.FormStatus>1}">
+			<li>
+				<p class="RemarkTitle">חשוב לזכור לפני שליחת הבקשה !!!</p>
+				<p>* אם יחסרו מסמכים נדרשים, וועדת המלגות תחזיר את הבקשה להשלמת המסמכים.
+				</p>
+				<p>לוודא שכל השדות מלאים וכל המסמכים מצורפים. לאחר שליחת הבקשה אין אפשרות לשינויים בבקשה למעט שינוי פרטים אישיים כגון: טלפון,
+					אימייל וכתובת מגורים.</p>
+			</li>
+			<li class="accordionSave">
+				<input class="InsideFormBtn" type="button" value="שמור/י" name="send" title="שמור/י" (click)="saveAll(user); ">
+				<!---->
+				<a *ngIf='saveIsGood' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו במערכת</p></a>
+			</li>
+			<li class="accordionSend">
+				<!--[disabled] = "loginForm.dirty"-->
+				<input (click)="sendtoStudent();" [ngClass]="{'disabledBtn': !saveIsGood||detailsForm.form.invalid||collegeForm.form.invalid||armyForm.form.invalid}"
+				 [disabled]="!saveIsGood||detailsForm.form.invalid||collegeForm.form.invalid||armyForm.form.invalid" class="InsideFormBtn accordionBtnSend popBtn"
+				 data-pop="popbtn1" type="button" value="שליחת בקשה" name="send" title="שליחת בקשה">
+
+			</li>
+		</ul>
+
+		<!--	</form>-->
+		</div>
+
+		<ul class="clickEn" [ngClass]="{'hideDiv': this.authService.currentUser.role == 8}">
+			<li class="accordionSave">
+				<div class="InsideFormBtn accordionBtnSend" title="הדפסת בקשה" (click)="print();">
+					<p>הדפסת בקשה</p>
+				</div>
+			</li>
+			<li class="accordionSend">
+				<div class="InsideFormBtn accordionBtnSend" title="חזור" [routerLink]="['/tableDecisions']">
+					<p>חזור</p>
+				</div>
+			</li>
+		</ul>
+
+		<!--<mdl-alert #alert="mdlAlert" message='<div class="PopUpBoxsWrapper">
+				<div class="userFormInstructions No_marginButtom">
+					<h2 class="PopUpTitle">ההרשמה הסתיימה בהצלחה</h2>
+				</div>
+				<p class="PopUpPar">תשובה על הרשמתך תשלח למייל שלך כפי שציינת בפרטים האישיים, תודה על השקעתך בהצלחה</p>
+			</div>' okText="סגור" (confirmed)="alertConfirmd()"></mdl-alert>
+
+			<mdl-alert #alert="mdlAlert" message='<div class="PopUpBoxsWrapper">
+				<div class="userFormInstructions No_marginButtom">
+					<h2 class="PopUpTitle">הקובץ מידי גדול , נא לצרף קובץ</h2>
+				</div>
+				
+			</div>' okText="סגור" (confirmed)="alertConfirmd()"></mdl-alert>
+-->
+
+		</div>

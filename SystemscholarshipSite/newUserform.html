@@ -1,0 +1,356 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="ie6 oldie"><![endif]-->
+<!--[if IE 7]><html class="ie7 oldie"><![endif]-->
+<!--[if IE 8]><html class="ie8 oldie"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="" lang="zxx" dir="rtl">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e6e6e6">
+<title>newUserform</title>
+<link rel="stylesheet" type="text/css" href="css/GeneralElements.css">
+<link rel="stylesheet" type="text/css" href="css/GeneralFonts.css">
+<link rel="stylesheet" type="text/css" href="css/Icons.css">
+<link rel="stylesheet" type="text/css" href="css/userForm.css">
+<link rel="stylesheet" type="text/css" href="css/newUserform.css">
+<link rel="stylesheet" type="text/css" href="accordion/accordion.css">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="accordion/jquery-1.8.3.js"></script>
+<script src="accordion/accordio_newuser.js"></script>
+</head>
+<body>
+	<div class="gridContainer">
+		<header>
+		  <div class="Container">
+			  <ul class="TopHeaderContent">
+			  	 <li class="ContainerLogo">
+			  	  <a class="LogoConLink" href="index.html">
+					 <div class="LogoIcon icon-01"></div>
+					  <div class="LogoTxt">
+						  <h1 class="LogoTitle">מערכת מלגות</h1>
+						  <h2 class="LogoSubTitle">הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</h2>
+					  </div>
+				  </a>  
+			  	  </li>
+			  	  
+				  <li class="UserAccountForm">
+					  <div class="NameUser">
+						  <p>שלום</p>
+						  <a href="#" class="EmailUser">yosi@gmail.com</a>
+					  </div>
+						<div class="Logout">
+							<div class="FormBtn LogoutBtn">יציאה</div>
+						</div>	
+				  </li>
+			  </ul>	
+		  </div>
+		</header>
+		<div class="MainContent">
+		<div class="Container">
+			<div class="AboutuserForm No_marginButtom"><h1>הגדרת משתמשים</h1></div>
+			<div class="userFormInstructions">
+				<h2 class="InstructionsTitle">לפניך מספר אפשרויות:</h2>
+				<div class="More_marginTop">
+				<p>* להגדיר משתשמש חדש והרשאות שימוש</p>
+				<p>* תוכל לבצע עריכה למשתמש קיים</p>
+				<p>* באפשרותך לבצע סינון בלחיצה על כל שם עמודה</p>
+				</div>
+			</div>
+
+		<div class="newUserContainer">
+			<div class="userFormInstructions No_marginButtom"><h2>הגדרת משתמש חדש (+)</h2></div>
+			<div class="newUserBox">
+			<form action="newUserform.html" method="post" name="newUserform" id="newUserform">
+			   <input name="_redirect" type="hidden" value="">
+			   <input name="_recipients" type="hidden" value="">
+			   <input name="_subject" type="hidden" value="">
+			   
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				  <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>פרטי משתמש</h2></li>
+				  <li class="accordionInputBox"><p class="inputlabel">שם מלא</p><input type="text" name="UserFirstName"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">טלפון/נייד</p><input type="text" name="UserMobile"></li>
+				  <li class="accordionInputBox"><p class="inputlabel">אימייל (שם משתמש)</p><input type="email" name="UserEmail"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">סיסימה</p><input type="password" name="UserPassword"></li>
+				</ul>
+				
+			    <ul class="EnterPass">				  				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">הגדר מקום עבודה</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י שם מקום עבודה</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>
+				  		  				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">תפקיד</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י תפקיד</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>	
+				  
+				  <li class="accordionInputBox"><p class="inputlabel More_marginTop">* לאחר יצירת משתמש חדש אימייל וסיסמה ישלחו למייל המשתמש
+				  </p></li>
+				  <li class="accordionSave accordionInputBox No_marginLeft">
+					<input class="InsideFormBtn" type="submit" value="צור/י" name="send" title="צור/י">
+					<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>משתמש חדש נוצר ושמור במערכת</p></a>
+				  </li>
+				</ul>
+				
+			</form>	
+			</div>
+		</div>   
+   
+   	   <div class="userFormInstructions No_marginButtom"><h2>עריכת משתמשים</h2></div>
+	   <form action="Accordionform.html" method="post" name="Accordionform" id="Accordionform">
+	   <input name="_redirect" type="hidden" value="">
+	   <input name="_recipients" type="hidden" value="">
+	   <input name="_subject" type="hidden" value="">		
+	   <ul>
+		   <li class="newUserBoxTitle DarkGray NoBorderTop accordionHeaderRaduis BoxStrokeline More_marginTop UserPadding">
+		   <p class="newUserTitle">שם מלא</p>
+		   <p class="newUserTitle">הרשאות</p>
+		   <p class="newUserTitle">אימייל</p>
+		   <p class="newUserTitle">מקום עבודה</p>
+		   </li>
+	   </ul>
+	   <ul class="No_marginTop" id="accordion">
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline UserPadding">
+				<p class="newUserSubTitleBox" title="FirstName">אלי כהן</p>
+				<p class="newUserSubTitleBox" title="Permissions">super user</p>
+				<p class="newUserSubTitleBox" title="Email">ali@gmail.com</p>
+				<p class="newUserSubTitleBox" title="WorkJob">בקרן</p>
+				<span class="downIcon icon-05"></span>
+			</div>
+					  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				  <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>פרטי משתמש</h2></li>
+				  <li class="accordionInputBox"><p class="inputlabel">שם מלא</p><input type="text" name="UserFirstName"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">טלפון/נייד</p><input type="text" name="UserMobile"></li>
+				  <li class="accordionInputBox"><p class="inputlabel">אימייל (שם משתמש)</p><input type="email" name="UserEmail"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">סיסימה</p><input type="password" name="UserPassword"></li>
+				</ul>
+				
+			    <ul class="EnterPass">				  				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">הגדר מקום עבודה</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י שם מקום עבודה</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>
+				  		  				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">תפקיד</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י תפקיד</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>	
+				</ul>
+					<ul>
+						<li class="RemarkBox">
+						<p class="RemarkTitle">חשוב לזכור לפני שמירת הנתונים !!!</p>
+						<p>לוודא שכל השדות מלאים והנתונים תקינים כי לאחר שמירה ישלח מייל למשתמש לעדכון סיסמה חדשה. </p>	
+						</li>
+						<li class="accordionSave">
+						<input class="InsideFormBtn No_marginTop" type="submit" value="שמור/י" name="send" title="שמור/י">
+						<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים עודכנו ונשמרו במערכת</p></a>
+						</li>		
+					</ul>	
+			</div>
+			</li>
+		   
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline UserPadding">
+				<p class="newUserSubTitleBox" title="FirstName">יוסי טולדנו</p>
+				<p class="newUserSubTitleBox" title="Permissions">מנהל/ת כספים</p>
+				<p class="newUserSubTitleBox" title="Email">yossit@gmail.com</p>
+				<p class="newUserSubTitleBox" title="WorkJob">מכללת אפק</p>
+				<span class="downIcon icon-05"></span>
+			</div>
+					  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				  <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>פרטי משתמש</h2></li>
+				  <li class="accordionInputBox"><p class="inputlabel">שם מלא</p><input type="text" name="UserFirstName"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">טלפון/נייד</p><input type="text" name="UserMobile"></li>
+				  <li class="accordionInputBox"><p class="inputlabel">אימייל (שם משתמש)</p><input type="email" name="UserEmail"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">סיסימה</p><input type="password" name="UserPassword"></li>
+				</ul>
+				
+			    <ul class="EnterPass">				  				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">הגדר מקום עבודה</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י שם מקום עבודה</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>
+				  		  				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">תפקיד</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י תפקיד</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>	
+				</ul>
+				<ul>
+					<li class="RemarkBox">
+					<p class="RemarkTitle">חשוב לזכור לפני שמירת הנתונים !!!</p>
+					<p>לוודא שכל השדות מלאים והנתונים תקינים כי לאחר שמירה ישלח מייל למשתמש לעדכון סיסמה חדשה. </p>	
+					</li>
+					<li class="accordionSave">
+					<input class="InsideFormBtn No_marginTop" type="submit" value="שמור/י" name="send" title="שמור/י">
+					<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים עודכנו ונשמרו במערכת</p></a>
+					</li>		
+				</ul>	
+			</div>
+			</li>			
+
+		   <li>
+			<div class="accordionHeader accordionHover UserPadding">
+				<p class="newUserSubTitleBox" title="FirstName">אילה אחיקם</p>
+				<p class="newUserSubTitleBox" title="Permissions">מנהל/ת המכללה</p>
+				<p class="newUserSubTitleBox" title="Email">yossit@gmail.com</p>
+				<p class="newUserSubTitleBox" title="WorkJob">מכללה למנהל</p>
+				<span class="downIcon icon-05"></span>
+			</div>
+					  
+			<div class="accordionContent BoxStrokeline">
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				  <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>פרטי משתמש</h2></li>
+				  <li class="accordionInputBox"><p class="inputlabel">שם מלא</p><input type="text" name="UserFirstName"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">טלפון/נייד</p><input type="text" name="UserMobile"></li>
+				  <li class="accordionInputBox"><p class="inputlabel">אימייל (שם משתמש)</p><input type="email" name="UserEmail"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">סיסימה</p><input type="password" name="UserPassword"></li>
+				</ul>
+				
+			    <ul class="EnterPass">				  				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">הגדר מקום עבודה</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י שם מקום עבודה</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>
+				  		  				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">תפקיד</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select name="inputSubject">
+						<option value="">בחר/י תפקיד</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>	
+				</ul>
+				
+				<ul>
+						<li class="RemarkBox">
+						<p class="RemarkTitle">חשוב לזכור לפני שמירת הנתונים !!!</p>
+						<p>לוודא שכל השדות מלאים והנתונים תקינים כי לאחר שמירה ישלח מייל למשתמש לעדכון סיסמה חדשה. </p>	
+						</li>
+						<li class="accordionSave">
+						<input class="InsideFormBtn No_marginTop" type="submit" value="שמור/י" name="send" title="שמור/י">
+						<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים עודכנו ונשמרו במערכת</p></a>
+						</li>		
+				</ul>	
+			</div>
+			</li>
+	   					
+		</ul>
+		
+
+
+		</form>   
+		</div>
+                			
+		</div>
+		<div class="BeforFooter"><img src="images/footerPic.png" alt="footerPic"/></div>
+		<div class="mobilePic"><img src="images/footerPicmobile.png" alt="footerPic"/></div>
+	    <footer>
+			<div class="Container ContainerForm">
+				<div class="mainFooter">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+				</div>
+			</div>
+		</footer>	
+	</div>
+
+<script src="accordion/scroll.smooth.js"></script>	
+<script src="accordion/jquery-ui.min.js"></script>	
+</body>
+</html>

@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS newUserform */
+
+.newUserContainer, .newUserBox {
+	width: 100%;
+	float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.newUserContainer {
+	background-color: #F2F2F2;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+}
+
+.newUserBox {
+	background-color: #FFFFFF;
+	margin-top: 15px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 50px;
+}
+
+.newUserTitle, .newUserSubTitleBox {
+	width: 23.9%;
+	float: right;
+    color: #FFFFFF;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+}
+
+.newUserTitle {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.newUserSubTitleBox{
+	height: 35px;
+	padding-left: 20px;
+	overflow: hidden;
+}
+
+.newUserSubTitleBox p{
+	float: right;
+	font-size: 1.2em;
+	width: 90%;
+}
+
+.RemarkBox {
+	width: 100%;
+	float: right;
+    margin-top: 20px;
+}
+
+.FilteReportBtn {
+	float: left;
+}
+
+@media only screen and (min-width: 700px){
+.newUserTitle {
+    font-size: 1.5em;
+}
+
+.newUserSubTitleBox p{
+	font-size: 1.4em;
+}
+
+}

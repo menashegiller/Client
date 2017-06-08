@@ -1,0 +1,57 @@
+<div class="newUserContainer">
+	<div class="userFormInstructions No_marginButtom">
+		<h2>סינון דו”ח סטאטוס מלגות</h2>
+	</div>
+	<div class="newUserBox">
+		<form action="newUserform.html" method="post" name="newUserform" id="newUserform">
+			<input name="_redirect" type="hidden" value="">
+			<input name="_recipients" type="hidden" value="">
+			<input name="_subject" type="hidden" value="">
+
+
+			<ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				<li class="userFormInstructions No_marginButtom Txt-MidGray">
+					<h2>סינון לפי תאריך</h2>
+				</li>
+				<li class="accordionInputBox InputBoxBig">
+					<p class="inputlabel">בחר תאריך</p>
+					<div class="FilteReportRadioBox">
+						<div class="FilteReportRadio" *ngFor="let type of TypesOfFiltering">
+							<input class="RadioBtn" [(ngModel)]="filtermodel.FilteringField" type="radio" name="AcformMilitaryType" [value]="type.value">
+							<p>{{type.display}}</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<ul class="EnterPass">
+				<li class="userFormInstructions No_marginButtom Txt-MidGray">
+					<h2>אנא ציין/י טווח תאריכים לסינון</h2>
+				</li>
+				<li class="accordionInputBox">
+					<p class="inputlabel">הגדר/י מתאריך</p>
+					<label class="inputcontent">
+							<span class="selectBtn icon-07"></span>
+					</label>
+					<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="filtermodel.StartDate"
+					 (dateChanged)="onDateChanged($event, 'ArmyDate')"></my-date-picker>
+				</li>
+
+				<li class="accordionInputBox No_marginLeft">
+					<p class="inputlabel">עד תאריך</p>
+					<label class="inputcontent">
+							<span class="selectBtn icon-07"></span>
+					</label>
+					<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" [(ngModel)]="filtermodel.LastDate"
+					 (dateChanged)="onDateChanged($event, 'ArmyDate')"></my-date-picker>
+				</li>
+
+				<li class="accordionInputBox">
+					<p class="inputlabel More_marginTop">* הנתונים למטה הם להצגה בלבד ולא ניתנים לעריכה</p>
+				</li>
+				<li class="accordionSave accordionInputBox No_marginLeft FilteReportBtn"><input class="InsideFormBtn"  (click)="filterFunc(filtermodel)" type="submit" value="הצג/י" name="send" title="הצג/י"></li>
+			</ul>
+
+		</form>
+	</div>
+</div>

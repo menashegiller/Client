@@ -1,0 +1,350 @@
+@charset "UTF-8";
+/* ScssUserformprint */
+@media print {
+  * {
+    float: none !important; }
+
+  .fixFloatRight {
+    float: right !important; }
+
+  .RegUserBoxs {
+    padding-bottom: 0px; }
+
+  .RegUserBoxsLine {
+    margin-bottom: 0px; }
+
+  .MilitaryRadio, .MilitaryRadioBox, .RadioBtn {
+    float: right !important; }
+
+  .page-break {
+    page-break-after: always;
+    margin-bottom: 20px; }
+
+  header, .downIcon, .selectBtn, .RemarkBox {
+    display: none !important; }
+
+  #accordion {
+    width: 100%;
+    float: left;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 0px solid #BFBFBF; }
+
+  input, select {
+    width: 100%;
+    height: 50px;
+    color: #B2B2B2;
+    text-indent: 20px;
+    font-family: inherit;
+    float: right;
+    display: block;
+    background-color: #f6f6f6;
+    box-sizing: border-box;
+    border: 1px solid #B2B2B2 !important;
+    border-image: initial;
+    outline: none;
+    border-radius: 10px; }
+
+  textarea {
+    width: 100%;
+    height: 50px;
+    color: #B2B2B2;
+    text-indent: 20px;
+    font-family: inherit;
+    float: right;
+    display: block;
+    background-color: #f6f6f6;
+    box-sizing: border-box;
+    border: 1px solid #B2B2B2 !important;
+    border-image: initial;
+    outline: none;
+    border-radius: 10px;
+    resize: none; }
+
+  input, textarea {
+    border: 1px solid #ffffff; }
+
+  select {
+    border: 1px solid #ffffff;
+    -webkit-appearance: none; }
+
+  .selectBtn {
+    -webkit-appearance: none; }
+
+  .inputlabel, .inputcontent {
+    float: right !important; }
+
+  .Container {
+    max-width: 595px; }
+
+  .hideSection {
+    display: none; }
+
+  .MainContent {
+    /*	cursor: not-allowed;
+    	pointer-events: none;*/
+    padding-top: 20px !important; }
+
+  .BoxTopStrokeline {
+    border-bottom: 0px solid !important;
+    border-bottom: none; }
+
+  /* -----------------------רווח פרטים אישיים ---------------------------------*/
+  .PersonalInfo {
+    border-bottom: 0px solid !important; }
+
+  .CollegeReg, .MilitarySer {
+    border-bottom: 2px solid #DCDCDC;
+    float: right !important;
+    webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    margin-bottom: 30px; }
+
+  .ContentMilitarySer {
+    float: right !important;
+    margin-bottom: 120px; }
+
+  .EconomicStat {
+    border-bottom: 0px solid !important;
+    float: right !important; }
+
+  .ContentStatementsLiab {
+    border-bottom: 0px solid !important; }
+
+  /* -----------------------רווח פרטים אישיים ---------------------------------*/
+  .AboutuserForm {
+    margin-bottom: 20px !important; }
+    .AboutuserForm h1, .AboutuserForm p {
+      margin-bottom: 0px !important; }
+    .AboutuserForm h1 {
+      font-size: 2.5em;
+      font-weight: bold; }
+    .AboutuserForm p {
+      font-size: 1.2em; }
+
+  .BoxStrokeline, .HeaderStrokeline {
+    border-bottom-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 3px; }
+
+  .accordionHeader {
+    width: 100%;
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #B3B3B3;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-right: 20px; }
+
+  .accordionTitle {
+    float: right;
+    color: #1A1A1A;
+    font-size: 1.5em;
+    font-weight: bold; }
+
+  .BoxTopStrokeline {
+    border-bottom: 1px solid #1A1A1A; }
+
+  .accordionContent {
+    width: 100%;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 0px !important;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 68px;
+    background-color: #FFFFFF;
+    cursor: default; }
+
+  .accordionInputBox {
+    width: 100%;
+    float: right; }
+
+  .DocreqContainer, .DocreqSelect, .ProcessIcon, .DocreqUpLoudBoxLine {
+    width: 100%;
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+
+  .DocreqContainer p {
+    padding-bottom: 5px; }
+
+  .DocreqSelect {
+    max-width: 60px;
+    float: right !important; }
+
+  .ProcessIcon {
+    float: left;
+    font-size: 2.5em;
+    max-width: 40px;
+    padding-top: 4px;
+    margin-left: 5px;
+    cursor: pointer; }
+
+  .DocreqUpLoudBoxLine {
+    border-bottom: 2px solid #DCDCDC;
+    padding-bottom: 25px;
+    margin-bottom: 25px; }
+
+  .accordionSend {
+    width: 100%;
+    float: left;
+    max-width: 285px; }
+
+  /*----------------------------------- Upload File Process -------------------------*/
+  .EmptyIcon, .ChackIcon {
+    font-size: 2.5em;
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer; }
+
+  .EmptyIcon, .ChackIcon {
+    display: none; }
+
+  .SelctedChack {
+    display: block; }
+
+  .UpLoudFileBtnBox {
+    width: 90%;
+    float: right;
+    margin-top: 10px; }
+
+  .FileNotUpLoad {
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 20px;
+    margin-right: 20px; }
+
+  .ProcessBox {
+    width: 100%;
+    height: 50px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #E6E6E6;
+    border: 1px solid #BFBFBF;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none; }
+
+  .ProcessColor {
+    width: 50%;
+    float: right;
+    height: 43px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #004467;
+    border-radius: 5px;
+    margin: 2px;
+    display: block; }
+
+  /*----------------------------------- WorkingProcess Selcted -------------------------*/
+  .PersonaLetter {
+    width: 100%;
+    float: right; }
+
+  .PersonaLetterList {
+    counter-reset: subsection;
+    list-style-type: none; }
+
+  .PersonaLetterTitle::before {
+    counter-increment: subsection;
+    content: counters(subsection,".") ".";
+    margin-left: 5px; }
+
+  .WarrCercheckbox {
+    float: right !important; }
+
+  .WarrCercheTitle {
+    margin-bottom: 30px;
+    float: right !important; }
+
+  .dismiss {
+    display: none; }
+
+  /*----------------------------------- Military -------------------------*/
+  .MilitaryRadio, .MilitaryRadioBox {
+    width: 100%;
+    float: right;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+
+  .WarrCercheBox {
+    padding-top: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block; }
+
+  .MilitaryRadioBox {
+    background-color: #F0F0F0;
+    border-radius: 10px; }
+
+  .MilitaryRadio {
+    max-width: 25%;
+    text-align: center;
+    padding-right: 12px;
+    padding-top: 10px; }
+
+  .RadioBtn {
+    width: 25px;
+    float: right;
+    height: 30px; }
+
+  .EconomicBox, .DeclarationBox {
+    width: 100%;
+    float: right !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 10px; }
+
+  .EconomicRadio {
+    width: 65px;
+    float: right !important;
+    text-align: center; }
+
+  .EconomicRadioBox {
+    width: 130px;
+    float: left !important; }
+
+  .EconomicPar {
+    width: 61%;
+    float: right !important; }
+
+  .DeclarationPar {
+    width: 87%;
+    float: right !important;
+    padding-top: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+
+  .InputBoxBig, .MoreInputBoxBig {
+    width: 100% !important;
+    margin-left: 0px !important; }
+
+  .marginTopPrint {
+    margin-top: 20px !important; }
+
+  .FloatmarginTopPrint {
+    margin-top: 20px !important;
+    float: right !important; } }

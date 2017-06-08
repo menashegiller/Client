@@ -1,0 +1,177 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="ie6 oldie"><![endif]-->
+<!--[if IE 7]><html class="ie7 oldie"><![endif]-->
+<!--[if IE 8]><html class="ie8 oldie"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="" lang="he" dir="rtl">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e6e6e6">
+<title>forgotPassform</title>
+<link rel="stylesheet" type="text/css" href="css/GeneralElements.css">
+<link rel="stylesheet" type="text/css" href="css/GeneralFonts.css">
+<link rel="stylesheet" type="text/css" href="css/Icons.css">
+<link rel="stylesheet" type="text/css" href="css/forgotPassform.css">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="accordion/jquery-1.8.3.js"></script>
+</head>
+<body>
+	<div class="gridContainer">
+		<header>
+		  <div class="Container">
+			  <ul class="TopHeaderContent">
+			  	 <li class="ContainerLogo">
+			  	  <a class="LogoConLink" href="index.html">
+					 <div class="LogoIcon icon-01"></div>
+					  <div class="LogoTxt">
+						  <h1 class="LogoTitle">מערכת מלגות</h1>
+						  <h2 class="LogoSubTitle">הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</h2>
+					  </div>
+				  </a>  
+			  	  </li>
+			  </ul>	
+		  </div>
+		</header>
+		
+		<div class="MainContent">
+			<div class="Container">
+			
+			<div class="NewPassBox">
+			 <ul class="WelcomeOptions">
+				 <li class="NewPassBoxTitle"><h2>שכחת סיסמה?</h2></li>
+				 <li><p>הכנס/י את האימייל איתו נרשמת למערכת</p></li>
+				 <li><p>חכה/י שפרטי השיחזור ישלחו אליך למייל</p></li>
+				 <li><p>קיבלת לינק למייל - פעל/י על פי ההוראות</p></li>
+			 </ul>
+			 
+				<div class="RegUserPass">					
+					<div class="EnterTitle"><h4>איפוס סיסמה</h4></div>
+					  <form action="" method="post" name="EnterPassform" id="ResetPassEmailform">
+						<input name="_redirect" type="hidden" value="">
+						<input name="_recipients" type="hidden" value="">
+						<input name="_subject" type="hidden" value="">					
+				       <ul class="EnterPass">
+						
+						<li class="ResetPassBox">
+						 <p class="inputlabel">הכנס/י אימייל</p>
+						 <input id="ResetPassEmail" type="email" required name="ResetPassEmail" placeholder="הכנס/י אימייל איתו נרשמת">
+						</li>
+						<li class="ResetPassBoxBtn">
+							<input class="InsideFormBtn ResetInsideFormBtn" type="submit" value="איפוס סיסמה" name="send" title="איפוס סיסמה">	
+						</li>
+					   </ul>	
+					  </form>		
+				</div>					 					
+			</div>
+			
+	
+		
+		  <div class="NewPassBox">
+					 <ul class="WelcomeOptions">
+					 	<li class="NewPassBoxTitle"><h2>הגדרת סיסמה</h2></li>
+						<li><p>אנא הכנס/י סיסמה זמנית להמשך התהליך</p></li>
+					 </ul>					
+			
+		  	<div class="RegUserPass">					
+					<div class="EnterTitle"><h4>כניסה עם סיסמה זמנית</h4></div>
+					  <form action="" method="post" name="EnterPassform" id="ResetPassform">
+						<input name="_redirect" type="hidden" value="">
+						<input name="_recipients" type="hidden" value="">
+						<input name="_subject" type="hidden" value="">					
+				       <ul class="EnterPass">
+						
+						<li class="ResetPassBox">
+						 <div class="inputlabel">
+							<p class="passTitle ResetpassTitle">הכנס/י סיסמה</p>
+							<p class="LinkBtn showPass paddingTop no_underline"><span class="SeeIcon icon-02"></span>הצג סיסמה</p>
+							<p class="LinkBtn showPass paddingTop no_underline"><span class="SeeIcon icon-02"></span>הסתר סיסמה</p>
+						 </div>
+						 <input id="ResetPass" type="password" required name="ResetPass" placeholder="הכנס/י סיסמה זמנית פה">
+						</li>
+						<li class="ResetPassBoxBtn">
+							<input class="InsideFormBtn ResetInsideFormBtn" type="submit" value="המשך/י" name="send" title="המשך/י">	
+						</li>
+					   </ul>	
+					  </form>		
+			</div>	
+	  </div>
+  		
+  		  <div class="NewPassBox">
+					 <ul class="WelcomeOptions">
+					     <li class="NewPassBoxTitle"><h2>שינוי סיסמה</h2></li>
+						 <li><p>אנא צור/י סיסמה חדשה בעלת 8 תווים שבנויה מאותיות ומספרים ולחץ שמור</p></li>
+					 </ul>					
+			
+		  		<div class="RegUserPass">					
+					<div class="EnterTitle"><h4>רישום סיסמה חדשה</h4></div>
+					  <form action="" method="post" name="NewPassform" id="NewPassform">
+						<input name="_redirect" type="hidden" value="">
+						<input name="_recipients" type="hidden" value="">
+						<input name="_subject" type="hidden" value="">					
+				       <ul class="EnterPass">
+						
+						<li class="ResetPassBox">
+						 <div class="inputlabel">
+							<p class="passTitle ResetpassTitle">הכנס/י סיסמה</p>
+							<p class="LinkBtn showPass paddingTop no_underline"><span class="SeeIcon icon-02"></span>הצג סיסמה</p>
+							<p class="LinkBtn showPass paddingTop no_underline"><span class="SeeIcon icon-02"></span>הסתר סיסמה</p>
+						 </div>
+						 <input id="NewPass" type="password" required name="NewPass">
+						</li>
+						
+					   <li class="ResetPassBox">
+						 <div class="inputlabel"><p class="passTitle ResetpassTitle">אימות סיסמה</p></div>
+						 <input id="AuthenticationPass" type="password" required name="AuthenticationPass">
+						</li>
+						<li class="ResetPassBoxBtn">
+							<input class="InsideFormBtn ResetInsideFormBtn" type="submit" value="שמור/י" name="send" title="שמור/י">	
+						</li>
+					   </ul>	
+					  </form>	
+				  </div>		
+			</div>  
+ 		   		
+  		   <div class="NewPassBox">
+					 <ul class="WelcomeOptions NoiconList">
+					     <li class="NewPassBoxTitle"><h2>שינוי סיסמה</h2></li>
+						 <li class="No_marginRight"><span class="ChangeNewPassIcon icon-04"></span><p class="changePer">שינוי סיסמה עבר בהצלחה</p></li>
+					 </ul>					
+		
+		  	<div class="RegUserPass">					
+					<div class="EnterTitle"><h4>כניסה למערכת</h4></div>
+					  <form action="" method="post" name="ChangeNewPassform" id="ChangeNewPassform">
+						<input name="_redirect" type="hidden" value="">
+						<input name="_recipients" type="hidden" value="">
+						<input name="_subject" type="hidden" value="">					
+				       <ul class="EnterPass">
+						
+						<li class="ChangeNewBoxBtn">
+							<input class="InsideFormBtn ResetInsideFormBtn" type="submit" value="כניסה" name="send" title="כניסה">	
+						</li>
+					   </ul>	
+					  </form>	
+			</div>  		
+		</div> 
+  					
+	  </div>	
+		</div>
+		<div class="BeforFooter"><img src="images/footerPic.png" alt="footerPic"/></div>
+		<div class="mobilePic"><img src="images/footerPicmobile.png" alt="footerPic"/></div>
+	  <footer>
+			<div class="Container">
+				<div class="mainFooter">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+				</div>
+			</div>
+		</footer>	
+	</div>
+
+<script src="accordion/scroll.smooth.js"></script>		
+</body>
+</html>

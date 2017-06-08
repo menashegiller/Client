@@ -1,0 +1,46 @@
+<div class="userFormInstructions">
+	<h2>לפניך רשימת בקשות סטודנטים לקבלת מלגה למימון לימודים</h2>
+	<div class="More_marginTop">
+		<p>* באפשרותך לבצע סינון בלחיצה על כל שם עמודה</p>
+		<p>* כל המחירים הם בש”ח בלבד</p>
+	</div>
+</div>
+<div class="userFormInstructions">
+	<h2>טבלת סטאטוס מלגות כללי</h2>
+</div>
+<!--style="width: 200px;"-->
+<div > 
+    <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-sela"
+                 [gridOptions]="gridOptions"
+				 [rowData]="users">
+    </ag-grid-angular>
+</div>
+
+<ul class="FilteContainer" *ngFor="let user of users">
+	<li class="FilteReportBoxHeader StrockPass">
+		<p>שם סטודנט/ית</p>
+		<p>תאריך הגשה</p>
+		<p>מכללה</p>
+		<p>הסמכה</p>
+		<p>מחיר</p>
+		<p>התחלת לימודים</p>
+		<p>סיום לימודים</p>
+		<p>סטאטוס</p>
+		<p>החלטה בתאריך</p>
+		<p>גובה מלגה</p>
+	</li>
+	<li class="FilteReportHeader StrockPass">
+		<p>{{user.FullName}}</p>
+		<p>{{user.RegistrationDate | date: 'dd/MM/yyyy'}}</p>
+		<p>{{user.CollegeName}}</p>
+		<p>{{user.CertificationName}}</p>
+		<p>{{user.TuitionFees}}</p>
+		<p>{{user.LearningSrats | date: 'dd/MM/yyyy'}}</p>
+		<p>{{user.LearningFinish | date: 'dd/MM/yyyy'}}</p>
+		<p>{{user.FormStatus}}</p>
+		<p>{{user.FullName}}</p>
+		<p>{{user.Decision}}</p>
+	</li>
+
+
+</ul>

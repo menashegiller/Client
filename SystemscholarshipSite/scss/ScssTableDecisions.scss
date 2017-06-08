@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* ScssTableDecisions */
+
+.TableDecisionsTitle {
+  width: 19% !important;
+}
+
+.TableDecisionsSubTitle {
+  width: 18.2% !important;
+}
+
+.newUserTitle, .newUserSubTitleBox {
+  float: right;
+  color: #FFFFFF;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.newUserTitle {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.newUserSubTitleBox {
+  height: 35px;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.RemarkBox {
+  width: 100%;
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.SelDecisionsOp {
+  margin-top: 20px;
+}
+
+.RequestDecBtn {
+  width: 50%;
+  float: right !important;
+  clear: none;
+  margin-top: 0px;
+}
+
+.RequestDecR {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.RequestDecL {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.RequestDecSlected {
+  background-color: #E97A2B !important;
+}
+
+@media only screen and (min-width: 700px) {
+  .newUserTitle {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .SelDecisionsOp {
+    margin-top: 0px;
+    float: right !important;
+    clear: none;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .newUserTitle {
+    font-size: 1.28em;
+  }
+  .TableDecisionsTitle {
+    width: 18.5% !important;
+  }
+  .TableDecisionsSubTitle {
+    width: 17.2% !important;
+  }
+  .SelDecisionsOp {
+    width: 22%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .newUserTitle {
+    font-size: 1.5em;
+  }
+  .TableDecisionsTitle {
+    width: 18.5% !important;
+  }
+  .TableDecisionsSubTitle {
+    width: 17.5% !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .TableDecisionsTitle {
+    width: 18.3% !important;
+  }
+}

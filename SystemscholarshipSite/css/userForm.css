@@ -1,0 +1,468 @@
+@charset "utf-8";
+/* CSS userform */
+.Logout, .LogoutBtn, .accordionSave, .accordionSend {
+	width: 100%;
+	float: left;
+}
+
+.UserAccountForm {
+	width: 100%;
+    float: left;
+    color: #FFFFFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+	clear: left;
+}
+
+.NameUser {
+	width: 100%;
+    margin-bottom: 15px;
+    margin-top: 30px;
+	float: left;
+	overflow: hidden;
+}
+
+.NameUser a{
+	color: #FFFFFF;
+}
+
+.NameUser p{
+	direction: rtl;
+}
+
+.AboutuserForm {
+	width: 100%;
+	float: right;
+	margin-bottom: 30px;
+}
+
+.AboutuserForm h1, .AboutuserForm p{
+	width: 100%;
+	float: right;
+	margin-bottom: 10px;
+}
+
+.AboutuserForm h1 {
+	font-size: 2.7em;
+	font-weight: bold;	
+}
+
+.AboutuserForm p{
+	font-size: 1.5em;
+}
+
+.userFormInstructions {
+	width: 100%;
+	float: right;
+	margin-bottom: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.userFormInstructions h2{
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.RemarkTitle {
+	width: 100%;
+	float: right;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.accordionInputBox {
+	width: 100%;
+	float: right;
+}
+
+.RegUserBoxsLine {
+    margin-bottom: 40px;
+}
+
+/*----------------------------------- Upload File Process -------------------------*/
+.DocreqContainer, .DocreqSelect, .ProcessIcon, .DocreqUpLoudBoxLine {
+	width: 100%;
+	float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.DocreqContainer p {
+    padding-bottom: 5px;
+}
+
+.DocreqSelect {
+	max-width: 60px;
+}
+
+.EmptyIcon, .ChackIcon {
+	font-size: 2.5em;
+	float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.EmptyIcon, .ChackIcon {
+	display: none;	
+}
+
+.SelctedChack {
+	display: block;	
+}
+
+.UpLoudFileBtnBox {
+	width: 90%;
+	float: right;
+	margin-top: 10px;
+}
+
+.DocreqUpLoudBoxLine {
+	border-bottom: 2px solid #DCDCDC;
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+}
+
+.FileNotUpLoad {
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 20px;
+	margin-right: 20px;
+}
+
+.ProcessBox {
+	width: 100%;
+	height: 50px;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #E6E6E6;
+	border: 1px solid #BFBFBF;
+	border-radius: 5px;
+	margin-top: 20px;
+	display: none;
+}
+
+.ProcessIcon {
+	float: left;
+    font-size: 2.5em;
+    max-width: 40px;
+    padding-top: 4px;
+    margin-left: 5px;
+	cursor: pointer;
+}	
+
+.ProcessColor {
+    width: 50%;
+    float: right;
+    height: 43px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #004467;
+    border-radius: 5px;
+    margin: 2px;
+    display: block;
+}
+
+/*----------------------------------- WorkingProcess Selcted -------------------------*/
+.SelctedBtn, .SelctedBtn:hover {
+	background-color: #E6E6E6 !important;	
+}
+
+.PersonaLetter {
+	width: 100%;
+	float: right;
+}
+
+.PersonaLetterList {
+	counter-reset: subsection;
+    list-style-type: none;
+}
+
+.PersonaLetterTitle::before {
+    counter-increment: subsection;
+    content: counters(subsection,".") ".";
+	margin-left: 5px;
+}
+
+.WarrCercheckbox {
+    width: 50px;
+    float: right;
+	cursor: pointer;
+}
+
+.WarrCercheTitle {
+	width: 75%;
+    margin-right: 30px;
+}
+
+.dismiss {
+	display: none;
+}
+
+/*----------------------------------- Military -------------------------*/
+.MilitaryRadio, .MilitaryRadioBox {
+    width: 100%;
+    float: right;
+    height: 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.PermanentDateBox, .PermanentDateBox {
+	display: none;
+}
+
+.SaderDateBox {
+	display: block;
+}
+
+.WarrCercheBox {
+	padding-top: 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+}
+
+.MilitaryRadioBox {
+	background-color: #F0F0F0;
+	border-radius: 10px;
+}
+
+.MilitaryRadio {
+	max-width: 25%;
+	text-align: center;
+    padding-right: 12px;
+	padding-top: 10px;
+}
+
+.RadioBtn {
+	width: 25px;
+    float: right;
+    height: 30px;
+}
+
+.EconomicBox, .DeclarationBox {
+    width: 100%;
+    float: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+	margin-bottom: 10px;
+}
+
+.EconomicRadio {
+	width: 65px;
+    float: right;
+	text-align: center;
+}
+
+.EconomicRadioBox {
+    width: 130px;
+    float: left;	
+}
+
+.EconomicPar {
+	width: 61%;
+	float: right;
+}
+
+.DeclarationPar {
+	width: 84%;
+	float: right;
+	padding-top: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.DeclarationTitle {
+	padding-top: 30px;
+	margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 700px) {	
+.UserAccountForm {
+    padding-top: 20px;
+}
+	
+.NameUser {
+    width: 45%;
+    float: right;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.Logout {
+    max-width: 195px;
+    float: left;
+	padding-top: 4px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+}
+
+
+@media only screen and (min-width: 750px) {	
+.accordionInputBox {
+	width: 47.62%;
+    margin-left: 30px;
+}
+	
+.InputBaginDate, .InputEndDate, .EconomicPlaceBox
+{
+    width: 100%;
+}
+	
+.InputBoxBig {
+	width: 100% !important;
+	margin-left: 0px !important;
+}
+
+.InputBoxDate, .InputBoxStatos {
+	width: 100%;
+	margin-left: 0px;	
+}
+	
+/*----------------------------------- Military -------------------------*/	
+.TypeServiceBox, .WarrCercheBox {
+    width: 100% !important;
+}
+	
+.WarrCercheBox {
+    padding-top: 20px;
+}
+}
+
+
+@media only screen and (min-width: 860px) {	
+/*----------------------------------- Military -------------------------*/
+.TypeServiceBox, .WarrCercheBox {
+    width: 47.69% !important;
+}
+	
+.WarrCercheBox {
+    padding-top: 41px;
+}
+}
+
+
+@media only screen and (min-width: 900px) {	
+.UserAccountForm {
+    width: 375px;
+}
+
+.accordionSave {
+    margin-right: 30px;
+}	
+	
+.accordionSave, .accordionSend {
+	max-width: 285px;
+}
+}
+
+
+@media only screen and (min-width: 950px) {
+.accordionInputBox {
+    width: 48.19%;
+}
+
+.EconomicPlaceBox {
+    width: 100%;
+}
+	
+.InputBoxStatos {
+    float: left;
+}
+
+.InputBaginDate, .InputEndDate, .InputTuitionAmount {
+	width: 30% !important;
+    margin-left: 39px;	
+}
+
+.InputTuitionAmount {
+	float: left;
+}
+/*----------------------------------- Upload File Process -------------------------*/	
+.DocreqUpLoudBoxLine {
+    width: 93%;
+    margin-right: 58px;
+}
+
+/*----------------------------------- WorkingProcess Selcted -------------------------*/
+.WorkingProcess {
+	max-width: 56.94%;
+}
+	
+.UpLoudFileBoxSlected {
+	width: 36%;
+}
+}
+@media only screen and (min-width: 970px) {
+.EconomicPlaceBox {
+    width: 48.19%;
+}
+}
+
+@media only screen and (min-width: 1000px) {	
+.UserAccountForm {
+    padding-top: 73px;
+}
+}
+
+@media only screen and (min-width: 1100px) {
+.DeclarationPar {
+	width: 94%;
+}
+}
+
+@media only screen and (min-width: 1250px) {
+.UserAccountForm {
+    width: 410px;
+    padding-top: 94px;
+}
+
+.InputBaginDate, .InputEndDate, .InputTuitionAmount {
+    width: 31% !important;
+}
+
+/*----------------------------------- WorkingProcess Selcted -------------------------*/
+.WorkingProcess {
+	max-width: 64.94%;
+}
+	
+.UpLoudFileBoxSlected {
+	width: 28%;
+}
+}
+
+
+@media only screen and (min-width: 1350px) {
+.accordionInputBox {
+	width: 48.69%;
+}	
+.InputBoxDate, .InputBoxStatos {
+	width: 48.71%;	
+}
+
+/*----------------------------------- WorkingProcess Selcted -------------------------*/
+.WorkingProcess {
+	max-width: 66.94%;
+}
+	
+.UpLoudFileBoxSlected {
+	width: 26%;
+}
+}

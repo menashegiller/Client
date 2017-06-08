@@ -1,0 +1,718 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="ie6 oldie"><![endif]-->
+<!--[if IE 7]><html class="ie7 oldie"><![endif]-->
+<!--[if IE 8]><html class="ie8 oldie"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="" lang="zxx" dir="rtl">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e6e6e6">
+<title>userform</title>
+<link rel="stylesheet" type="text/css" href="css/GeneralElements.css">
+<link rel="stylesheet" type="text/css" href="css/GeneralFonts.css">
+<link rel="stylesheet" type="text/css" href="css/Icons.css">
+<link rel="stylesheet" type="text/css" href="css/userForm.css">
+<link rel="stylesheet" type="text/css" href="accordion/accordion.css">
+<link rel="stylesheet" type="text/css" href="javalightbox/lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/userformprint.css">
+<link href="css/userformprint.css" rel="stylesheet" media="print" type="text/css" />
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="accordion/jquery-1.8.3.js"></script>
+<!--<script src="accordion/overaccordion.js"></script>-->
+</head>
+<body>
+	<div class="gridContainer">
+		<header>
+		  <div class="Container">
+			  <ul class="TopHeaderContent">
+			  	 <li class="ContainerLogo">
+			  	  <a class="LogoConLink" href="index.html">
+					 <div class="LogoIcon icon-01"></div>
+					  <div class="LogoTxt">
+						  <h1 class="LogoTitle">מערכת מלגות</h1>
+						  <h2 class="LogoSubTitle">הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</h2>
+					  </div>
+				  </a>  
+			  	  </li>
+			  	  
+				  <li class="UserAccountForm">
+					  <div class="NameUser">
+						  <p>שלום</p>
+						  <a href="#" class="EmailUser">yosi@gmail.com</a>
+					  </div>
+						<div class="Logout">
+							<div class="FormBtn LogoutBtn">יציאה</div>
+						</div>	
+				  </li>
+			  </ul>	
+		  </div>
+		</header>
+		<div class="MainContent">			
+		<div class="Container">
+			<div class="AboutuserForm">		
+				<h1>קצת עלינו</h1>
+				<p>
+				הקרן לעידוד תעסוקה במגזר תעשיות עתירות ידע, מעוניינת לעזור לסטודנטים ללמוד לימודים חוץ אקדמיים.<br/>
+				העזרה הינה דרך הענקת מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
+				</p>
+			</div>
+			<div class="userFormInstructions hideSection">
+				<h2>לפניך טופס בקשה לקבלת מלגה למימון לימודים</h2>
+				<h2>לתשומת ליבך!!!</h2>
+				<div class="More_marginTop">
+				<p>על מנת למנוע עיכובים בתהליך הרישום:</p>
+				<p>* נא למלא את הפרטים ולצרף את כל המסמכים הנדרשים</p>
+				<p>* בכל שלב ניתן לשמור את הטופס המלא באופן חלקי ולחזור אליו במועד מאוחר יותר להמשך התהליך</p>
+				</div>
+			</div>
+
+	   <form action="Accordionform.html" method="post" name="Accordionform" id="Accordionform">	
+	   <ul id="accordion">
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline accordionHeaderOne NoBorderTop accordionHeaderRaduis">
+				<p class="accordionTitle">פרטים אישיים</p>
+				<span class="downIcon upIcon icon-05"></span>	
+			</div>
+	  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine PersonalInfo">
+				  <li class="accordionInputBox"><p class="inputlabel">שם פרטי</p><input id="AcformFirstName" required type="text" name="AcformFirstName"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">שם משפחה</p><input id="AcformLastName" required type="text" name="AcformLastName"></li>
+				  <li class="accordionInputBox"><p class="inputlabel">מספר ת"ז</p><input id="AcformID" required type="text" name="AcformID"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">אימייל</p><input id="AcformEmail" required type="email" name="AcformEmail"></li>
+				  <li class="accordionInputBox"><p class="inputlabel">כתובת מגורים</p><input id="AcformAddrees" required type="text" name="AcformAddrees"></li>
+				  <li class="accordionInputBox No_marginLeft"><p class="inputlabel">טלפון נייד</p><input id="AcformPhone" required type="text" name="AcformPhone"></li>
+				</ul>
+<div class="page-break"></div>				
+			    <ul class="EnterPass">				  
+				  <li class="accordionInputBox InputBoxDate">
+				  <p class="inputlabel">תאריך לידה</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						<select required name="AcformDate">
+						<option value="">הגדר/י תאריך</option>
+						<option value="">01/01/17</option>
+						<option value="">01/02/17</option>
+						<option value="">01/03/17</option>
+						<option value="">01/04/17</option>
+						<option value="">01/05/17</option>
+						<option value="">01/06/17</option>
+						</select>
+                	</label>
+				  </li>
+
+				  <li class="accordionInputBox InputBoxStatos">
+				  <p class="inputlabel">מצב משפחתי <span class="smullTxt">(רווק/ה, נשוי/נשואה, חד הורי/ת, גרוש/ה + ילדים)</span></p>
+				  <input id="AcformStatos" required type="text" name="AcformStatos">
+				  </li>
+				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">ארץ לידה</p>
+				  <input id="AcformCountry" required type="text" name="AcformCountry">
+				  </li>
+				  		  				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">שנת עליה</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-08"></span>
+						<select required name="inputSubject">
+						<option value="">בחר/י שנה</option>
+						<option value="">2000</option>
+						<option value="">2001</option>
+						<option value="">2002</option>
+						<option value="">2003</option>
+						<option value="">2004</option>
+						<option value="">2005</option>
+						</select>
+                	</label>
+				  </li>	
+				  
+				  <li class="accordionInputBox InputBoxBig">
+				  <p class="inputlabel">הנך מתנדב/ת במקום כלשהו, נא ציין/י את שמו / שם הפרויקט</p>
+				  <input id="AcformVolunteer" required type="text" name="AcformVolunteer">
+				  </li>
+				</ul>	
+			</div>
+			</li>
+			
+		   <li class="hideSection">
+			<div class="accordionHeader accordionHover BoxStrokeline">
+				<p class="accordionTitle">דיווח על מקום עבודה</p>
+				<span class="downIcon icon-05"></span>	
+			</div>		  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline"></div>
+			</li>
+<div class="page-break"></div>	   
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline">
+				<p class="accordionTitle">פרטי הרשמתך למכללה</p>
+				<span class="downIcon icon-05"></span>	
+			</div>		  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+			   
+			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine CollegeReg">
+				  <li class="accordionInputBox InputBoxBig">
+				  <p class="inputlabel">שם המכללה אליה נרשמת</p><input id="CollegeName" required type="text" name="CollegeName"></li>
+				  <li class="accordionInputBox InputBoxBig">
+				  <p class="inputlabel">שם ההסמכה/קורס/תואר אליו נרשמת</p><input id="qualification" required type="text" name="qualification"></li>
+				</ul>
+
+				 <ul class="EnterPass">	
+				 <li class="accordionInputBox InputBaginDate">
+				  <p class="inputlabel">מועד תחילת הלימודים</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						<select required name="AcformBaginDate">
+						<option value="">הגדר/י תאריך</option>
+						<option value="">01/01/17</option>
+						<option value="">01/02/17</option>
+						<option value="">01/03/17</option>
+						<option value="">01/04/17</option>
+						<option value="">01/05/17</option>
+						<option value="">01/06/17</option>
+						</select>
+                	</label>
+				  </li>
+				  			  
+				  <li class="accordionInputBox InputEndDate">
+				  <p class="inputlabel">מועד משוער לסיום לימודים</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						<select required name="AcformEndDate">
+						<option value="">הגדר/י תאריך</option>
+						<option value="">01/01/17</option>
+						<option value="">01/02/17</option>
+						<option value="">01/03/17</option>
+						<option value="">01/04/17</option>
+						<option value="">01/05/17</option>
+						<option value="">01/06/17</option>
+						</select>
+                	</label>
+				  </li>
+
+				  <li class="accordionInputBox InputBoxBig InputTuitionAmount">
+				  <p class="inputlabel">גובה שכר הלימוד</p>
+				  <input id="AcformTuitionAmount" required type="text" name="AcformTuitionAmount">
+				  </li>
+				  
+				  <li class="accordionInputBox">
+				  <p class="inputlabel">שם איש קשר/יועץ לימודים</p>
+				  <input id="AcformContactName" required type="text" name="AcformContactName">
+				  </li>
+
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">אימייל</p>
+				  <input id="ContactNameEmail" required type="email" name="ContactNameEmail">
+				  </li>
+				</ul>	
+			</div>
+			</li>	
+<div class="page-break"></div>	   
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline">
+				<p class="accordionTitle">מסמכים נדרשים</p>
+				<span class="downIcon icon-05"></span>	
+			</div>		  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+				<div class="userFormInstructions" title="00"><h2>נא לצרף את המסמכים הנדרשים</h2><p>* ניתן לעלות מקסימום גודל קובץ - 2 mb</p></div>
+
+			    <div class="DocreqContainer" title="01">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>העתק תעודת בגרות מלאה או חלקית הכוללת ציוני בגרות במתמטיקה ואנגלית</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel FilelabelSelcted">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+								
+									
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+				
+			    <div class="DocreqContainer" title="02">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>העתק תואר אקדמי / תעודה מקצועית אחרת</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+											
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>					
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+		    				
+			    <div class="DocreqContainer" title="03">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>תעודת שחרור מצה"ל / שירות לאומי - עד 5 שנים משירות סדיר</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+											
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+<div class="page-break"></div>				
+			    <div class="DocreqContainer" title="04">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>קורות חיים</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+											
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+							
+			    <div class="DocreqContainer" title="05">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>צילום תעודת זהות כולל הספח / תעודת תושב / דרכון</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+											
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+
+				<div class="userFormInstructions" title="02"><h2>אישורי מכללה</h2></div>
+				
+				<div class="DocreqContainer" title="01">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>אישור קבלה ללימודים במכללה</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+											
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+				
+			    <div class="DocreqContainer" title="02">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>מכתב המלצה מיועץ הלימודים של המכללה</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+										
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+<div class="page-break"></div>				
+				<div class="userFormInstructions" title="03"><h2>מסמכי בנק</h2></div>
+				
+				<div class="DocreqContainer" title="01">
+				    <div class="DocreqSelect DocreqPadding"><span class="No_curser EmptyIcon icon-10 SelctedChack"></span><span class="No_curser ChackIcon icon-11"></span></div>
+				    <p>פירוט מצב כלכלי העתק 3 חודשי עו”ש אחרונים</p>
+					<div class="UpLoudFileBtnBox">
+					  <div class="UpLoudFileBtn">
+						<div class="FileContainer UpLoudFilelabel">
+							<input title="בחירת קובץ" type="file">
+						</div>
+					  </div>
+					  <p class="FileNotUpLoad">קובץ לא צורף</p>
+					</div>
+											
+					<div class="ProcessBox"><span class="ProcessIcon icon-09"></span><div class="ProcessColor"></div></div>
+					<div class="DocreqUpLoudBoxLine"></div>
+				</div>
+<div class="page-break"></div>
+				<div class="userFormInstructions marginTopPrint" title="04"><h2>פירוט סיבה לבקשת מלגה</h2></div>
+				<div class="PersonaLetter">
+					<p class="PaddingButtom">מכתב אישי עם הסיבות לבקשתך, בו יש לפרט במיוחד את הנושאים הבאים:</p>
+					<ul class="PersonaLetterList">
+						<li class="PaddingButtom">
+						<p class="inputlabel PersonaLetterTitle">מהן הסיבות שבגינן הנך מגיש/ה בקשה למילגה</p>
+						<textarea rows="5" cols="5" class="inputcontent"></textarea>
+						</li>
+												 
+						<li class="PaddingButtom">
+						<p class="inputlabel PersonaLetterTitle">מהן הסיבות שבחרת ללמוד מקצוע זה</p>
+						<textarea rows="5" cols="5" class="inputcontent"></textarea>
+						</li>
+							
+						<li>
+						<p class="inputlabel PersonaLetterTitle">מצבים מיוחדים של המבקש/ת ו/או בני משפחתו/ה הקרובים, הורים ואחים (מחלה ממושכת / נכות / מגורים / יתמות / יתום צה"ל)</p>
+						<textarea rows="5" cols="5" class="inputcontent"></textarea>
+						</li>	
+					</ul>
+				</div>																				
+			</div>
+			</li>
+<div class="page-break"></div>	   
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline">
+				<p class="accordionTitle">פרטים על שירות צבאי</p>
+				<span class="downIcon icon-05"></span>	
+			</div>		  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline ContentMilitarySer">
+			<ul class="EnterPass RegUserBoxs RegUserBoxsLine MilitarySer">
+			 <li class="accordionInputBox TypeServiceBox MoreInputBoxBig">
+			 <p class="inputlabel">סוג שירות צבאי</p>
+			 <div class="MilitaryRadioBox">
+			 <div class="MilitaryRadio"><input class="RadioBtn" id="AcformMilitarySader" type="radio" name="AcformMilitaryType" value="סדיר"><p>סדיר</p></div>
+			 <div class="MilitaryRadio"><input class="RadioBtn" id="AcformMilitaryPermanent" type="radio" name="AcformMilitaryType" value="קבע"><p>קבע</p></div>
+			 <div class="MilitaryRadio"><input class="RadioBtn" id="AcformMilitaryNational" type="radio" name="AcformMilitaryType" value="לאומי"><p>לאומי</p></div>
+			 <div class="MilitaryRadio"><input class="RadioBtn" id="AcformMilitarydismiss" type="radio" name="AcformMilitaryType" value="פטור"><p>פטור</p></div>
+			 </div>
+			 </li>
+			 <li class="accordionInputBox No_marginLeft dismiss">
+				<p class="inputlabel">ציין/י סיבה לפטור</p><input id="Acformdismiss" required type="text" name="Acformdismiss">
+			 </li>
+			 <li class="accordionInputBox WarrCercheBox No_marginLeft MoreInputBoxBig">
+				<input class="WarrCercheckbox" id="AcformWarrCer" type="checkbox" name="AcformWarrCer"><p class="inputlabel WarrCercheTitle">ברשותי תעודת לוחם/ת</p>
+			 </li>
+			 <li class="accordionInputBox"><p class="inputlabel">מספר אישי</p><input id="AcformPersonalNumber" required type="text" name="AcformPersonalNumber"></li>
+			 <li class="accordionInputBox No_marginLeft">
+			  <p class="inputlabel">תאריך גיוס</p>
+				<label class="inputcontent">
+					<span class="selectBtn icon-07"></span>
+					<select required name="AcformDateRecruitment">
+					<option value="">הגדר/י תאריך</option>
+					<option value="">01/01/17</option>
+					<option value="">01/02/17</option>
+					<option value="">01/03/17</option>
+					<option value="">01/04/17</option>
+					<option value="">01/05/17</option>
+					<option value="">01/06/17</option>
+					</select>
+				</label>
+			  </li>
+			</ul>
+				
+			    <ul class="EnterPass">
+				  <li class="userFormInstructions"><h2>אנא ציין/י את תאריך השחרור משרות</h2></li>			  
+				  
+				  <li class="accordionInputBox MilitarySaderBox">
+				  <p class="inputlabel">סדיר</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						<select required name="AcformSaderDate">
+						<option value="">הגדר/י תאריך</option>
+						<option value="">01/01/17</option>
+						<option value="">01/02/17</option>
+						<option value="">01/03/17</option>
+						<option value="">01/04/17</option>
+						<option value="">01/05/17</option>
+						<option value="">01/06/17</option>
+						</select>
+                	</label>
+				  </li>
+
+				  <li class="accordionInputBox PermanentDateBox">
+				  <p class="inputlabel">קבע</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						<select required name="AcformPermanentDate">
+						<option value="">הגדר/י תאריך</option>
+						<option value="">01/01/17</option>
+						<option value="">01/02/17</option>
+						<option value="">01/03/17</option>
+						<option value="">01/04/17</option>
+						<option value="">01/05/17</option>
+						<option value="">01/06/17</option>
+						</select>
+                	</label>
+				  </li>
+				  
+				 <li class="accordionInputBox PermanentDateBox">
+				  <p class="inputlabel">לאומי</p>
+					<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+						<select required name="AcformPermanentDate">
+						<option value="">הגדר/י תאריך</option>
+						<option value="">01/01/17</option>
+						<option value="">01/02/17</option>
+						<option value="">01/03/17</option>
+						<option value="">01/04/17</option>
+						<option value="">01/05/17</option>
+						<option value="">01/06/17</option>
+						</select>
+                	</label>
+				  </li>
+				  
+				  <li class="accordionInputBox No_marginLeft">
+				  <p class="inputlabel">דרגה בה השתחררת</p>
+				  <input id="Acformrank" required type="text" name="Acformrank">
+				  </li>
+				  				  		  				  
+				  <li class="accordionInputBox InputBoxBig">
+				  <p class="inputlabel">תפקיד</p>
+				  <input id="AcformJob" required type="text" name="AcformJob">
+				  </li>
+				</ul>	
+			</div>
+			</li>	
+	   
+		   <li>
+			<div class="accordionHeader accordionHover BoxStrokeline">
+				<p class="accordionTitle">פירוט מצב כלכלי</p>
+				<span class="downIcon icon-05"></span>	
+			</div>		  
+			<div class="accordionContent BoxTopStrokeline BoxStrokeline ContentEconomicStat">
+			
+			<ul class="EnterPass LessRegUserBoxs RegUserBoxsLine EconomicStat">
+			 <li class="EconomicBox">
+				 <p class="EconomicPar">האם יש בבעלותך דירה,  או יותר מ-33% בעלות על דירה ?</p>
+				 <div class="EconomicRadioBox">
+				 <div class="EconomicRadio"><input class="RadioBtn EconomicRadioBtn" id="ApartmentYes" type="radio" name="Apartment" value="כן"><p>כן</p></div>
+				 <div class="EconomicRadio"><input class="RadioBtn EconomicRadioBtn" id="ApartmentNo" type="radio" name="Apartment" value="לא"><p>לא</p></div>
+				 </div>
+			 </li>
+			 
+			 <li class="EconomicBox">
+				 <p class="EconomicPar">האם יש בבעלותך רכב המשמש אותך לפחות 33% מהזמן?</p>
+				 <div class="EconomicRadioBox">
+				 <div class="EconomicRadio"><input class="RadioBtn EconomicRadioBtn" id="CarYes" type="radio" name="Car" value="כן"><p>כן</p></div>
+				 <div class="EconomicRadio"><input class="RadioBtn EconomicRadioBtn" id="CarNo" type="radio" name="Car" value="לא"><p>לא</p></div>
+				 </div>
+			 </li>
+			 
+			 <li class="EconomicBox">
+				 <p class="EconomicPar">האם עבדת ב-24 החודשים האחרונים?</p>
+				 <div class="EconomicRadioBox">
+				 <div class="EconomicRadio"><input class="RadioBtn EconomicRadioBtn" id="WorkYes" type="radio" name="Work" value="כן"><p>כן</p></div>
+				 <div class="EconomicRadio"><input class="RadioBtn EconomicRadioBtn" id="WorkNo" type="radio" name="Work" value="לא"><p>לא</p></div>
+				 </div>
+			 </li>
+			 
+			<li class="userFormInstructions No_marginButtom MorePaddingTop fixFloatRight"><h2>אנא ציין/י פרטים על מקום עבודה</h2></li>
+			<li class="accordionInputBox EconomicPlaceBox">
+				<p class="inputlabel">מקום/ות עבודה ב-24 החודשים האחרונים</p>
+				<input id="EconomicPlace" required type="text" name="EconomicWorkPlace">
+			</li>
+			<li class="accordionInputBox No_marginLeft EconomicPlaceBox">
+				<p class="inputlabel">משכורת ממוצעת לחודש ברוטו ב-24 החודשים האחרונים</p>
+				<input id="EconomicAvrage" required type="text" name="EconomicSalary">
+			</li>			
+			</ul>
+<div class="page-break"></div>				
+			<ul class="EnterPass">
+			<li class="userFormInstructions FloatmarginTopPrint"><h2>כיצד בכוונתך לממן את הלימודים?  סמן את כל רלוונטי</h2></li>
+				<li class="EconomicBox">
+				<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-11 SelctedChack"></span></div>
+				<p class="EconomicPar paddingTop">עבודה בזמן הלימודים</p>				
+				</li>
+				
+				<li class="accordionInputBox MorePaddingButtom">
+				<p class="inputlabel">ציין/ני מקום עבודה</p>
+				<input id="EconomicWorkPlace" required type="text" name="EconomicWorkPlace">
+				</li>
+				
+				<li class="accordionInputBox No_marginLeft MorePaddingButtom">
+				<p class="inputlabel">משכורת חודשית ברוטו צפויה</p>
+				<input id="EconomicPayment" required type="text" name="EconomicSalary">
+				</li>
+				
+				<li class="EconomicBox">
+				<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-11 SelctedChack"></span></div>
+				<p class="EconomicPar paddingTop">הורים / קרובי משפחה</p>				
+				</li>
+				
+				<li class="EconomicBox">
+				<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-11 SelctedChack"></span></div>
+				<p class="EconomicPar paddingTop">הלוואה למימון לימודים</p>				
+				</li>
+				
+				<li class="accordionInputBox MorePaddingButtom">
+				<p class="inputlabel">ציין/י מקור מימון</p>
+				<input id="EconomicFunding" required type="text" name="EconomicFunding">
+				</li>
+				
+				<li class="accordionInputBox No_marginLeft MorePaddingButtom">
+				<p class="inputlabel">גובה הלוואה שבכוונתך לקחת</p>
+				<input id="EconomicLoan" required type="text" name="EconomicLoan">
+				</li>
+				
+				<li class="EconomicBox MorePaddingButtom">
+				<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-11 SelctedChack"></span></div>
+				<p class="EconomicPar paddingTop">אחר</p>				
+				</li>
+				<li class="accordionInputBox InputBoxBig"><input id="EconomicOther" required type="text" name="EconomicOther"></li>
+			</ul>
+			</div>
+			</li>												
+<div class="page-break"></div>						
+		   <li>
+		   <div class="accordionHeader accordionHover">
+			   <p class="accordionTitle">הצהרות התחייבויות מקבל/ת המלגה</p>
+			   <span class="downIcon icon-05"></span>
+		   </div>   
+		   <div class="accordionContent BoxStrokeline">
+		   
+		   <ul class="EnterPass RegUserBoxs RegUserBoxsLine MorePaddingButtom ContentStatementsLiab">
+			<li class="userFormInstructions"><h2>בבקשה זו אני מצהיר/ה ומתחייב/ת כי:</h2></li>
+			
+			<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+			הוסברו לי מטרות ועקרונות הפעולה של הקרן על-ידי נציג המכללה והגשתי בקשה זו לאחר שהבנתי היטב נושאים אלו.
+			</p>				
+			</li>
+
+			<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+ידוע לי כי הקרן הינה קרן עצמאית, המקבלת את החלטותיה על פי שיקולים תקציביים ואחרים, שיקולים השמורים לקרן בלבד. אשר על כן ידוע לי כי הקרן אינה מתחייבת לאשר לי מלגה כלל ו/או אינה מתחייבת לגבי גובה המלגה שתאשר. החלטות הקרן הינן אישיות וסודיות ואין הקרן מתחייבת לחשוף בפני את שיקוליה ו/או תהליכי קבלת ההחלטות שלה.
+			</p>				
+			</li>
+
+	   	   	<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+אני מתחייב/ת להשתמש במלגה רק לצורך מימון לימודיי במכללה.
+			</p>				
+			</li>
+
+			<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+ידוע לי שבמידה ואפרוש מהלימודים המלגה תוחזר לקרן ללא תלות בסיבת פרישתי.
+			</p>				
+			</li>
+
+	   	   	<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+אני מתחייב/ת לעדכן את הקרן לגבי מקום עבודתי, תפקידי, והטכנולוגיות בהן אני עובד/ת, אחת לרבעון במשך 3 שנים ממועד סיום לימודי במכללה. העדכון יתבצע במשלוח אימייל לפי ההנחיות שאקבל.
+			</p>				
+			</li>  	   
+		   </ul>
+		   
+		   <ul class="EnterPass">
+		   
+			<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+אני מתחייב/ת שכל הפרטים שמסרתי לעיל הינם נכונים ושלמים.
+			</p>				
+			</li>
+
+	   	   	<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+ידוע לי, כי חברי הקרן רשאים לבדוק ולאמת את הצהרותיי ואישורי ההכנסות שמסרתי. 
+			</p>				
+			</li>
+
+			<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+אני מתחייב/ת להודיע למזכירות המכללה על כל שינוי שיחול בפרטים שנמסרו בטופס.
+			</p>				
+			</li>
+
+	   	   	<li class="DeclarationBox">
+			<div class="DocreqSelect"><span class="EmptyIcon icon-10"></span><span class="ChackIcon icon-12 SelctedChack"></span></div>
+			<p class="DeclarationPar">
+אני מתחייב/ת בזאת, והיה ולא אעמוד בתנאים הרשומים לעיל, אחזיר לקרן את מלוא סכום המלגה שניתנה לי וזאת במועד דרישתה הראשונה של הקרן בכפוף לכך שלא עמדתי בתנאים הללו.				</p>				
+			</li>
+<div class="page-break"></div>	
+			<li class="userFormInstructions DeclarationTitle StatementsLiab"><h2>חתימת הצהרה</h2></li>
+			<li class="accordionInputBox">
+			<p class="inputlabel">תאריך</p>
+			<input id="DeclarationDate" required type="text" name="DeclarationDate">
+			</li>
+
+			<li class="accordionInputBox No_marginLeft">
+			<p class="inputlabel">שם מלא</p>
+			<input id="DeclarationFirstName" required type="text" name="DeclarationFirstName">
+			</li>	   	   	   
+		   </ul>
+		   </div>
+		   </li>
+		</ul>
+		
+		<ul class="RemarkBox">
+			<li>
+			<p class="RemarkTitle">חשוב לזכור לפני שליחת הבקשה !!!</p>
+			<p>לוודא שכל השדות מלאים וכל המסמכים מצורפים. לאחר שליחת הבקשה אין אפשרות לשינויים בבקשה למעט שינוי פרטים אישיים כגון: טלפון, אימייל וכתובת מגורים.</p>	
+			</li>
+			
+			<li>
+			<p class="ErrorRemarkTitle TitleRed">הבקשה לא נשלחה עקב נתונים חסרים</p>
+			<p class="ErrorRemarkTitle TitleRed ErrorPass">הבקשה לא נשלחה עקב נתונים חסרים</p>
+			<p class="ErrorRemarkTitle MorePaddingTop">פרטים אישיים</p>
+				<p>כתובת מגורים, טלפון נייד</p>
+			<p class="ErrorRemarkTitle">פרטי הרשמתך למכללה</p>
+				<p>שם המכללה אליה נרשמת</p>	
+			</li>
+			
+			<li class="accordionSave">
+			<input class="InsideFormBtn" type="submit" value="שמור/י" name="send" title="שמור/י">
+			<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו במערכת</p></a>
+			</li>
+			<li class="accordionSend">
+			<input class="InsideFormBtn popBtn" data-pop="popbtn1" type="submit" value="שליחת בקשה" name="send" title="שליחת בקשה">
+			</li>			
+		</ul>
+
+		</form>   
+		</div>
+       
+        <div class="popGroup1Content" id="popbtn1">
+          <div class="BoxContainer">
+          <div class="PopUpBoxsWrapper">
+			  <div class="userFormInstructions No_marginButtom"><h2 class="PopUpTitle">ההרשמה הסתיימה בהצלחה</h2></div>
+              <p class="PopUpPar">תשובה על הרשמתך תשלח למייל שלך כפי שציינת בפרטים האישיים, תודה על השקעתך בהצלחה</p>
+          </div>
+			<div class="InsideFormBtn PopUpBtn closeBtn"><p>סגור</p></div>
+          </div>  
+        </div>
+         			
+		</div>
+		<div class="BeforFooter"><img src="images/footerPic.png" alt="footerPic"/></div>
+		<div class="mobilePic"><img src="images/footerPicmobile.png" alt="footerPic"/></div>
+	    <footer>
+			<div class="Container ContainerForm">
+				<div class="mainFooter">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+				</div>
+			</div>
+		</footer>	
+	</div>
+
+<script src="accordion/scroll.smooth.js"></script>	
+<script src="accordion/jquery-ui.min.js"></script>
+<script src="javalightbox/lightbox.js"></script>	
+</body>
+</html>

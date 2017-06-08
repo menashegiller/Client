@@ -1,0 +1,150 @@
+/* ScssGeneralFonts */
+/* CSS font */
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/Opensans/opensanshebrew-lightitalic-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-lightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-lightitalic-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-lightitalic-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Opensans/opensanshebrew-light-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-light-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-light-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/Opensans/opensanshebrew-italic-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-italic-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-italic-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Opensans/opensanshebrew-regular-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-regular-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-regular-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/Opensans/opensanshebrew-bolditalic-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-bolditalic-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-bolditalic-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Opensans/opensanshebrew-bold-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-bold-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-bold-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/Opensans/opensanshebrew-extrabold-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-extrabold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-extrabold-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-extrabold-webfont.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Opensans/opensanshebrew-extrabold-webfont.eot");
+  src: url("../fonts/Opensans/opensanshebrew-extrabold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Opensans/opensanshebrew-extrabold-webfont.woff") format("woff"), url("../fonts/Opensans/opensanshebrew-extrabold-webfont.ttf") format("truetype"); }
+Html, body {
+  height: 100%;
+  font-family: "Open Sans Hebrew";
+  font-size: 1em;
+  direction: rtl;
+  color: #333333;
+  background-color: #E6E6E6; }
+
+ol, ul, li {
+  text-decoration: none;
+  list-style-type: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-style: normal;
+  text-decoration: none;
+  font-weight: normal;
+  direction: rtl; }
+
+.no_underline {
+  text-decoration: none !important; }
+  .no_underline:hover {
+    text-decoration: none !important; }
+
+input, textarea, select {
+  font-size: 1.2em; }
+
+H1 {
+  font-size: 2.3em; }
+
+H2 {
+  font-size: 1.5em; }
+
+H3 {
+  font-size: 1.9em; }
+
+H4 {
+  font-size: 1.3em; }
+
+p {
+  font-size: 1.2em; }
+
+a {
+  color: #4383CF;
+  font-size: 1.2em; }
+  a:hover {
+    text-decoration: underline; }
+
+.smullTxt {
+  font-size: 0.8em; }
+
+.Welcome h2 {
+  font-size: 4em;
+  font-weight: bold;
+  line-height: 71px; }
+
+.NewPassBoxTitle h2 {
+  font-size: 2.8em;
+  font-weight: bold; }
+
+@media only screen and (min-width: 450px) {
+  H1 {
+    font-size: 2.8em; } }
+@media only screen and (min-width: 1200px) {
+  .NewPassBoxTitle h2 {
+    font-size: 4em; } }
+@media only screen and (min-width: 1250px) {
+  H1 {
+    font-size: 3.2em; }
+
+  H2 {
+    font-size: 1.8em; } }
+@media only screen and (min-width: 1350px) {
+  .Welcome h2 {
+    font-size: 4.5em; } }
+/*---Start Font Size---*/
+/*
+0.7em = 11.2px
+0.8em = 12.8px
+0.9em = 14.4px
+1em = 16px
+1.08em = 17.28px
+1.1em = 17.6px
+1.25em = 20px
+1.125em = 18px
+1.2em = 19.2px
+1.3em = 20.8px
+1.4em = 22.4px
+1.5em = 24px
+1.6em = 25.6px
+1.7em = 27.2px
+1.75em = 28px
+1.77em = 24px 
+1.8em = 28.8px
+1.9em = 28px
+2em = 32px
+2.14em = 40px
+2.125em = 34px
+2.5em = 40px
+2.8125em = 45px
+*/

@@ -1,0 +1,47 @@
+<div class="RegUserBoxs">	
+	<div class="EnterTitle"><h4>לכניסה עם SMS</h4></div>
+	<form action="" method="post" name="EnterSmsform" id="EnterSmsform">
+		<ul *ngIf="!smsState" class="EnterSmsMobile">
+			<li class="EnterPassBox">
+				<p class="inputlabel">אנא הקלד/י טלפון נייד</p>
+				<input class="EnterMobileBox" id="EnterMobile" (focus)="numberState=true;number10=true;" (focusout)="if10(phoneNumber)" [(ngModel)]="phoneNumber" type="text" required name="EnterMobile">	
+			</li>
+			
+			<li class="EnterSmsCodePhoneBtn">
+				<input class="InsideFormBtn" type="submit" (click)="sendCodeBySms(phoneNumber)" value="לחצ/י לקבלת קוד טלפוני" name="sendCode" title="לחצ/י לקבלת קוד טלפוני">
+			</li>	
+			<li>
+				<a *ngIf="!number10" (click)="number10=true" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+				<p>המספר לא תקין. המספר אמור להיות בן 10 ספרות</p></a>	
+			</li>
+			<li>
+				<a *ngIf="!numberState" (click)="numberState=true" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+				<p>הטלפון הנייד שהזנת לא קיים במערכת. אנא הזן שוב</p></a>	
+			</li> 
+		</ul>
+
+		<ul *ngIf="smsState" class="EnterSmsCode">
+			<li class="EnterPassBox">
+				<p class="inputlabel">אנא הקלד/י קוד שהתקבל</p>
+				<input class="EnterCodeeBox" id="EnterCode" [(ngModel)]="code" type="text" required name="EnterCode">						
+			</li>
+			
+			<li class="EnterSmsCodeBtn">
+				
+				<input class="InsideFormBtn" type="submit" (click)="loginWithSmsCode(code)" value="כניסה" name="EnterCodeSend" title="כניסה">
+				<div class="SmsCodeSendBox">
+
+					<p *ngIf="ticks>0" class="SmsCodeSendTitle">הקוד נשלח</p>
+					<p *ngIf="ticks>0" class="LinkBtn SmsCodeSendAgin" (click)="sendCodeBySms(phoneNumber)">שלח/י שוב</p>
+					<p *ngIf="ticks>0" class="SmsCodeSendTimer">{{ticks}}</p>
+					<p *ngIf="ticks>0" class="SmsCodeSendTitle">לא קיבלת קוד?</p>
+				</div>	
+			</li>
+			<li>
+				<a *ngIf="ifTrue" (click)="ifTrue=false" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+					<p>הקוד שהזנת אינו נכון. אנא בדוק\י והזן שוב</p>
+				</a>
+			</li>
+		</ul>	
+	</form>	
+</div>

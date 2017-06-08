@@ -1,0 +1,58 @@
+<div class="MainContent">
+	<div class="Container">
+		<div class="AboutuserForm No_marginButtom">
+			<h1>הגדרת משתמשים</h1>
+		</div>
+		<div class="userFormInstructions">
+			<h2 class="InstructionsTitle">לפניך מספר אפשרויות:</h2>
+			<div class="ParagraphBox">
+				<p>* להגדיר משתשמש חדש והרשאות שימוש</p>
+				<p>* תוכל לבצע עריכה למשתמש קיים</p>
+				<p>* באפשרותך לבצע סינון בלחיצה על כל שם עמודה</p>
+			</div>
+		</div>
+
+		<div class="newUserContainer">
+			<div class="userFormInstructions No_marginButtom">
+				<h2>הגדרת משתמש חדש (+)</h2>
+			</div>
+			<div class="newUserBox">
+				<as-formEmployee #emplForm [model]='null'></as-formEmployee>
+			</div>
+		</div>
+		
+		<div class="userFormInstructions No_marginButtom">
+			<h2>עריכת משתמשים</h2>
+		</div>
+	
+		<accordion>
+			<div class="newUserBoxTitle DarkGray NoBorderTop accordionHeaderRaduis BoxStrokeline">
+				<p class="newUserTitle UserPadding">שם מלא</p>
+				<p class="newUserTitle">הרשאות</p>
+				<p class="newUserTitle">אימייל</p>
+				<p class="newUserTitle">מקום עבודה</p>
+			</div>
+			<accordion-group
+					[ngClass]="{'red':  (_employeeForm.wasSave && e === httpService.employees[0]) }"  *ngFor="let e of httpService.employees">
+				<accordion-heading>
+					<div class="newUserSubTitleBox">
+						<p class="newUserSubTitle" title="FullName">{{e.FullName}}</p>
+					</div>
+					<div class="newUserSubTitleBox">
+						<p title="Permissions">{{e.Role_name}}</p>
+					</div>
+					<div class="newUserSubTitleBox">
+						<p title="Email">{{e.Email}}</p>
+					</div>
+					<div class="newUserSubTitleBox">
+						<p title="WorkJob">{{e.Name}}</p>
+					</div>
+
+				</accordion-heading>
+				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
+					<as-formEmployee [model]='e'></as-formEmployee>
+				</div>
+			</accordion-group>
+		</accordion>
+	</div>
+</div>
