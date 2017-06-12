@@ -10,13 +10,13 @@
 </div>
 <!--style="width: 200px;"-->
 <div > 
-    <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-sela"
+    <ag-grid-angular #agGrid style="width: 100%; height: 400px;" class="ag-sela"
                  [gridOptions]="gridOptions"
 				 [rowData]="users">
     </ag-grid-angular>
 </div>
 
-<ul class="FilteContainer" *ngFor="let user of users">
+<ul class="FilteContainer">
 	<li class="FilteReportBoxHeader StrockPass">
 		<p>שם סטודנט/ית</p>
 		<p>תאריך הגשה</p>
@@ -29,7 +29,7 @@
 		<p>החלטה בתאריך</p>
 		<p>גובה מלגה</p>
 	</li>
-	<li class="FilteReportHeader StrockPass">
+	<li class="FilteReportHeader StrockPass" *ngFor="let user of users">
 		<p>{{user.FullName}}</p>
 		<p>{{user.RegistrationDate | date: 'dd/MM/yyyy'}}</p>
 		<p>{{user.CollegeName}}</p>

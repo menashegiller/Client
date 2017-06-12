@@ -4,37 +4,41 @@ ag-style = "sela"
 ag-root-font-family = "Open Sans Hebrew"
 ag-root-font-size = 14px
 
+
 ag-scrollbar-background = unset
 ag-scrollbar-thumb = unset
 
 ag-border-1 = 1px solid grey
 
-ag-border-color-1 = #000
-ag-border-color-2 = #808080
+ag-border-color-1 = none
+ag-border-color-2 = none
 
 ag-background-1 = #f6f6f6
 
-ag-foreground-1 = #222
+ag-foreground-1 = #FFFFFF
 
 ag-header-foreground-1 = #000
+ag-header-height = 100px
 
-ag-separator-color = #d3d3d3
+ag-separator-color = none
 
-ag-cell-focused-border = 1px solid darkgrey
-ag-cell-no-focus-border-top = 1px solid transparent
-ag-cell-no-focus-border-bottom = 1px solid transparent
-ag-cell-ltr-no-focus-border-right = 1px dotted grey
-ag-cell-ltr-no-focus-border-left = 1px solid transparent
-ag-cell-rtl-no-focus-border-right = 1px solid transparent
-ag-cell-rtl-no-focus-border-left = 1px dotted grey
+ag-cell-focused-border = none
+ag-cell-no-focus-border-top = none
+ag-cell-no-focus-border-bottom = none
+ag-cell-ltr-no-focus-border-right = none
+ag-cell-ltr-no-focus-border-left = none
+ag-cell-rtl-no-focus-border-right = none
+ag-cell-rtl-no-focus-border-left = none
 
-ag-cell-highlight-border = 1px solid darkgreen
+ag-cell-text-align = center
+
+ag-cell-highlight-border = none
 
 ag-cell-padding = 2px
 
-ag-row-selected-background-color = powderblue
-ag-row-odd-background-color = #f6f6f6
-ag-row-even-background-color = white
+ag-row-selected-background-color = #004467
+ag-row-odd-background-color = #B3B3B3
+ag-row-even-background-color = #B3B3B3
 ag-row-floating-background-color = #f0f0f0
 ag-row-stub-background-color = #f0f0f0
 
@@ -72,8 +76,7 @@ ag-menu-option-shortcut-padding = 2px 2px 2px 2px
 @import "../../../../node_modules/ag-grid/src/styles/theme-common"
 
 //OVERRIDE GOES HERE
-.ag-ltr
-    direction rtl
+
 
 .ag-header-cell-label
     color white
@@ -84,3 +87,13 @@ ag-menu-option-shortcut-padding = 2px 2px 2px 2px
 .ag-filter input, .ag-filter select
     border-radius:0px
     height: 30px
+
+.ag-cell
+    padding-top: 15px!important
+    padding-bottom: 15px!important
+    text-align: center
+    font-size: 19.2px
+.ag-row
+    border-bottom-color: #FFFFFF
+    border-bottom-style: solid
+    border-bottom-width: 3px
