@@ -565,7 +565,7 @@ userObj.GetRoles = function (request, res, next) {
             var post = qs.parse(body);
 
             userBL.sqlGetAllPersons(post, function (recordset) {
-                if (!recordset[0][0].isError  ){//recordset[0][0].length > 0) {
+                if (!recordset[0].isError  ){//recordset[0][0].length > 0) {
 
                     //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
                     res.json({

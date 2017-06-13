@@ -24,8 +24,9 @@ export class ReportComponent implements OnInit {
     ngOnInit() {
             this.httpService.GetAllUsers(this.authService.currentUser.id,"filterReport").subscribe(
                res => {
-                this.users = res.json().users;
-           
+                let that = this;
+                that.users = res.json().users;
+                
             },
             err => {
                 console.log(err);
@@ -38,39 +39,34 @@ export class ReportComponent implements OnInit {
     constructor(public httpService: HttpService, public router: Router, private authService: AuthService) {
         this.gridOptions = {
              enableFilter: true,
+             floatingFilter:true,
              rowSelection: 'single',
+             enableRtl: true
         };
         
         this.gridOptions.rowHeight = 50;
 
         this.gridOptions.columnDefs = [
-           {
-                headerName: "גובה מלגה",
-                field: "Decision",
-                width: 200
-            }, 
-             {
-                headerName: "החלטה בתאריך",
+            {
+                headerName: "שם סטודנט/ית",
                 field: "FullName",
-                width: 200
-            },   
-             {
-                headerName: "סטאטוס",
-                field: "FormStatus",
-                width: 200
-            },       
-             {
-                headerName: "התחלת לימודים",
-                field: "LearningSrats",
+           //     width: 100, 
+             //   pinned: true
+            },
+            {
+                headerName: "תאריך הגשה",
+                field: "RegistrationDate",
                 width: 200,
-                 filter: 'date'
-               /* cellFormatter: function(data) {
-                        return moment(data.value).format('L');
-                    }*/
+                filter: 'number'
             },
              {
-                headerName: "סיום לימודים",
-                field: "LearningFinish",
+                headerName: "מכללה",
+                field: "CollegeName",
+                width: 200
+            },
+            {
+                headerName: "הסמכה",
+                field: "CertificationName",
                 width: 200
             },
             {
@@ -79,30 +75,48 @@ export class ReportComponent implements OnInit {
                 width: 200
             },
              {
-                headerName: "הסמכה",
-                field: "CertificationName",
-                width: 200
+                headerName: "התחלת לימודים",
+                field: "LearningSrats",
+                width: 200,
+                filter: 'date'/*,
+                cellFilter: 'date:"yyyy-MM-dd HH:mm"'*/
+              /*  cellFormatter: function(data) {
+                        let dateAsString = data.value.substring(0,10);
+                        let dateParts  = dateAsString.split("-");
+                        return new Date(Number(dateParts[0]), Number(dateParts[1]) - 1, Number(dateParts[2]));
+                        
+               }*/
+             
             },
             {
-                headerName: "מכללה",
-                field: "CollegeName",
+                headerName: "סיום לימודים",
+                field: "LearningFinish",
                 width: 200
             },
              {
-                headerName: "תאריך הגשה",
-                field: "RegistrationDate",
-                width: 200,
-                filter: 'number'
+                headerName: "סטאטוס",
+                field: "FormStatus",
+                width: 200
             },
-           
-            {
-                headerName: "שם סטודנט/ית",
+             {
+                headerName: "החלטה בתאריך",
                 field: "FullName",
-           //     width: 100, 
-           //     pinned: true
+                width: 200
+            },
+             {
+                headerName: "גובה מלגה",
+                field: "Decision",
+                width: 200
             }
+
         ];
-        this.gridOptions.localeText = {
+/*        this.gridOptions.rowData = [
+            {id: 5, value: 10},
+            {id: 10, value: 15},
+            {id: 15, value: 20}
+        ];
+*/
+       this.gridOptions.localeText = {
             // for filter panel
             page: 'daPage',
             more: 'daMore',
@@ -176,7 +190,7 @@ export class ReportComponent implements OnInit {
             paste: 'laPaste',
             ctrlV: 'ctrl n C'
         };            
-       
+              
          
     }
 } 
