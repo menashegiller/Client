@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
     delimiter = file.originalname.indexOf(".");
     type = file.originalname.slice(delimiter);
     name = file.originalname.slice( 0 , delimiter);
-    cb(null, 'http://localhost:5002/public/uploads/' + name + '-' + Date.now() + type);
+    cb(null, name + '-' + Date.now() + type);
   }
 });
 
@@ -111,6 +111,7 @@ router.post('/getCertifications', userController.GetCertifications);
 
 router.post('/getRoles', userController.GetRoles);
 
+router.post('/sendDecision', userController.sendDecision);
 
 
 // router.post('/upload', userController.Upload);

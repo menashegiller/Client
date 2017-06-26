@@ -99,30 +99,15 @@ var userController = function (user) {
            
 
             userBL.CloseForChanges(post,  function () {
-               // if (recordset[0][0].Pid > 0) {
-                   // userBL.Send(post, Code);
-                    // var token = jwt.sign(post.email, superSecret );//, { expiresIn : 60*60*24});
-                   // var pid = recordset[0][0].Pid;
-                     /*var tokenData = {
-                            username: user.username,
-                         id: user._id
-                        }*/
-                 //   var token = jwt.sign(pid, superSecret);
-                    /*, {
-                        expiresIn: 1440 // expires in 24 hours
-                    });*/
-
-
+                if (recordset) {
                     res.json({
                         success: true
                     });
-              /*  }
+               }
                 else {
                     //res.send(false);
-                    res.json({
-                        success: false
-                    });
-                }*/
+                   res.status(500).send('User not fount');
+                }
             })
 
 
@@ -450,37 +435,6 @@ userObj.GetRoles = function (request, res, next) {
     }
 
 
- userObj.CloseForChanges = function (request, res, next) {
-        var body = '';
-
-        request.on('data', function (data) {
-            body += data;
-            console.log("CloseForChanges");
-            // Too much POST data, kill the connection!
-            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-            if (body.length > 1e6)
-                request.connection.destroy();
-        });
-
-        request.on('end', function () {
-            var post = qs.parse(body);
-           
-
-            userBL.CloseForChanges(post,  function (recordset) {
-             
-            //      var token = jwt.sign(pid, superSecret);
-
-                    res.json({
-                        success: true,
-                      //  token: token//,
-                    });
-            })
-
-
-            //    res.send("hello");
-        });
-    }
-
     userObj.InsertStudentForm = function (request, res, next) {
         var body = '';
         var imagedata = '';
@@ -571,6 +525,37 @@ userObj.GetRoles = function (request, res, next) {
                     res.json({
                         success: true,
                         users: recordset[0]
+                    });
+                }
+                else {
+                    //res.send(false);
+                    res.status(500).send('User not fount');
+                }
+            })
+        });
+    }
+
+    userObj.sendDecision = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+
+            userBL.sendDecision(post, function (recordset) {
+                if (recordset ){//recordset[0][0].length > 0) {
+                         userBL.SendMailDecision(recordset[0][0]);
+                    //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
+                    res.json({
+                        success: true,
+                      
                     });
                 }
                 else {

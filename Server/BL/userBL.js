@@ -17,6 +17,8 @@ var iconv = require('iconv-lite');
 
 var MailData = new require('../Classes/MailData')();
 
+var mailTexts = new require('../BL/mailTexts')();
+
 var jwtDecode = require('jwt-decode');
 
 var userBL = function () {
@@ -82,7 +84,7 @@ var userBL = function () {
         });
     }
 
- 
+
 
     userObject.forgotEmail = function (req, code, callback) {
 
@@ -105,8 +107,8 @@ var userBL = function () {
     }
 
     userObject.sqlloginWithSmsOrEmailCode = function (req, callback) {
-       // var decoded = jwt.verify(req.token, superSecret);
-       // console.log('decoded' + decoded);
+        // var decoded = jwt.verify(req.token, superSecret);
+        // console.log('decoded' + decoded);
         var connection = new sql.Connection(DBConnectionString, function (err) {
             //console.log(req.email);
             var request = new sql.Request(connection);
@@ -125,7 +127,7 @@ var userBL = function () {
     }
 
     userObject.sqlSaveNewPassword = function (req, callback) {
-      //  var decoded = jwt.verify(req.token, superSecret);
+        //  var decoded = jwt.verify(req.token, superSecret);
         var connection = new sql.Connection(DBConnectionString, function (err) {
             //console.log(req.email);
             var request = new sql.Request(connection);
@@ -141,9 +143,9 @@ var userBL = function () {
                 });
         });
     }
-  
+
     userObject.CloseForChanges = function (req, callback) {
-     
+
         var connection = new sql.Connection(DBConnectionString, function (err) {
 
             var request = new sql.Request(connection);
@@ -161,7 +163,7 @@ var userBL = function () {
     }
 
     userObject.sqlInsertStudentForm = function (req, callback) {
-     
+
         // var obj = json.parse(req.obj)
         var connection = new sql.Connection(DBConnectionString, function (err) {
             //console.log(req.email);
@@ -327,7 +329,7 @@ var userBL = function () {
     }
 
     userObject.sqlGetPerson = function (req, callback) {
-     
+
         var connection = new sql.Connection(DBConnectionString, function (err) {
             //console.log(req.email);
             var request = new sql.Request(connection);
@@ -352,9 +354,9 @@ var userBL = function () {
             //console.log(req.email);
             var request = new sql.Request(connection);
             request
-              .input('id', sql.Int, req.id)
+                .input('id', sql.Int, req.id)
                 .input('page', sql.NChar, req.page)
-              .execute('GetAllPersons')
+                .execute('GetAllPersons')
                 .then(
                 function (recordset) {
                     callback(recordset);
@@ -366,6 +368,31 @@ var userBL = function () {
                 });
         });
     }
+
+    userObject.sendDecision = function (req, callback) {
+        //   var decoded = jwt.verify(req.token, superSecret);
+        var connection = new sql.Connection(DBConnectionString, function (err) {
+            //console.log(req.email);
+            var request = new sql.Request(connection);
+            request
+                .input('Person_id', sql.Int, req.Person_id)
+                .input('FormStatus', sql.Int, req.FormStatus)
+                .input('DecisionAmount', sql.NVarChar, req.DecisionAmount)
+                .input('DecisionReasons', sql.NVarChar, req.DecisionReasons)
+                .execute('sendDecision')
+                .then(
+                function (recordset) {
+                    callback(recordset);
+                    // console.log('length:'+ recordset.lenth);
+                    //   console.log("recordset: "+recordset);
+
+                }).catch(function (err) {
+                    callback(false); // "The username or password don't match");
+                });
+        });
+    }
+
+
 
     userObject.GetCode = function (number) {
         var input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoupqrstuvwxyz0123456789";
@@ -424,7 +451,7 @@ var userBL = function () {
     }
 
     userObject.SendMail = function (postData) {
-        var host = "http://www.sela.co.il";
+        var host = "http://legacy17.sela.co.il";
 
         var to = this.JsonStringForArray(postData.To);
         var cc = this.JsonStringForArray(postData.CC);
@@ -457,6 +484,19 @@ var userBL = function () {
 
         this.SendMail(postData);
     }
+
+    userObject.SendMailDecision = function (dbInfo) {
+        var postData = MailData;
+        // postData.From = email;
+        postData.Body = mailTexts.mailDecision(dbInfo);
+        postData.IsBodyHtml = true;
+        postData.To[0] = "menasheg@sela.co.il";
+        postData.From = "sela@sela.co.il"
+
+
+        this.SendMail(postData);
+    }
+
     return userObject;
 }
 
