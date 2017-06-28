@@ -364,7 +364,7 @@ userObj.GetRoles = function (request, res, next) {
 
     userObj.authenticate = function (request, res, next) {
         var body = '';
-
+  
         request.on('data', function (data) {
             body += data;
             console.log("authenticate");
@@ -551,7 +551,7 @@ userObj.GetRoles = function (request, res, next) {
 
             userBL.sendDecision(post, function (recordset) {
                 if (recordset ){//recordset[0][0].length > 0) {
-                         userBL.SendMailDecision(recordset[0][0]);
+                         userBL.SendMailDecision(recordset);
                     //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
                     res.json({
                         success: true,

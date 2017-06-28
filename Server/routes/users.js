@@ -29,7 +29,8 @@ var upload = multer({ storage: storage,
 //     secret: config.secret
 // });
 // jwtCheck.unless = unless;
-
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 // router.use(jwtCheck.unless({path: '/users/authenticate' }));
 router.use(jwt({ secret: config.secret}).unless({
           path: [
@@ -41,8 +42,7 @@ router.use(jwt({ secret: config.secret}).unless({
             }
 ));
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
+
 // Add headers
 router.use(function (req, res, next) {
 
