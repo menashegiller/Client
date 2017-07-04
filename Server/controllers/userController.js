@@ -17,6 +17,12 @@ var multer = require("multer");
 var bodyParser = require("body-parser");
 var jwt = require('express-jwt');
 var jsonwebtoken = require("jsonwebtoken");
+
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$dfgert%$w0rD';
+const someOtherPlaintextPassword = 'not_bsdfw4534n';
+
 /*var multer = require("multer");
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -62,13 +68,13 @@ var userController = function (user) {
             var Code = userBL.GetCode(6);
 
             userBL.firstRegister(post, Code, function (recordset) {
-              if (recordset[0][0].ID > 0) {
+                if (recordset[0][0].ID > 0) {
                     userBL.Send(post, Code);
-                     res.json({
+                    res.json({
                         success: true,
-                        pid : recordset[0][0].ID
+                        pid: recordset[0][0].ID
                     });
-              }
+                }
                 else {
                     //res.send(false);
                     res.json({
@@ -82,7 +88,7 @@ var userController = function (user) {
         });
     }
 
-  userObj.CloseForChanges = function (request, res, next) {
+    userObj.CloseForChanges = function (request, res, next) {
         var body = '';
 
         request.on('data', function (data) {
@@ -96,17 +102,17 @@ var userController = function (user) {
 
         request.on('end', function () {
             var post = qs.parse(body);
-           
 
-            userBL.CloseForChanges(post,  function () {
-                if (recordset) {
+
+            userBL.CloseForChanges(post, function (recordset) {
+                if (recordset[0][0]) {
                     res.json({
                         success: true
                     });
-               }
+                }
                 else {
                     //res.send(false);
-                   res.status(500).send('User not fount');
+                    res.status(500).send('User not fount');
                 }
             })
 
@@ -129,11 +135,11 @@ var userController = function (user) {
         });
 
         request.on('end', function () {
-             var code = userBL.GetCode(6);
+            var code = userBL.GetCode(6);
             var post = qs.parse(body);
-          //  var Code = userBL.GetCode(6);
+            //  var Code = userBL.GetCode(6);
 
-            userBL.Send(post,code);
+            userBL.SendEmailToEmployee(post, code);
 
 
             //    res.send("hello");
@@ -172,16 +178,16 @@ var userController = function (user) {
 
                     // var token = jwt.sign(pid, superSecret );//, { expiresIn : 60*60*24});
                     //        var decoded = jwtDecode(req.token);
-                   // var token = jwt.sign(pid, superSecret);
+                    // var token = jwt.sign(pid, superSecret);
                     /*, {
                         expiresIn: 1440 // expires in 24 hours
                     });*/
 
-                  
+
                     res.json({
                         success: true,
                         Person_id: pid
-                      
+
                     });
                 } else {
                     //res.send(false);
@@ -227,7 +233,7 @@ var userController = function (user) {
         });
     }
 
-userObj.GetRoles = function (request, res, next) {
+    userObj.GetRoles = function (request, res, next) {
         var body = '';
 
         request.on('data', function (data) {
@@ -271,11 +277,11 @@ userObj.GetRoles = function (request, res, next) {
             userBL.sqlSaveEmployee(post, function (recordset) {
                 // if (recordset[0][0].Email != '') {
 
-      
+
                 res.json({
                     success: true,
                     emp: recordset[0][0]
-                  
+
                 });
             })
         });
@@ -296,12 +302,12 @@ userObj.GetRoles = function (request, res, next) {
             var post = qs.parse(body);
 
             userBL.sqlGetEmployees(post, function (recordset) {
-              
+
                 res.json({
                     success: true,
                     Employees: recordset[0]
                 });
-               
+
             })
         });
     }
@@ -320,12 +326,12 @@ userObj.GetRoles = function (request, res, next) {
             var post = qs.parse(body);
 
             userBL.sqlGetCertifications(post, function (recordset) {
-              
+
                 res.json({
                     success: true,
                     Certifications: recordset[0]
                 });
-               
+
             })
         });
     }
@@ -346,25 +352,25 @@ userObj.GetRoles = function (request, res, next) {
 
             userBL.sqlloginWithSmsOrEmailCode(post, function (recordset) {
                 if (!recordset[0][0].isError) {
-                    var token = jsonwebtoken.sign({email: recordset[0][0].Email, pid :  recordset[0][0].Person_id}, superSecret);
-                //         var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
-                        res.json({
-                            success: true,
-                            obj: recordset[0][0],
-                            token:token
-                        });
+                    var token = jsonwebtoken.sign({ email: recordset[0][0].Email, pid: recordset[0][0].Person_id }, superSecret);
+                    //         var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
+                    res.json({
+                        success: true,
+                        obj: recordset[0][0],
+                        token: token
+                    });
                 }
                 else {
                     //res.send(false);
-                     res.status(500).send('User not fount');
+                    res.status(500).send('User not fount');
                 }
             })
         });
     }
 
-    userObj.authenticate = function (request, res, next) {
+    userObj.authenticate = function (request, res1, next) {
         var body = '';
-  
+
         request.on('data', function (data) {
             body += data;
             console.log("authenticate");
@@ -379,22 +385,27 @@ userObj.GetRoles = function (request, res, next) {
 
 
             userBL.GetData(post, function (recordset) {
-                
-                if (!recordset[0][0].isError) {
 
-                    var token = jsonwebtoken.sign({email: recordset[0][0].Email, pid :  recordset[0][0].Person_id}, superSecret);
-                  
-                    res.json({
-                        success: true,
-                        obj: recordset[0][0],
-                        token: token
-                    });
+                if (!recordset[0][0].isError) {
+                    var hash = recordset[0][0].Password;
+                    //bcrypt.compare(post.pass, hash).then( function ( res) {
+
+                        if (bcrypt.compareSync(post.pass, hash)) {
+                            
+                            var token = jsonwebtoken.sign({ email: recordset[0][0].Email, pid: recordset[0][0].Person_id }, superSecret);
+
+                            res1.json({
+                                success: true,
+                                obj: recordset[0][0],
+                                token: token
+                            });
+                        }
+                        else {
+                            res1.status(500).send('User not fount');
+                        }
                 }
                 else {
-                    res.status(500).send('User not fount');
-                    // res.json({
-                    //     success: false
-                    // });
+                    res1.status(500).send('User not fount');
                 }
             })
         });
@@ -416,12 +427,12 @@ userObj.GetRoles = function (request, res, next) {
 
             userBL.sqlSaveNewPassword(post, function (recordset) {
                 if (recordset[0][0].Email != '') {
-                    
+
                     //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
                     res.json({
                         success: true,
                         email: recordset[0][0]
-                      //  token: token
+                        //  token: token
                     });
                 }
                 else {
@@ -459,7 +470,7 @@ userObj.GetRoles = function (request, res, next) {
                 res.json({
                     success: true,
                     // email: recordset[0][0].Email,
-                 
+
                 });
                 // }
                 // else {
@@ -504,7 +515,7 @@ userObj.GetRoles = function (request, res, next) {
         });
     }
 
- userObj.GetAllUsers = function (request, res, next) {
+    userObj.GetAllUsers = function (request, res, next) {
         var body = '';
 
         request.on('data', function (data) {
@@ -519,7 +530,7 @@ userObj.GetRoles = function (request, res, next) {
             var post = qs.parse(body);
 
             userBL.sqlGetAllPersons(post, function (recordset) {
-                if (!recordset[0].isError  ){//recordset[0][0].length > 0) {
+                if (!recordset[0].isError) {//recordset[0][0].length > 0) {
 
                     //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
                     res.json({
@@ -550,12 +561,12 @@ userObj.GetRoles = function (request, res, next) {
             var post = qs.parse(body);
 
             userBL.sendDecision(post, function (recordset) {
-                if (recordset ){//recordset[0][0].length > 0) {
-                         userBL.SendMailDecision(recordset);
+                if (recordset) {//recordset[0][0].length > 0) {
+                    userBL.SendMailDecision(recordset);
                     //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
                     res.json({
                         success: true,
-                      
+
                     });
                 }
                 else {

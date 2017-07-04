@@ -21,6 +21,11 @@ var mailTexts = new require('../BL/mailTexts')();
 
 var jwtDecode = require('jwt-decode');
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$dfgert%$w0rD';
+const someOtherPlaintextPassword = 'not_bsdfw4534n';
+
 var userBL = function () {
 
     var userObject = {};
@@ -32,7 +37,7 @@ var userBL = function () {
             var request = new sql.Request(connection);
             request
                 .input('Email', sql.NChar, req.email)
-                .input('Password', sql.NChar, req.pass)
+                // .input('Password', sql.NChar, req.pass)
                 .execute('IfUser')
                 .then(function (recordset) {
                     callback(recordset);
@@ -128,20 +133,27 @@ var userBL = function () {
 
     userObject.sqlSaveNewPassword = function (req, callback) {
         //  var decoded = jwt.verify(req.token, superSecret);
-        var connection = new sql.Connection(DBConnectionString, function (err) {
-            //console.log(req.email);
-            var request = new sql.Request(connection);
-            request
-                .input('PID', sql.NChar, req.pid)
-                .input('NewPassword', sql.NChar, req.passWord)
-                .execute('SaveNewPassword')
-                .then(
-                function (recordset) {
-                    callback(recordset);
-                }).catch(function (err) {
-                    callback(false); // "The username or password don't match");
+        // bcrypt.genSalt(saltRounds, function (err, salt) {
+        //     bcrypt.hash(req.passWord, salt, function (err, hash) {
+            var salt = bcrypt.genSaltSync(saltRounds);
+            var hash = bcrypt.hashSync(req.passWord, salt);
+                var connection = new sql.Connection(DBConnectionString, function (err) {
+
+
+                    var request = new sql.Request(connection);
+                    request
+                        .input('PID', sql.NChar, req.pid)
+                        .input('NewPassword', sql.NChar, hash)
+                        .execute('SaveNewPassword')
+                        .then(
+                        function (recordset) {
+                            callback(recordset);
+                        }).catch(function (err) {
+                            callback(false); // "The username or password don't match");
+                        });
                 });
-        });
+        //     });
+        // });
     }
 
     userObject.CloseForChanges = function (req, callback) {
@@ -219,6 +231,7 @@ var userBL = function () {
                 .input('ReasonForExemption', sql.NVarChar, req.ReasonForExemption)
                 .input('Certification_Id', sql.Int, req.Certification_Id)
                 .input('TuitionFees', sql.NVarChar, req.TuitionFees)
+                .input('NotServe', sql.Int, req.NotServe)
                 .execute('InsertStudentForm')
                 .then(
                 function (recordset) {
@@ -485,12 +498,33 @@ var userBL = function () {
         this.SendMail(postData);
     }
 
+     userObject.SendEmailToEmployee = function (post, code) {
+        var postData = MailData;
+        // postData.From = email;
+        postData.Body = '<div dir=rtl align=right>שם המשתמש שלך: ' + post.emailadress + '<div>'+
+        '<div dir=rtl align=right>שלום, הסיסמה הזמנית שלך :' + code + '<div>';
+        postData.IsBodyHtml = true;
+        postData.To[0] = post.emailadress;
+        postData.From = "sela@sela.co.il"
+        postData.Subject = "סיסמה חדשה";
+
+        this.SendMail(postData);
+    }
+
     userObject.SendMailDecision = function (dbInfo) {
         var postData = MailData;
         // postData.From = email;
-        postData.Body = mailTexts.mailDecision(dbInfo);
+        if (dbInfo[0][0].FormStatus == 3) {
+            postData.Body = mailTexts.mailDecision(dbInfo);
+        } else if (dbInfo[0][0].FormStatus == 4) {
+            postData.Body = mailTexts.mailCancel(dbInfo);
+        }
+
         postData.IsBodyHtml = true;
-        postData.To[0] = "menasheg@sela.co.il";
+        postData.To[0] = dbInfo[0][0].StudentEmail;
+        postData.CC[0] = dbInfo[0][0].ConsultantEmail;
+        postData.BCC[0] = dbInfo[3][0].Email;
+
         postData.From = "sela@sela.co.il"
 
 
