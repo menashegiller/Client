@@ -390,19 +390,19 @@ var userController = function (user) {
                     var hash = recordset[0][0].Password;
                     //bcrypt.compare(post.pass, hash).then( function ( res) {
 
-                        if (bcrypt.compareSync(post.pass, hash)) {
-                            
-                            var token = jsonwebtoken.sign({ email: recordset[0][0].Email, pid: recordset[0][0].Person_id }, superSecret);
+                    if (bcrypt.compareSync(post.pass, hash)) {
 
-                            res1.json({
-                                success: true,
-                                obj: recordset[0][0],
-                                token: token
-                            });
-                        }
-                        else {
-                            res1.status(500).send('User not fount');
-                        }
+                        var token = jsonwebtoken.sign({ email: recordset[0][0].Email, pid: recordset[0][0].Person_id }, superSecret);
+
+                        res1.json({
+                            success: true,
+                            obj: recordset[0][0],
+                            token: token
+                        });
+                    }
+                    else {
+                        res1.status(500).send('User not fount');
+                    }
                 }
                 else {
                     res1.status(500).send('User not fount');
@@ -577,9 +577,42 @@ var userController = function (user) {
         });
     }
 
+    userObj.getCodeServerSide = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+
+            userBL.getCodeServerSide(post, function (recordset) {
+                if (recordset) {//recordset[0][0].length > 0) {
+                    code = userBL.GetCode(6);
+                    //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
+                    res.json({
+                        userCode: code,
+                        email: post.email
+                    });
+                }
+                else {
+                    //res.send(false);
+                    res.status(500).send('User not fount');
+                }
+            })
+        });
+    }
+
+    
 
     return userObj;
 }
+
 
 
 

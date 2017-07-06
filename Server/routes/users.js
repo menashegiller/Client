@@ -94,6 +94,8 @@ router.post('/getEmployees', userController.GetEmployees);
 
 router.post('/closeForChanges', userController.CloseForChanges);
 
+router.post('/getCodeServerSide', userController.getCodeServerSide);
+
 router.post('/upload', 
       upload.array("uploads", 12), function(req, res) {
        // docxConverter('./public/uploads/input.docx','./public/uploadsPDF/output.pdf',function(err,result){
