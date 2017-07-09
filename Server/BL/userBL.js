@@ -489,10 +489,17 @@ var userBL = function () {
     userObject.Send = function (post, code) {
         var postData = MailData;
         // postData.From = email;
-        postData.Body = '<div dir=rtl align=right>שלום, הסיסמה הזמנית שלך :' + code + '<div>';
+        if()
+        postData.Body = '<div dir=rtl align=right><p style="font-weight:bold">שלום, ברוך הבא למערכת מלגות :' +
+                '</p><p>' + '     :ביצעת זה עתא רישום למערכת ויצרנו בישבילך סיסמה זמנית'+ code + 
+                '<p></p>' +'כעט אתה יכול לחזור לאתר להמשך התהליך' + '<div>';
+        postData.Body = '<div dir=rtl align=right><p style="font-weight:bold">שלום, ברוך הבא למערכת מלגות :' +
+                '</p><p>' + '     :ביצעת זה עתא איפוס סיסמה ויצרנו בישבילך סיסמה זמנית'+ code + 
+                '<p></p>' +'כעט אתה יכול לחזור לאתר להמשך התהליך' + '<div>';
         postData.IsBodyHtml = true;
         postData.To[0] = post.emailadress;
         postData.From = "sela@sela.co.il"
+        postData.Subject =  "מערכת מלגות";
 
 
         this.SendMail(postData);
