@@ -427,7 +427,7 @@ var userBL = function () {
         var pathString = 'https://api.b-sms.co.il/SendMessageXml.ashx?InforuXML=%3CInforu%3E%3CUser%3E%3CUsername%3Eavidruker%3C/Username%3E%3CPassword%3Ekarin617%3C/Password%3E%3C/User%3E%3CContent%20Type=%22sms%22%3E%3CMessage%3ECodeSms%3C/Message%3E%3C/Content%3E%3CRecipients%3E%3CPhoneNumber%3EUserNumber%3C/PhoneNumber%3E%3C/Recipients%3E%3CSettings%3E%3CSenderNumber%3E036176666%3C/SenderNumber%3E%3C/Settings%3E%3C/Inforu%3E';
         // OneTimeCode = iconv.decode(new Buffer("חלילחיל"), "utf8");
         pathString = pathString.replace('UserNumber', phone); // req.body.Mobile);
-        pathString = pathString.replace('CodeSms', OneTimeCode);
+        pathString = pathString.replace('CodeSms', "Massage from Scholarship System. You have received a temporary code for one-time use: " + OneTimeCode);
 
         https.get(pathString, function (res) {
             console.log('dsfds');
@@ -486,16 +486,20 @@ var userBL = function () {
 
     }
 
-    userObject.Send = function (post, code) {
+    userObject.SendEmailToStudent = function (post, code,type) {
         var postData = MailData;
         // postData.From = email;
-        if()
-        postData.Body = '<div dir=rtl align=right><p style="font-weight:bold">שלום, ברוך הבא למערכת מלגות :' +
-                '</p><p>' + '     :ביצעת זה עתא רישום למערכת ויצרנו בישבילך סיסמה זמנית'+ code + 
-                '<p></p>' +'כעט אתה יכול לחזור לאתר להמשך התהליך' + '<div>';
-        postData.Body = '<div dir=rtl align=right><p style="font-weight:bold">שלום, ברוך הבא למערכת מלגות :' +
-                '</p><p>' + '     :ביצעת זה עתא איפוס סיסמה ויצרנו בישבילך סיסמה זמנית'+ code + 
-                '<p></p>' +'כעט אתה יכול לחזור לאתר להמשך התהליך' + '<div>';
+       var message;
+       if(type == 0){
+           message = 'איפוס סיסמה';
+       }
+       else if(type == 1){
+           message = 'יצירת חשבון';
+       }
+        postData.Body = '<div dir=rtl align=right font=arial><p >שלום, ברוך הבא למערכת מלגות :' +
+                '</p><p>' + 'ביצעת זה עתה ' + message + ' למערכת ויצרנו בשבילך סיסמה זמנית:     '+code + 
+                '</p><p>' +'כעת אתה יכול לחזור לאתר להמשך התהליך' + '</p><div>';
+                      
         postData.IsBodyHtml = true;
         postData.To[0] = post.emailadress;
         postData.From = "sela@sela.co.il"
@@ -509,7 +513,7 @@ var userBL = function () {
         var postData = MailData;
         // postData.From = email;
         postData.Body = '<div dir=rtl align=right>שם המשתמש שלך: ' + post.emailadress + '<div>'+
-        '<div dir=rtl align=right>שלום, הסיסמה הזמנית שלך :' + code + '<div>';
+        '<div dir=rtl align=right>שלום, הסיסמה שלך :' + post.password + '<div>';
         postData.IsBodyHtml = true;
         postData.To[0] = post.emailadress;
         postData.From = "sela@sela.co.il"

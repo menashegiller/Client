@@ -57,7 +57,7 @@ router.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin,Access-Control-Allow-Credentials,Access-Control-Allow-Methods,Access-Control-Allow-Headers, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin,Access-Control-Allow-Credentials,Access-Control-Allow-Methods,Access-Control-Allow-Headers, Authorization,Origin, X-Requested-With, Content-Type, token, phonenumber, ssoid, Accept');
     
 
     // Pass to next layer of middleware
@@ -73,6 +73,8 @@ router.post('/', userController.post);
 router.post('/authenticate', userController.authenticate);
 
 router.post('/sendCodeServerSide', userController.sendCode);
+
+//router.post('/postEmailtoEmployee', userController.postEmailtoEmployee);
 
 router.post('/emailSending', userController.emailSending);
 
@@ -94,7 +96,7 @@ router.post('/getEmployees', userController.GetEmployees);
 
 router.post('/closeForChanges', userController.CloseForChanges);
 
-router.post('/getCodeServerSide', userController.getCodeServerSide);
+router.post('/getCode', userController.getCode);
 
 router.post('/upload', 
       upload.array("uploads", 12), function(req, res) {

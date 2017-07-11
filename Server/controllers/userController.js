@@ -69,7 +69,7 @@ var userController = function (user) {
 
             userBL.firstRegister(post, Code, function (recordset) {
                 if (recordset[0][0].ID > 0) {
-                    userBL.Send(post, Code);
+                    var resSending = userBL.SendEmailToStudent(post, Code, 1);
                     res.json({
                         success: true,
                         pid: recordset[0][0].ID
@@ -121,13 +121,13 @@ var userController = function (user) {
         });
     }
 
-
-    userObj.emailSending = function (request, res, next) {
+/*
+    userObj.postEmailtoEmployee = function (request, res, next) {
         var body = '';
 
         request.on('data', function (data) {
             body += data;
-            console.log("emailSending");
+           // console.log("emailSending");
             // Too much POST data, kill the connection!
             // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
             if (body.length > 1e6)
@@ -135,16 +135,16 @@ var userController = function (user) {
         });
 
         request.on('end', function () {
-            var code = userBL.GetCode(6);
+        //    var code = userBL.GetCode(6);
             var post = qs.parse(body);
             //  var Code = userBL.GetCode(6);
 
-            userBL.SendEmailToEmployee(post, code);
+            userBL.SendEmailToEmployee(post);
 
 
             //    res.send("hello");
         });
-    }
+    }*/
 
 
 
@@ -172,7 +172,7 @@ var userController = function (user) {
                         userBL.sendSmsToUser(Code, post.contactInfo);
                     } else {
                         post.emailadress = post.contactInfo;
-                        userBL.Send(post, Code);
+                        userBL.SendEmailToStudent(post, Code, 0);
                     }
 
 
@@ -198,6 +198,31 @@ var userController = function (user) {
             })
         });
     }
+
+    userObj.getCode = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+          
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+            var Code = userBL.GetCode(6);
+            res.json({
+              
+                Code: Code
+
+            });
+        });
+    }
+
+
 
     userObj.GetColleges = function (request, res, next) {
         var body = '';
@@ -576,39 +601,6 @@ var userController = function (user) {
             })
         });
     }
-
-    userObj.getCodeServerSide = function (request, res, next) {
-        var body = '';
-
-        request.on('data', function (data) {
-            body += data;
-            // Too much POST data, kill the connection!
-            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-            if (body.length > 1e6)
-                request.connection.destroy();
-        });
-
-        request.on('end', function () {
-            var post = qs.parse(body);
-
-            userBL.getCodeServerSide(post, function (recordset) {
-                if (recordset) {//recordset[0][0].length > 0) {
-                    code = userBL.GetCode(6);
-                    //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
-                    res.json({
-                        userCode: code,
-                        email: post.email
-                    });
-                }
-                else {
-                    //res.send(false);
-                    res.status(500).send('User not fount');
-                }
-            })
-        });
-    }
-
-    
 
     return userObj;
 }
