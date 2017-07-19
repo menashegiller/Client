@@ -121,7 +121,7 @@ var userController = function (user) {
         });
     }
 
-/*
+
     userObj.postEmailtoEmployee = function (request, res, next) {
         var body = '';
 
@@ -144,7 +144,7 @@ var userController = function (user) {
 
             //    res.send("hello");
         });
-    }*/
+    }
 
 
 

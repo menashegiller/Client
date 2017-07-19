@@ -175,10 +175,7 @@ var userBL = function () {
     }
 
     userObject.sqlInsertStudentForm = function (req, callback) {
-
-        // var obj = json.parse(req.obj)
         var connection = new sql.Connection(DBConnectionString, function (err) {
-            //console.log(req.email);
             var request = new sql.Request(connection);
             request
                 .input('pid', sql.NVarChar, req.pid)
@@ -284,6 +281,14 @@ var userBL = function () {
 
     userObject.sqlSaveEmployee = function (req, callback) {
         // var decoded = jwt.verify(req.token, superSecret);
+            var hash;
+            if(req.Password){
+                var salt = bcrypt.genSaltSync(saltRounds);
+                 hash = bcrypt.hashSync(req.Password, salt);
+            }
+            else {
+                hash = null;
+            }
         var connection = new sql.Connection(DBConnectionString, function (err) {
             //console.log(req.email);
             var request = new sql.Request(connection);
@@ -294,7 +299,7 @@ var userBL = function () {
                 .input('Role', sql.Int, req.Role)
                 .input('College', sql.Int, req.College)
                 .input('Mobile', sql.NChar, req.Mobile)
-                .input('Password', sql.NChar, req.Password)
+                .input('Password', sql.NChar, hash)
                 .execute('SaveEmployee')
                 .then(
                 function (recordset) {
