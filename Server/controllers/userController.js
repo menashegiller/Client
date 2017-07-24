@@ -139,9 +139,11 @@ var userController = function (user) {
             var post = qs.parse(body);
             //  var Code = userBL.GetCode(6);
 
-            userBL.SendEmailToEmployee(post);
-
-
+            var res1 = userBL.SendEmailToEmployee(post);
+            if(res1){
+                res.send(true);
+            }
+       
             //    res.send("hello");
         });
     }
@@ -309,6 +311,34 @@ var userController = function (user) {
 
                 });
             })
+        });
+    }
+
+      userObj.saveAndSendEmailtoNewEmployee = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+
+            userBL.sqlSaveEmployee(post, function (recordset) {
+                // if (recordset[0][0].Email != '') {
+
+                userBL.SendEmailToNewEmployee(post, function (recordset) {
+                    res.json({
+                        success: true
+                      
+                    });
+                });
+            })
+
         });
     }
 

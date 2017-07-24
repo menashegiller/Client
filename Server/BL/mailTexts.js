@@ -34,7 +34,7 @@ var mailTexts = function () {
     text += "<div style=' font-weight: NORMAL; text-decoration:none'>" + dbInfo[2][0].FullName + "</div>";
     text += "<div style='font-weight: NORMAL; text-decoration:none'>יושב ראש הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>";
     text += "<br/>";
-    text += "<br/>"
+    text += "<br/>";
     text += "<div style='font-weight: NORMAL; text-decoration:none'>סימוכין " + details.Simuchin + "</div></div>";
     return text;
   }

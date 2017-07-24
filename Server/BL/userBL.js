@@ -503,7 +503,10 @@ var userBL = function () {
        }
         postData.Body = '<div dir=rtl align=right font=arial><p >שלום, ברוך הבא למערכת מלגות :' +
                 '</p><p>' + 'ביצעת זה עתה ' + message + ' למערכת ויצרנו בשבילך סיסמה זמנית:     '+code + 
-                '</p><p>' +'כעת אתה יכול לחזור לאתר להמשך התהליך' + '</p><div>';
+                '</p><p>' +'כעת אתה יכול לחזור לאתר להמשך התהליך' + '</p><div>'+
+                '</br>'+
+                '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
+        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
                       
         postData.IsBodyHtml = true;
         postData.To[0] = post.emailadress;
@@ -517,14 +520,38 @@ var userBL = function () {
      userObject.SendEmailToEmployee = function (post, code) {
         var postData = MailData;
         // postData.From = email;
-        postData.Body = '<div dir=rtl align=right>שם המשתמש שלך: ' + post.emailadress + '<div>'+
-        '<div dir=rtl align=right>שלום, הסיסמה שלך :' + post.password + '<div>';
+        postData.Body = 
+        '<div dir=rtl align=right>שם המשתמש שלך: ' + post.emailadress + '<div>'+
+        '<div dir=rtl align=right>שלום, הסיסמה שלך :' + post.password + '<div>'+
+        '</br>'+
+        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
+        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
+        postData.IsBodyHtml = true;
+        postData.To[0] = post.emailadress;
+        postData.From = "sela@sela.co.il"
+        postData.Subject = "מערכת מלגות-סיסמה חדשה";
+
+      var res =   this.SendMail(postData);
+      return res;
+    }
+
+     userObject.SendEmailToNewEmployee = function (post, code) {
+        var postData = MailData;
+        // postData.From = email;
+        postData.Body = '<div>שלום '+ post.FullName + ', ברוך הבא למערכת מלגות'
+        '</br>יצרנו עבורך מש</div>'+
+        '<div dir=rtl align=right>שם המשתמש שלך: ' + post.Email + '<div>'+
+        '<div dir=rtl align=right>הסיסמה שלך :' + post.Password + '<div>'+
+        '</br>'+
+        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
+        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
         postData.IsBodyHtml = true;
         postData.To[0] = post.emailadress;
         postData.From = "sela@sela.co.il"
         postData.Subject = "סיסמה חדשה";
 
-        this.SendMail(postData);
+      var res =   this.SendMail(postData);
+      return res;
     }
 
     userObject.SendMailDecision = function (dbInfo) {

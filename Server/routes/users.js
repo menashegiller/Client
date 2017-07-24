@@ -76,6 +76,8 @@ router.post('/sendCodeServerSide', userController.sendCode);
 
 router.post('/postEmailtoEmployee', userController.postEmailtoEmployee);
 
+router.post('/saveAndSendEmailtoNewEmployee', userController.saveAndSendEmailtoNewEmployee);
+
 router.post('/loginWithSmsOrEmailCode', userController.loginWithSmsOrEmailCode);
 
 router.post('/register', userController.register);
