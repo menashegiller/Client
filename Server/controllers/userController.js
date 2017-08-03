@@ -106,7 +106,11 @@ var userController = function (user) {
 
             userBL.CloseForChanges(post, function (recordset) {
                 if (recordset[0][0]) {
+
+                    userBL.SendMailAfterCloseForChanges(post)
+
                     res.json({
+                        
                         success: true
                     });
                 }
@@ -127,7 +131,7 @@ var userController = function (user) {
 
         request.on('data', function (data) {
             body += data;
-           // console.log("emailSending");
+            // console.log("emailSending");
             // Too much POST data, kill the connection!
             // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
             if (body.length > 1e6)
@@ -135,15 +139,15 @@ var userController = function (user) {
         });
 
         request.on('end', function () {
-        //    var code = userBL.GetCode(6);
+            //    var code = userBL.GetCode(6);
             var post = qs.parse(body);
             //  var Code = userBL.GetCode(6);
 
             var res1 = userBL.SendEmailToEmployee(post);
-            if(res1){
+            if (res1) {
                 res.send(true);
             }
-       
+
             //    res.send("hello");
         });
     }
@@ -206,7 +210,7 @@ var userController = function (user) {
 
         request.on('data', function (data) {
             body += data;
-          
+
             // Too much POST data, kill the connection!
             // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
             if (body.length > 1e6)
@@ -217,7 +221,7 @@ var userController = function (user) {
             var post = qs.parse(body);
             var Code = userBL.GetCode(6);
             res.json({
-              
+
                 Code: Code
 
             });
@@ -314,7 +318,7 @@ var userController = function (user) {
         });
     }
 
-      userObj.saveAndSendEmailtoNewEmployee = function (request, res, next) {
+    userObj.saveAndSendEmailtoNewEmployee = function (request, res, next) {
         var body = '';
 
         request.on('data', function (data) {
@@ -334,7 +338,7 @@ var userController = function (user) {
                 userBL.SendEmailToNewEmployee(post, function (recordset) {
                     res.json({
                         success: true
-                      
+
                     });
                 });
             })
@@ -586,12 +590,18 @@ var userController = function (user) {
 
             userBL.sqlGetAllPersons(post, function (recordset) {
                 if (!recordset[0].isError) {//recordset[0][0].length > 0) {
-
-                    //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
-                    res.json({
-                        success: true,
-                        users: recordset[0]
-                    });
+                    if (recordset[0]) {
+                        //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
+                        res.json({
+                            success: true,
+                            users: recordset[0]
+                        });
+                    }
+                    else
+                        res.json({
+                            success: true,
+                            users: 0
+                        })
                 }
                 else {
                     //res.send(false);

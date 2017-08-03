@@ -538,15 +538,17 @@ var userBL = function () {
      userObject.SendEmailToNewEmployee = function (post, code) {
         var postData = MailData;
         // postData.From = email;
-        postData.Body = '<div>שלום '+ post.FullName + ', ברוך הבא למערכת מלגות'
-        '</br>יצרנו עבורך מש</div>'+
-        '<div dir=rtl align=right>שם המשתמש שלך: ' + post.Email + '<div>'+
-        '<div dir=rtl align=right>הסיסמה שלך :' + post.Password + '<div>'+
-        '</br>'+
-        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
-        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
+        postData.Body = '<div dir=rtl align=right font=arial>שלום '+ post.FullName + ', ברוך הבא למערכת מלגות</div>'+
+                        '<br><br>'+
+                        '<div dir=rtl align=right font=arial><b>להלן פרטי הכניסה הראשונית למערכת:</b></div>'+
+                        '<div dir=rtl align=right font=arial>שם המשתמש שלך: ' + post.Email + '<div>'+
+                        '<div dir=rtl align=right font=arial>הסיסמה שלך :' + post.Password + '<div>'+
+                        '<div dir=rtl align=right font=arial>באפשרותך להיכנס למערכת ולשנות בכל עת את הסיסמה</div>'+
+                        '<br><br>'+
+                        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
+                        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
         postData.IsBodyHtml = true;
-        postData.To[0] = post.emailadress;
+        postData.To[0] = post.Email;
         postData.From = "sela@sela.co.il"
         postData.Subject = "סיסמה חדשה";
 
@@ -565,11 +567,29 @@ var userBL = function () {
 
         postData.IsBodyHtml = true;
         postData.To[0] = dbInfo[0][0].StudentEmail;
-        postData.CC[0] = dbInfo[0][0].ConsultantEmail;
-        postData.BCC[0] = dbInfo[3][0].Email;
+       /*  postData.CC[0] = dbInfo[0][0].ConsultantEmail;
+        postData.BCC[0] = dbInfo[3][0].Email; */
 
         postData.From = "sela@sela.co.il"
 
+
+        this.SendMail(postData);
+    }
+
+    userObject.SendMailAfterCloseForChanges = function (post) {
+        var postData = MailData;
+        postData.Body = '<div dir=rtl align=right font=arial> שלום '+ 
+                            post.fullname +
+                        '</div>'+
+                        '<div dir=rtl align=right font=arial>הפרטים  נקלטו במערכת ויעברו להמשך התהליך בוועדת המלגות. </div>'+
+                        '<div dir=rtl align=right font=arial>בסיום התהליך תשלח ההחלטה לכתובת הדואר האלקטרוני .<div>'+
+                        '<br><br>'+
+                        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
+                        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
+        postData.IsBodyHtml = true;
+        postData.To[0] = post.email;
+        postData.Subject = 'מערכת מלגות';
+        postData.From = "sela@sela.co.il"
 
         this.SendMail(postData);
     }
