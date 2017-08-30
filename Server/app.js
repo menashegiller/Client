@@ -91,6 +91,7 @@ app.listen(5002, function () {
   console.log('Example app listening on port 5002!');
 });
 
+app.use(express.static('../../ScholarshipsGit/Client/src/app'));
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

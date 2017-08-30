@@ -521,11 +521,16 @@ var userBL = function () {
         var postData = MailData;
         // postData.From = email;
         postData.Body = 
-        '<div dir=rtl align=right>שם המשתמש שלך: ' + post.emailadress + '<div>'+
-        '<div dir=rtl align=right>שלום, הסיסמה שלך :' + post.password + '<div>'+
-        '</br>'+
-        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
-        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
+                        '<div dir=rtl align=right font=arial><b>שינוי סיסמה למערכת המלגות</b></div>'+       
+                        '<div dir=rtl align=right font=arial>שלום '+ post.name + '</div>'+
+                        '<br><br>'+
+                        '<div dir=rtl align=right font=arial><b>להלן פרטי הכניסה הראשונית למערכת:</b></div>'+
+                        '<div dir=rtl align=right font=arial>שם המשתמש שלך: ' + post.emailadress + '<div>'+
+                        '<div dir=rtl align=right font=arial>הסיסמה שלך :' + post.password + '<div>'+
+                        '<div dir=rtl align=right font=arial>באפשרותך להיכנס למערכת ולשנות בכל עת את הסיסמה</div>'+
+                        '<br><br>'+
+                        '<div dir=rtl align=right font=arial>מערכת מלגות</div>'+
+                        '<div dir=rtl align=right font=arial>הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>';
         postData.IsBodyHtml = true;
         postData.To[0] = post.emailadress;
         postData.From = "sela@sela.co.il"
@@ -535,7 +540,7 @@ var userBL = function () {
       return res;
     }
 
-     userObject.SendEmailToNewEmployee = function (post, code) {
+    userObject.SendEmailToNewEmployee = function (post, code) {
         var postData = MailData;
         // postData.From = email;
         postData.Body = '<div dir=rtl align=right font=arial>שלום '+ post.FullName + ', ברוך הבא למערכת מלגות</div>'+
@@ -552,8 +557,8 @@ var userBL = function () {
         postData.From = "sela@sela.co.il"
         postData.Subject = "סיסמה חדשה";
 
-      var res =   this.SendMail(postData);
-      return res;
+        var res =   this.SendMail(postData);
+        return res;
     }
 
     userObject.SendMailDecision = function (dbInfo) {

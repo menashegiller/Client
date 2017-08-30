@@ -335,12 +335,15 @@ var userController = function (user) {
             userBL.sqlSaveEmployee(post, function (recordset) {
                 // if (recordset[0][0].Email != '') {
 
-                userBL.SendEmailToNewEmployee(post, function (recordset) {
-                    res.json({
-                        success: true
-
-                    });
-                });
+                var res1 = userBL.SendEmailToNewEmployee(post);
+                    
+                    if(res1){
+                        res.json({
+                            success: true
+                        });
+                      
+                    }
+               
             })
 
         });
