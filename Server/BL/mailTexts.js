@@ -72,7 +72,28 @@ var mailTexts = function () {
     return text;
   }
 
+  mailObject.missingDocuments = function (dbInfo) {
+    var details = dbInfo[0][0];
+    var firstName = details.studentName.split(" ");
+    var DecisionReasons = details.DecisionReasons.replace(/\n/g, ' ');
+    var text = "<div>" + details.TodayDate + "</div>";
+    text += "<div style='direction:rtl;'>";
+    text += "<div style=' font-weight: NORMAL; text-decoration:none'>" + details.studentName + " שלום,</div>";
+    text += "<div style=' font-weight: NORMAL; text-decoration:none'>בעקבות פנייתך לקבלת מלגת לימודים ללימודים ב" + details.college + " בחנה הועדה להענקת מלגות את בקשתך.  </div>";
+    text += "<div style=' font-weight: NORMAL; text-decoration:none'>לצערנו מצאנו שלא כל המסמכים הנדרשים הוגשו (או הוגשו מסמכים לא מתאימים). נבקשך להשלים החסר ולהגיש מחדש את הבקשה Online. <div>";
+    text += "<br/><br/>";
+    text += "<div style=' font-weight: NORMAL; text-decoration:none'>להלן הערות הועדה:</div>";
+    text += "<div style=' font-weight: NORMAL; text-decoration:none'>"+ DecisionReasons +"</div>";
+    text += "<br/><br/>";
+    text += "<div style='font-weight: NORMAL; text-decoration:none'>יושב ראש הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</div>";
+    text += "<br/>";
+    text += "<br/>";
+    text += "<div style='font-weight: NORMAL; text-decoration:none'>סימוכין " + details.Simuchin + "</div></div>";
+    return text;
+  }
 
+
+  //////////////להוסיף לינק להשלמת המסמכים
   return mailObject;
 }
 

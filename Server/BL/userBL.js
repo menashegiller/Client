@@ -568,12 +568,15 @@ var userBL = function () {
             postData.Body = mailTexts.mailDecision(dbInfo);
         } else if (dbInfo[0][0].FormStatus == 4) {
             postData.Body = mailTexts.mailCancel(dbInfo);
+        } else if (dbInfo[0][0].FormStatus == 5) {
+            postData.Body = mailTexts.missingDocuments(dbInfo);
         }
 
+        postData.Subject = "מערכת מלגות";
         postData.IsBodyHtml = true;
         postData.To[0] = dbInfo[0][0].StudentEmail;
-       /*  postData.CC[0] = dbInfo[0][0].ConsultantEmail;
-        postData.BCC[0] = dbInfo[3][0].Email; */
+          postData.CC[0] = dbInfo[0][0].ConsultantEmail;
+        //postData.BCC[0] = dbInfo[3][0].Email; */
 
         postData.From = "sela@sela.co.il"
 
