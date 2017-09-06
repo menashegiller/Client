@@ -42,6 +42,7 @@
 }
 
 .newUserSubTitleBox {
+  height: 65px;
   padding-left: 20px;
   overflow: hidden;
   padding-bottom: 15px;
@@ -68,6 +69,15 @@
   float: right;
   margin-top: 20px;
 }
+
+.a4Page{
+  display: none;
+}
+
+iframe {
+  border: none;
+}
+
 
 @media only screen and (min-width: 700px) {
   .newUserTitle {

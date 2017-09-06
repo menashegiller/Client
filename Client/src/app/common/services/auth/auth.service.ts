@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Response, Headers, URLSearchParams } from '@angular/http';
 import { User } from '../../Models/user';
-
+import { Login } from 'common/Models/login.interface';
 import { BaseService } from '../base-service/base.service';
 import { LocalStorage } from 'common/modules/webStorage/index';
 
@@ -20,6 +20,7 @@ export interface IUser{
    id: number;
    token: string;
    role: number;
+   fullname: string;
 }
 @Injectable()
 export class AuthService extends BaseService {
@@ -27,11 +28,12 @@ export class AuthService extends BaseService {
 @LocalStorage() public currentUser:IUser;
 @LocalStorage() public rememberMe:boolean;
 @LocalStorage() public studentId:boolean;
-
+ pageName: string = "";
  isLoggedIn: boolean = false;
  email:string;
   // store the URL so we can redirect after logging in
   redirectUrl: string;
+  ifPrint:boolean = false;
   constructor(public http: Http) {
     super();
   }
@@ -49,7 +51,34 @@ export class AuthService extends BaseService {
                         'email': resObj.obj.Email,
                         'id': resObj.obj.Person_id,
                         'token': resObj.token,
-                        'role': resObj.obj.Role
+                        'role': resObj.obj.Role,
+                        'fullname': resObj.obj.FullName
+                       // 'fpState': JSON.stringify({ fp:0 })
+                      };
+
+                   
+                  })
+                  .catch((error: any ) => {
+                    return Observable.throw(error); 
+                  });
+ }
+
+ loginNew(user: Login): Observable<boolean>  {
+        let params = new URLSearchParams();
+        params.set('email', user.Email);
+        params.set('pass', user.passWord);
+        return this.http.post('http://localhost:5002/users/authenticate', params, { headers: this.contentHeadersBase })
+                    .map(res => {
+                      // this.currentUser = res.json();????
+
+                      let resObj = res.json();
+                      this.currentUser = {
+                        'isLoggedIn': resObj.success,
+                        'email': resObj.obj.Email,
+                        'id': resObj.obj.Person_id,
+                        'token': resObj.token,
+                        'role': resObj.obj.Role,
+                        'fullname': resObj.obj.FullName
                        // 'fpState': JSON.stringify({ fp:0 })
                       };
 
@@ -74,7 +103,8 @@ loginWithSmsOrEmailCode( passWord,emailOrSms,pid): Observable<any> {
                         'email': resObj.obj.Email,
                         'id': resObj.obj.Person_id,
                         'token': resObj.token,
-                        'role': resObj.obj.Role
+                        'role': resObj.obj.Role,
+                         'fullname': resObj.obj.FullName
                        // 'fpState': JSON.stringify({ fp:0 })
                       };
 
@@ -95,11 +125,13 @@ logout(): void {
     'email': null,
     'id': null,
     'token': null,
-    'role': null
+    'role': null,
+    'fullname': null
   };
     
    /* localStorage.removeItem('id_token');*/
     localStorage.removeItem('fpState');
     localStorage.removeItem('isEmployee');
+     this.pageName = "";
   }
 }

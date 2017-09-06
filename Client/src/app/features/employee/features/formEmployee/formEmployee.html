@@ -1,4 +1,4 @@
-<form #eForm="ngForm" (ngSubmit)="onSubmit(model)" method="post" name="newUserform" id="newUserform">
+<form #eForm="ngForm"  method="post" name="newUserform" id="newUserform">
 	<ul class="EnterPass RegUserBoxs RegUserBoxsLine">
 		<li class="userFormInstructions No_marginButtom Txt-MidGray">
 			<h2>פרטי משתמש</h2>
@@ -8,13 +8,27 @@
 			<input type="text" required [(ngModel)]="model.FullName" name="UserFirstName"></li>
 		<li class="accordionInputBox No_marginLeft">
 			<p class="inputlabel">טלפון/נייד</p>
-			<input type="text" required [(ngModel)]="model.Mobile" name="UserMobile"></li>
+			<input type="number" required [(ngModel)]="model.Mobile" name="UserMobile"></li>
 		<li class="accordionInputBox">
 			<p class="inputlabel">אימייל (שם משתמש)</p>
 			<input type="email" required [(ngModel)]="model.Email" name="UserEmail"></li>
-		<li class="accordionInputBox No_marginLeft">
-			<p class="inputlabel">סיסמה</p>
-			<input type="text" required [(ngModel)]="model.Password" name="UserPassword"></li>
+		<li *ngIf="!model.Person_id" class="accordionInputBox No_marginLeft">
+			<p class="inputlabel">סיסמה - לחץ על המנעול ליצירת סיסמה</p>
+			<label class="inputcontent">
+				<span class="Lock icon-14" (click)='getCode()' 
+					 [ngClass]="{'disabledBtn':model.PasswordView, 'lockDis':model.PasswordView}"  title="לחץ כאן ליצירת סיסמה"></span>
+				<input type="text" [(ngModel)]="model.Password" disabled="" name="UserPassword" class="lockDis">
+			</label>
+		</li>
+		<li *ngIf="model.Person_id > 0" class="accordionInputBox No_marginLeft">
+			<p class="inputlabel">סיסמה - לחץ על המנעול ליצירת סיסמה חדשה</p>
+			<label class="inputcontent">
+				<span class="Lock icon-14" (click)='getCode()' 
+					 [ngClass]="{'disabledBtn':model.PasswordView, 'lockDis':model.PasswordView}"  title="לחץ כאן ליצירת סיסמה חדשה"></span>
+				<input type="text" [(ngModel)]="model.Password" disabled="" name="UserPassword" class="lockDis">
+			</label>
+			<a *ngIf="newPass == 1"  class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>נוצרה סיסמה חדשה עדכן נתונים</p></a>
+		</li>
 	</ul>
 
 	<ul class="EnterPass">
@@ -38,19 +52,29 @@
 		</label>
 		</li>
 
-		<li class="accordionInputBox">
+		<li *ngIf="!model.Person_id" class="accordionInputBox">
 			<p class="inputlabel More_marginTop">* עדכון משתמש חדש ניתן לערוך בעריכת משתמשים</p>
 		</li>
+
 		<li *ngIf="model.Person_id > 0" class="RemarkBox">
-				<p class="RemarkTitle">חשוב לזכור לפני שמירת הנתונים !!!</p>
-				<p>לוודא שכל השדות מלאים והנתונים תקינים כי לאחר שמירה ישלח מייל למשתמש לעדכון סיסמה חדשה. </p>	
-				</li>
+				<p class="RemarkTitle">חשוב לזכור !!!</p>
+				<p>לפניך שני כפתורים, עדכון נתונים חדשים במערכת והשני שליחת מייל למשתמש - שם משתמש וסיסמה זמנית</p>
+				<p>יש לוודא שכל השדות מלאים והנתונים תקינים</p>	
+		</li>
 		<li *ngIf="!model.Person_id" class="accordionSave accordionInputBox No_marginLeft">
-			<input class="InsideFormBtn" type="submit" value="צור/י" name="send" title="צור/י">
-			<a *ngIf="wasSave == 1" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>משתמש חדש נוצר ושמור במערכת</p></a>
+			<input class="InsideFormBtn" type="submit" value="צור/י משתמש חדש" name="send" title="צור/י משתמש חדש" 
+				[disabled]="!model.FullName||!model.Mobile||!model.Email|| !model.PasswordView ||!model.College || !model.Role"
+				 [ngClass]="{'disabledBtn':!model.FullName||!model.Mobile||!model.Email|| !model.PasswordView ||!model.College || !model.Role}"
+				  (click)="saveAndSend(model)">
+			<a *ngIf="wasSaveAndSend == 1" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>משתמש חדש נוצר ונשמר במערכת</p></a>
 		</li>
 		<li *ngIf="model.Person_id > 0" class="accordionSave accordionInputBox No_marginLeft">
-			<input class="InsideFormBtn No_marginTop" type="submit" value="שמור/י" name="send" title="שמור/י">
+			<input class="InsideFormBtn No_marginTop" [ngClass]="{'disabledBtn': !model.PasswordView||wasSave==0 ||wasSent == 1}" 
+				[disabled]="!model.PasswordView||wasSave==0||wasSent == 1" type="button" (click)='sendMailToEmployee(model)' value="שלח/י מייל" name="send" title="שלח/י מייל">
+			<a *ngIf="wasSent == 1" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>ההמייל נשלח למשתמש</p></a>
+		</li>
+		<li *ngIf="model.Person_id > 0" class="accordionSave accordionInputBox No_marginLeft">
+			<input class="InsideFormBtn No_marginTop" type="button" value="עדכון נתונים" name="send" title="עדכון נתונים" (click)="onSubmit(model)">
 			<a *ngIf="wasSave == 1" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים עודכנו ונשמרו במערכת</p></a>
 		</li>
 	</ul>

@@ -10,7 +10,6 @@ import { IMyOptions, IMyDateModel } from 'mydatepicker';
 
 import { User } from 'common/Models/user';
 
-
 @Component({
     moduleId: module.id,
     selector: 'as-tableDecisions',
@@ -18,7 +17,8 @@ import { User } from 'common/Models/user';
 })
 export class TableDecisionsComponent implements OnInit {
     users: User[];
-    
+    noRows:number = 1;
+  
     ngOnInit() {
         this.httpService.GetAllUsers(this.authService.currentUser.id,"tableDecisions").subscribe(
             res => {
@@ -26,6 +26,9 @@ export class TableDecisionsComponent implements OnInit {
                 // this.smsState = (<Response>res).ok;
             //  that.user = res.json().user;
             that.users = res.json().users;
+            if(that.users.length == 0){
+                that.noRows = 0;
+            }
             },
             err => {
                 console.log(err);
@@ -37,8 +40,38 @@ export class TableDecisionsComponent implements OnInit {
     /*, private localeService: LocaleService*/) {
     }
     
-    watch(Person_id){
+    watch(Person_id,param){
+        this.authService.ifPrint = param;
         this.authService.studentId = Person_id;
-        this.router.navigate(['/studentForm']);
+       // this.router.navigate(['/studentForm']);
+        window.open( "studentForm" );
+    }
+
+    sendDecision(user){
+        this.httpService.sendDecision(user).subscribe(
+               res => {
+                   user.wasSaved = res.json().success;
+                   if(user.wasSaved){
+                    user.wasSavedMess = true;
+                    setTimeout(() => {
+                        user.wasSavedMess
+                         = false;
+                      }, 6000);
+                 }
+                }
+             );
+            
+
+             
+
+           
+    }
+
+    buttonClick(event) {
+        //   console.log(event.currentTarget.eventPhase);
+        let temp = event.currentTarget.id;
+        let offset = temp * 68;
+        $(".accordionTblDecisons").animate({scrollTop: offset +"px" });
+        document.body.scrollTop = 630; 
     }
 } 

@@ -7,42 +7,40 @@
 				מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
 			</p>
 		</div>
-		<div class="userFormInstructions">
-			<h2>לפניך רשימת בקשות סטודנטים לקבלת מלגה למימון לימודים</h2>
 
-			<div class="More_marginTop">
-				<p class="BoldTxt">האפשרויות שלפניך:</p>
+		<div class="userFormInstructions">
+			<h3>החלטות וועדה</h3>
+			<h2>לפניך מספר אפשרויות:</h2>
+			<div class="More_marginTop More_paddingBottom">
 				<p>* לצפות בבקשת הסטודנט ולהדפיס אם יש צורך</p>
 				<p>* לאחר צפיה בבקשה תוכל לבצע החלטה לדחות או לאשר בקשת מלגה</p>
 				<p>* באפשרותך לבצע סינון בלחיצה על כל שם עמודה</p>
 				<p>* כל המחירים הם בש”ח בלבד</p>
+
 			</div>
 		</div>
 
-		<div class="userFormInstructions No_marginButtom">
-			<h2>טבלת קבלת החלטת על מלגות</h2>
-		</div>
-		<!-- <form action="Accordionform.html" method="post" name="Accordionform" id="Accordionform">
-	   <input name="_redirect" type="hidden" value="">
-	   <input name="_recipients" type="hidden" value="">
-	   <input name="_subject" type="hidden" value="">	-->
-		<accordion>
-			<div class="newUserBoxTitle DarkGray NoBorderTop accordionHeaderRaduis BoxStrokeline More_marginTop MoreUserPadding UserPadding ">
-				<p class="newUserTitle TableDecisionsTitle">שם סטודנט/ית</p>
-				<p class="newUserTitle TableDecisionsTitle">תאריך רישום</p>
-				<p class="newUserTitle TableDecisionsTitle">מכללה</p>
-				<p class="newUserTitle TableDecisionsTitle">הסמכה</p>
-				<p class="newUserTitle TableDecisionsTitle">מחיר</p>
-			</div>
+		<as-Menu></as-Menu>
 
-			<accordion-group  *ngFor="let user of users">
-				<accordion-heading>
-					<span class="SelectIcon icon-13"></span>
+		<div id="Top" class="newUserBoxTitle DarkGray NoBorderTop BoxStrokeline MoreUserPadding UserPadding ">
+			<p class="newUserTitle TableDecisionsTitle">שם סטודנט/ית</p>
+			<p class="newUserTitle TableDecisionsTitle">תאריך רישום</p>
+			<p class="newUserTitle TableDecisionsTitle">מכללה</p>
+			<p class="newUserTitle TableDecisionsTitle">הסמכה</p>
+			<p class="newUserTitle TableDecisionsTitle">מחיר</p>
+		</div>
+
+	<accordion>
+		<div class="accordionTblDecisons">
+			<accordion-group  *ngFor="let user of users; let i = index" [isOpened]="i==0 && authService.currentUser.role == 2">
+				<accordion-heading id="{{i}}" (click)='buttonClick($event)'>
+					<span class="SelectIcon" [ngClass]="{'icon-11':user.wasSaved, 'icon-13':!user.wasSaved}"></span>
+<!-- <a simplePageScroll [routerLink]="['tableDecisions']" href="#Top"> -->
 					<div class="newUserSubTitleBox TableDecisionsSubTitle">
 						<p title="FirstName">{{user.FullName}}</p>
 					</div>
 					<div class="newUserSubTitleBox TableDecisionsSubTitle">
-						<p title="date">{{user.RegistrationDate | date:'shortDate'}}</p>
+						<p title="date">{{user.RegistrationDate | date:'dd/MM/yyyy'}}</p>
 					</div>
 					<div class="newUserSubTitleBox TableDecisionsSubTitle">
 						<p title="college">{{user.CollegeName}}</p>
@@ -52,39 +50,64 @@
 					</div>
 					<div class="newUserSubTitleBox TableDecisionsSubTitle">
 						<p title="price">{{user.TuitionFees}}</p>
-					</div>
+					</div> 
+				<!-- </a> -->
 				</accordion-heading>
 
 				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
-			    <ul class="EnterPass RegUserBoxs RegUserBoxsLine">
-				  <li class="userFormInstructions No_marginButtom Txt-MidGray"><h2>אנא בחר/י אופציה</h2></li>
-				  <li class="accordionInputBox DecTitle"><p class="inputlabel">לצפייה בבקשה של הסטודנט/ית אנא לחצ/י כאן</p></li>
-				  <li class="accordionInputBox InsideFormBtn SelDecisionsOp no_underline" title="צפייה בבקשה">			  
-					<!--<a  [routerLink]="['/student']" [queryParams]="{user: user.Person_id}"  (click)="authService.studentId=user.Person_id" >צפיה בבקשה</a>--> <!--href="home" (click)='this.httpService.isEmployee = true;'-->
-					<a (click)="watch(user.Person_id);">צפיה בבקשה</a>
-				  </li>
-				  <li class="accordionInputBox InsideFormBtn No_marginLeft SelDecisionsOp" title="הדפסת הבקשה"><p>הדפסת הבקשה</p></li>
-				</ul>
+					<ul class="EnterPass RegUserBoxs RegUserBoxsLine RegUserBoxsComm">
+						<li class="userFormInstructions No_marginButtom Txt-MidGray">
+							<h2>אנא בחר/י אופציה</h2>
+						</li>
+						<li class="accordionInputBox DecTitle">
+							<p class="inputlabel">לצפייה בבקשה של הסטודנט/ית אנא לחצ/י כאן</p>
+						</li>
+						<li class="accordionInputBox InsideFormBtn SelDecisionsOp no_underline" title="צפייה בבקשה">
+							<!--<a  [routerLink]="['/student']" [queryParams]="{user: user.Person_id}"  (click)="authService.studentId=user.Person_id" >צפיה בבקשה</a>-->
+							<!--href="home" (click)='this.httpService.isEmployee = true;'-->
+							<a (click)="watch(user.Person_id,false);">צפיה בבקשה</a>
+						</li>
+						<li class="accordionInputBox InsideFormBtn No_marginLeft SelDecisionsOp" title="הדפסת הבקשה">
+							<a (click)="watch(user.Person_id,true);">הדפסת הבקשה</a>
+						</li>
+					</ul>
 
 					<ul class="EnterPass">
 						<li class="userFormInstructions No_marginButtom Txt-MidGray">
 							<h2>החלטת הוועדה</h2>
 						</li>
-						<li class="accordionInputBox">
-							<p class="inputlabel">ההחלטה לבקשה</p>
-							<div class="InsideFormBtn RequestDecBtn RequestDecR RequestDecSlected" title="אושרה">
-								<p>אושרה</p>
-							</div>
-							<div class="InsideFormBtn RequestDecBtn RequestDecL" title="נדחתה">
-								<p>נדחתה</p>
-							</div>
 
+						<li class="accordionInputBox">
+							<p class="inputlabel">ההחלטה לבקשה / נדרשים מסמכים</p>
+							<ul class="RequestConBox">
+								<li class="RequestCon">
+									<div class="RequestBox">
+										<input class="RadioBtn" type="radio" [(name)]="user.Person_id" (change)="DecisionAmount.focus()" [(ngModel)]="user.FormStatus"
+										 required [value]="3">
+										<p class="RequestTitel">אושרה</p>
+									</div>
+
+									<div class="RequestBox">
+										<input class="RadioBtn" type="radio" [(name)]="user.Person_id" (change)="DecisionReasons.focus()" [(ngModel)]="user.FormStatus"
+										 required [value]="4">
+										<p class="RequestTitel">נדחתה</p>
+									</div>
+
+									<div class="RequestBox No_marginLeft">
+										<input class="RadioBtn" type="radio" [(name)]="user.Person_id" (change)="DecisionReasons.focus()" [(ngModel)]="user.FormStatus"
+										 required [value]="5">
+										<p class="RequestTitel">מסמכים</p>
+									</div>
+
+								</li>
+							</ul>
 						</li>
+
 						<li class="accordionInputBox No_marginLeft">
-							<p class="inputlabel">מענק המלגה בסכום</p><input type="text" name="TotalScholarship"></li>
+							<p class="inputlabel">מענק המלגה בסכום</p><input #DecisionAmount type="text" [(ngModel)]="user.DecisionAmount" name="TotalScholarship"></li>
 						<li class="accordionInputBox InputBoxBig">
-							<p class="inputlabel">הנימוקים להחלטה</p>
-							<textarea rows="5" cols="5" class="inputcontent"></textarea>
+							<p class="inputlabel">הנימוקים להחלטה \ חומרים חסרים</p>
+							<textarea rows="5" cols="5" class="inputcontent" #DecisionReasons [(ngModel)]="user.DecisionReasons"></textarea>
 						</li>
 					</ul>
 					<ul>
@@ -92,14 +115,46 @@
 							<p>* לאחר שליחה החלטת הוועדה תופץ לגורמים הרלוונטים באמצעות המייל.</p>
 						</li>
 						<li class="accordionSave">
-							<input class="InsideFormBtn No_marginTop" type="submit" value="שליחה" name="send" title="שליחה">
-							<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים עודכנו ונשמרו במערכת</p></a>
+							<input class="InsideFormBtn No_marginTop" type="submit" (click)="sendDecision(user)" value="שליחה" name="send" title="שליחה"
+							 [ngClass]="{'disabledBtn': !user.FormStatus|| (!user.DecisionAmount&&user.FormStatus == 3) || !user.DecisionReasons || user.wasSaved}"
+							 [disabled]="!user.FormStatus|| (!user.DecisionAmount&&user.FormStatus == 3) || !user.DecisionReasons || user.wasSaved">
+							<a *ngIf="user.wasSavedMess" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>נשלח אימייל והנתונים עודכנו במערכת</p></a>
 						</li>
+
+						<!--<li class="accordionSend">
+							<input class="InsideFormBtn No_marginTop" type="submit" value="השלמת מסמכים" name="send" title="השלמת מסמכים"
+							 [ngClass]="{'disabledBtn': !user.DecisionReasons}"
+							   [disabled]="!user.DecisionReasons">
+							<a href="#" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו ונשלחו</p></a>
+						</li>-->
 					</ul>
 				</div>
 
 			</accordion-group>
-		</accordion>
+			<accordion-group *ngIf="noRows == 0" class="nodownIcon">
+				<accordion-heading class="accordionColor">
+					<div class="newUserSubTitleBox">
+						<p class="newUserTitlePadding">אין בקשות חדשות</p>
+					</div>
+					<div class="newUserSubTitleBox">
+						
+					</div>
+					<div class="newUserSubTitleBox">
+					
+					</div>
+					<div class="newUserSubTitleBox">
+					
+					</div>
+					<div class="newUserSubTitleBox">
+					
+					</div> 
+				</accordion-heading>
+
+			
+			</accordion-group>
+		</div>
+	</accordion>
+
 	</div>
 
 </div>

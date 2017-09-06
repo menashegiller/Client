@@ -5,7 +5,7 @@ import { User } from 'common/Models/user';
 import { Docsmodel } from 'common/Models/docsmodel';
 import { Datesmodel } from 'common/Models/datesmodel';
 /*import { Datesmodel } from '../Models/datesmodel';*/
-import { IMyOptions, IMyDateModel } from 'mydatepicker';
+import { IMyOptions, IMyDateModel, IMyDate, IMyDateRange  } from 'mydatepicker';
 import { MdlDialogService } from 'angular2-mdl';
 import { AuthService } from 'common/services/auth/auth.service';
 /*import { PdfViewerComponent } from 'ng2-pdf-viewer';*/
@@ -19,6 +19,7 @@ import { AuthService } from 'common/services/auth/auth.service';
 export class HomeComponent implements OnInit {
     user: User = new User();
     saveIsGood: boolean = false;
+    showAtten: boolean = false;
     pdfSrc: string = 'assets/images/output.pdf';
     page: number = 2;
     years = [];
@@ -35,13 +36,19 @@ export class HomeComponent implements OnInit {
     studentId;
     docsValid: boolean = false;
     isBigfile: boolean = false;
+    isSent: boolean = false;
+    allowSending: number = 0;
+    formInvalid: boolean = false;
 
+    @ViewChild('detailsForm')  _detailsForm: HomeComponent;
+   // selDate: IMyDate = {year: 0, month: 0, day: 0};
     // private locales:Array<string> = new Array('en','he');
     public TypesOfService = [
         { value: 0, display: 'סדיר' },
         { value: 1, display: 'קבע' },
         { value: 2, display: 'לאומי' },
-        { value: 3, display: 'פטור' }
+        { value: 3, display: 'פטור' },
+        { value: 4, display: 'לא שרתתי' }
     ];
     public choices = [
         { value: 1, display: 'כן' },
@@ -54,18 +61,20 @@ export class HomeComponent implements OnInit {
     private myDatePickerOptions: IMyOptions = {
         // other options...
         dateFormat: 'dd/mm/yyyy',
-        
     };
-/*
-    ngOnChanges(changes: any) {
-        this.saveIsGood = false;
-    }*/
+
+    private myDatePickerOptionsForLearningFinish: IMyOptions = {
+         dateFormat: 'dd/mm/yyyy',
+       //  disableUntil: new Date(this.user.LearningSrats)//{year: 2017, month: 7, day: 22}
+    };
+
+        
 
     ngOnInit() {
-        console.log('_loginForm-->',this._loginForm);
+        console.log('_loginForm-->', this._loginForm);
         let currentYear = new Date().getFullYear();
 
-     
+
 
 
         for (let i = 10; i >= 0; i--) {
@@ -84,6 +93,7 @@ export class HomeComponent implements OnInit {
             res => {
                 // this.smsState = (<Response>res).ok;
                 this.certificationsTemp = res.json().Certifications;
+                this.certifications = res.json().Certifications;
             },
             err => {
                 console.log(err);
@@ -91,35 +101,42 @@ export class HomeComponent implements OnInit {
 
 
         this.httpService.GetEmployees(6, 0).subscribe(
-            res =>{
+            res => {
                 // this.smsState = (<Response>res).ok;
                 this.employeesTemp = res.json().Employees;
+                this.employees = res.json().Employees;
             },
 
 
             err => {
                 console.log(err);
             });
-            if(this.authService.currentUser.role < 8  ){
-                this.studentId = this.authService.studentId;
-            }
-            else{
-                this.studentId =this.authService.currentUser.id;
-            }
-        this.httpService.GetUser( this.studentId).subscribe(
+        if (this.authService.currentUser.role < 8) {
+            this.studentId = this.authService.studentId;
+        }
+        else {
+            this.studentId = this.authService.currentUser.id;
+        }
+        this.httpService.GetUser(this.studentId).subscribe(
             res => {
                 let that = this;
                 // this.smsState = (<Response>res).ok;
                 that.user = res.json().user;
                 //  let temp = new Date(that.user.BirthDate);
                 //  that.datesmodel.BirthDate  = { date:{ year: temp.getFullYear(), month: temp.getMonth()+1, day: temp.getDate() }};
-                that.datesmodel.BirthDate = that.stringToCalendarDate(that.user.BirthDate);
+              /*   that.datesmodel.BirthDate = that.stringToCalendarDate(that.user.BirthDate);
                 that.datesmodel.LearningSrats = that.stringToCalendarDate(that.user.LearningSrats);
                 that.datesmodel.LearningFinish = that.stringToCalendarDate(that.user.LearningFinish);
                 that.datesmodel.ArmyDate = that.stringToCalendarDate(that.user.ArmyDate);
-                that.datesmodel.SignatureDate = that.stringToCalendarDate(that.user.SignatureDate);
-                that.datesmodel.ShihrurDate = that.stringToCalendarDate(that.user.ShihrurDate);
-                //      var reader = new FileReader();
+                that.user.SignatureDate = new Date();
+                that.datesmodel.ShihrurDate = that.stringToCalendarDate(that.user.ShihrurDate); */
+               
+                that.user.BirthDateClass = that.stringToCalendarDate(that.user.BirthDate);
+                that.user.LearningSratsClass = that.stringToCalendarDate(that.user.LearningSrats);
+                that.user.LearningFinishClass = that.stringToCalendarDate(that.user.LearningFinish);
+                that.user.ArmyDateClass = that.stringToCalendarDate(that.user.ArmyDate);
+                that.user.SignatureDate = new Date();
+                that.user.ShihrurDateClass = that.stringToCalendarDate(that.user.ShihrurDate);
 
                 that.getOriginalFileName('Bagrut_doc');
                 that.getOriginalFileName('Toar_doc');
@@ -133,16 +150,18 @@ export class HomeComponent implements OnInit {
                 that.selectedTypeOfService = this.user.TypeOfService ? this.TypesOfService[this.user.TypeOfService].display : this.TypesOfService[0].display;
                 // that.datesmodel.BirthDate = new Date(that.user.BirthDate);
                 // console.log(this.user);
-                if (res.json().success) {
-                //    localStorage.setItem('id_token', JSON.stringify({ token: res.json().token }));
+               /*  if (res.json().success) {
+                    //    localStorage.setItem('id_token', JSON.stringify({ token: res.json().token }));
                     this.onSelect(this.user.College);
-                }
-                  this.docsValidTest();
+                } */
+                this.docsValidTest();
+
+                that.setOptionsforDasableUntil(that.user.LearningSratsClass.date);
             },
             err => {
                 console.log(err);
             });
-           
+
 
         this.onSelect(this.user.College);
     }
@@ -156,30 +175,10 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < 8; i++) {
             this.filesToUpload[i] = new File(['FileList'], 'filenameTemp');
         }
-        //         let result = this.dialogService.alert('ההרשמה הסתיימה בהצלחה'+
-        // 'תשובה על הרשמתך תשלח למייל שלך כפי שציינת בפרטים האישיים, תודה על השקעתך בהצלחה');
-        //         result.subscribe( () => console.log('alert closed') );
-        /* let result = this.dialogService.confirm('Would you like a mug of coffee?',null, 'סגור');
-        // if you need both answers
-        result.subscribe( () => {
-            console.log('confirmed');
-            },
-            (err: any) => {
-            console.log('declined');
-            }
-        );
-        // if you only need the confirm answer
-        result.onErrorResumeNext().subscribe( () => {
-            console.log('confirmed 2');
-        });*/
+     
     }
 
-    /* setLocaleOptions(): void {
-            let opts: IMyOptions = this.localeService.getLocaleOptions(this.locale);
-            Object.keys(opts).forEach((k) => {
-                (<IMyOptions>this.opts)[k] = opts[k];
-            });
-        }*/
+    
     getOriginalFileName(propertyName: string) {
         let value = this.user[propertyName];
         if (value) {
@@ -189,13 +188,15 @@ export class HomeComponent implements OnInit {
     }
 
     onDateChanged(event: IMyDateModel, propertyName: string) {
-        // event properties are: event.date, event.jsdate, event.formatted and event.epoc
-        console.log('111');
         if (event.jsdate === null) {
-            return;// this.user[propertyName]  = null;
+            this.user[propertyName]  = null;
+            //return
         }
         else {
             this.user[propertyName] = event.jsdate.toUTCString();
+            if(propertyName=="LearningSrats"){
+                this.setOptionsforDasableUntil(event.date);
+            }
         }
     }
     /*  upload() {
@@ -203,11 +204,11 @@ export class HomeComponent implements OnInit {
       }*/
     fileChangeEvent(fileInput: any) {
         // this.filesToUpload = <Array<File>> fileInput.target.files;
-        
+
         if (fileInput.target.files.length > 0) {
             if (fileInput.target.files[0].size > 2024000) {
                 let result = this.dialogService.alert('הקובץ מידי גדול');
-              //  result.subscribe( () => (this.router.navigate(['/forgetpsw'])));
+                //  result.subscribe( () => (this.router.navigate(['/forgetpsw'])));
                 return;
             }
 
@@ -219,22 +220,22 @@ export class HomeComponent implements OnInit {
                 this.arrayNames.push(fileInput.target.name);
             }
         }
-        else {
+         else {
             fileInput.target.title = 'בחירת קובץ';
-            this.docsmodel[fileInput.target.name] =  'קובץ לא צורף';
-        }
-         this.docsValidTest();
+            this.docsmodel[fileInput.target.name] = 'קובץ לא צורף';
+        } 
+        this.docsValidTest();
     }
-
-    docsValidTest(){
+  
+    docsValidTest() {
         let tempText = 'קובץ לא צורף';
-         if(this.docsmodel.CV_doc== tempText || this.docsmodel.TZ_doc== tempText 
-            || this.docsmodel.IshurKabala_doc== tempText || this.docsmodel.Hamlaca_doc== tempText 
-            || this.docsmodel.Bank_doc== tempText ){
+        if (this.docsmodel.CV_doc == tempText || this.docsmodel.TZ_doc == tempText
+            || this.docsmodel.IshurKabala_doc == tempText || this.docsmodel.Hamlaca_doc == tempText
+            || this.docsmodel.Bank_doc == tempText) {
             this.docsValid = false;
         }
-        else{
-             this.docsValid = true;
+        else {
+            this.docsValid = true;
         }
     }
 
@@ -257,7 +258,7 @@ export class HomeComponent implements OnInit {
             };
             xhr.open('POST', url, true);
             xhr.setRequestHeader('Authorization', 'Bearer ' + this.authService.currentUser.token);
-            
+
             xhr.send(formData);
         });
     }
@@ -268,38 +269,56 @@ export class HomeComponent implements OnInit {
         this.certifications = this.certificationsTemp
             .filter((item) => item.College == Id);
     }
-sendtoStudent(){
-    event.preventDefault();
-      let that = this;
-     
-/*     let validadress=null;
-        if(user.Adress == null){
-validadress="Enter adress";
-        }*/
-  that.httpService.sendtoStudent(this.authService.currentUser.id).subscribe(
-                    res => {
-                       
-          let result = this.dialogService.alert('ההרשמה הסתיימה בהצלחה'+
-             'תשובה על הרשמתך תשלח למייל שלך כפי שציינת בפרטים האישיים, תודה על השקעתך בהצלחה');
-                result.subscribe( () => (this.router.navigate(['/forgetpsw'])));
-        
-        // if you only need the confirm answer
-     
-
-                    },
-                    (err) => {
-                        console.log(err);
-
-                    });
-                   
-}
-
-
-    saveAll(user) {
+    sendtoStudent() {
         event.preventDefault();
         let that = this;
+
+        /*     let validadress=null;
+                if(user.Adress == null){
+        validadress="Enter adress";
+                }*/
+
+        let result = 
+        this.dialogService.confirm(
+            '<p>ברגע שתשלח/י את המסמכים לא ניתן לערוך את אותם לכן מומלץ לבדוק שוב את הטופס ולאחר מכן ללחוץ על שלח</p>',
+             'חזרה לטופס', 'שלח/י טופס', 'חשוב לזכור'); 
+
+        result.subscribe(() => 
+        {
+             that.httpService.sendtoStudent(this.authService.currentUser.id,
+                                            this.authService.currentUser.email,
+                                            this.authService.currentUser.fullname
+                                        ).subscribe(
+                res => {
+
+            
+                   this.allowSending = 2;
+                // if you only need the confirm answer
+                setTimeout(() => {
+                    this.allowSending = 3;
+                    this.router.navigate(['/studentForm']);
+                 }, 3000);
+
+                },
+                (err) => {
+                    console.log(err);
+
+                });  
+        },
+        (err: any) => {
+        console.log('declined');
+        });
+       
+
       
-   
+    }
+
+
+    saveAll(user,ifAten:boolean) {
+        event.preventDefault();
+        let that = this;
+
+
         this.makeFileRequest('http://localhost:5002/users/upload', [], this.filesToUpload, this.arrayNames)
             .then((result) => {
                 console.log(result);
@@ -308,7 +327,7 @@ validadress="Enter adress";
                     that.user[temp] = result[i].filename;
                 }
 
-               
+
                 let pid = this.authService.currentUser.id;
 
                 /*  user.BirthDate = this.user.BirthDate;
@@ -320,7 +339,14 @@ validadress="Enter adress";
                 that.httpService.saveFormToDB(user, pid).subscribe(
                     res => {
                         that.saveIsGood = res.json().success;
-                     
+                        if(ifAten){
+                            that.showAtten = res.json().success;
+                        
+                            setTimeout(() => {
+                                that.showAtten = false;
+                            }, 6000);
+                        }
+
                     },
                     (err) => {
                         console.log(err);
@@ -334,42 +360,24 @@ validadress="Enter adress";
         //  this.router.navigate(['/forgetpsw']);
     }
 
-   /* changeChecking() {
-        if (this.httpService.isEmployee) {
-            return;
-        }
-        else {
-            this.user.Fighter == 1 ? this.user.Fighter = null : this.user.Fighter = 1;
-        }
-    }*/
+    /* changeChecking() {
+         if (this.httpService.isEmployee) {
+             return;
+         }
+         else {
+             this.user.Fighter == 1 ? this.user.Fighter = null : this.user.Fighter = 1;
+         }
+     }*/
 
     onSelectionChange(entry) {
         this.selectedTypeOfService = entry.display;
     }
 
 
- /* print(): void {
-        let printContents, popupWin;
-        printContents = document.getElementById('print-section').innerHTML;
-        popupWin = window.open('',  'top=20px,left=0,height=100%,width=auto');
-        popupWin.document.open();
-        popupWin.document.write(`
-      <html>
-        <head>
-          <title>Print tab</title>
-           <link rel="stylesheet" href="./home.css">
-         <style>
-
-          </style>
-        </head>
-    <body class='cleanClass' onload="window.print();window.close()">${printContents}</body>
-      </html>`
-        );
-        popupWin.document.close();
-    }*/
-print(){
-    window.print();
-}
+   
+    print() {
+        window.print();
+    }
 
     stringToCalendarDate(date: Date) {
         let newDate;
@@ -381,5 +389,58 @@ print(){
             newDate = null;
         }
         return newDate;
+    }
+
+    /*focusFunc(event){
+        event.currentTarget.focus();
+        this.router.navigate(['/forgetpsw'])
+    }*/
+
+    goto(location: string, formdata,formName): void { 
+       
+        if(!formdata){
+            window.location.hash = location;
+            return; 
+        }
+    
+        if(formdata.form.valid&&formName=='detailsForm'&&this.user.BirthDateClass){
+            window.location.hash = location;
+        }else if(formdata.form.invalid) {
+             window.location.hash = "detailsForma";
+        } else
+        if(formdata.form.valid&&formName=='collegeForm'&&this.user.LearningSratsClass&&this.user.LearningFinishClass){
+            window.location.hash = location;
+        }else
+        if(formdata.form.valid&&formName=='docsForm'&& this.docsValid){
+            window.location.hash = location;
+        }
+        else{
+            this.formInvalid = true;
+            setTimeout(() => {
+                   this.formInvalid = false;
+                }, 6000);
+        }
+        
+        //this.saveAll(this.user);
+    }
+    Save(): void {
+        this.authService.currentUser.fullname = this.user.FullName;
+        if(this.allowSending != 2){
+            this.saveAll(this.user,false);
+        }
+    }
+
+     getCopyOfOptions(): IMyOptions {
+        return JSON.parse(JSON.stringify(this.myDatePickerOptionsForLearningFinish));
+    }
+
+    setOptionsforDasableUntil(date):void{
+        let copy = this.getCopyOfOptions();
+        copy.disableUntil = {year: date.year, month: date.month, day: date.day};
+        this.myDatePickerOptionsForLearningFinish = copy;
+    }
+
+    Jump():void{
+       document.body.scrollTop = 638; 
     }
 }

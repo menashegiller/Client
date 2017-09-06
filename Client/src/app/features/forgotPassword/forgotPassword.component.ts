@@ -9,6 +9,8 @@ import { HelpService } from 'common/services/help.service';
 import { User } from 'common/Models/user';
 import { PasswordDirective } from 'common/directives/password/password.directive';
 import { Headers, URLSearchParams } from '@angular/http';
+import { LoginResolve } from 'shared/resolvers/login.resolver';
+
 @Component({
     moduleId: module.id,
     selector: 'as-forgot-psw',
@@ -27,7 +29,7 @@ export class ForgotPasswordComponent {
     goodPass = 0;
 
     constructor(public httpService: HttpService, public authService: AuthService, public router: Router, public helpService: HelpService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, public loginResolve: LoginResolve) {
    
     }
 
@@ -77,7 +79,9 @@ export class ForgotPasswordComponent {
     goToHome(){
       //  this.authService.email = res.json().email;
                 this.httpService.isGood = 3;
-                   this.router.navigate(['/home']);
+                 this.httpService.fpState = 4;
+                /*    this.router.navigate(['/home']); */
+                 this.router.navigate([this.loginResolve.resolveHomeRoute()]);
     }
 
     SavePassword(passWord1, passWord2) {
@@ -105,6 +109,12 @@ export class ForgotPasswordComponent {
             this.goodPass = 1;
             return;
         }
-
     }
+
+    noCode() {
+        this.httpService.isGood = 2;
+        this.httpService.fpState = 0;
+        this.router.navigate(['/forgetpsw']);
+      }
+    
 }

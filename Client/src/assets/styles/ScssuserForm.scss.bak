@@ -13,33 +13,32 @@
   background-color: white;
 }*/
 
-.Logout, .LogoutBtn, .accordionSave, .accordionSend, .NameUser, .UserAccountForm {
+.Logout, .LogoutBtn, .accordionSave, .accordionSend {
   width: 100%;
   float: left;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .UserAccountForm {
+  width: 100%;
+  float: left;
   color: #FFFFFF;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   clear: left;
 }
 
 .NameUser {
-  max-width: 250px;
+  width: 100%;
   margin-bottom: 15px;
   margin-top: 30px;
-  padding-right: 10px;
-  float: right;
+  float: left;
+  overflow: hidden;
   a {
     color: #FFFFFF;
   }
   p {
     direction: rtl;
-  }
-  a:hover {
-    text-decoration: none;
   }
 }
 
@@ -104,14 +103,11 @@
 }
 
 .DocreqContainer p {
-  width: 75%;
-  float: right;
   padding-bottom: 5px;
 }
 
 .DocreqSelect {
-  max-width: 40px;
-  margin-left: 10px;
+  max-width: 60px;
 }
 
 .EmptyIcon, .ChackIcon {
@@ -129,11 +125,10 @@
 
 .SelctedChack {
   display: block;
-  cursor: pointer !important;
 }
 
 .UpLoudFileBtnBox {
-  width: 100%;
+  width: 90%;
   float: right;
   margin-top: 10px;
 }
@@ -221,14 +216,9 @@
 }
 
 .WarrCercheTitle {
-  width: 70%;
+  width: 80%;
   margin-right: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-top: 0px;
   margin-bottom: 0px;
-  margin-top: -6px;
 }
 
 .dismiss {
@@ -240,6 +230,7 @@
 .MilitaryRadioBox {
   width: 100%;
   float: right;
+  height: 50px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -275,13 +266,12 @@
 
 .MilitaryRadioCon {
   width: 100%;
-  max-width: 605px;
+  max-width: 500px;
   float: right;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-top: 10px;
-  padding-bottom: 10px;
   padding-right: 15px;
   overflow: hidden;
   margin-left: auto;
@@ -290,15 +280,20 @@
 
 .MilTitle {
   float: right;
+  margin-right: 10px;
 }
 
 .MilBox {
-    width: 100%;
-    float: right;
-    margin-bottom: 5px;
-    margin-top: 5px;
+  width: 21%;
+  float: right;
+  margin-left: 13px;
 }
 
+.RadioBtn {
+  width: 25px;
+  float: right;
+  height: 30px;
+}
 .EconomicBox, .DeclarationBox {
   width: 100%;
   float: right;
@@ -308,18 +303,14 @@
   margin-bottom: 10px;
 }
 .EconomicBoxList {
-  width: 45%;
+  width: 60%;
   float: right;
-  margin-left: 11px;
  }
-
  .EconomicBoxList p{
   width: 100%;
   float: right;
   margin-bottom: 5px;
-  font-size: 1em;
  }
-
 .DeclarationBox {
   width: 100%;
   float: right;
@@ -327,39 +318,28 @@
 
 .RadioTitle {
   float: right;
-  font-size: 1em;
-}
-
-.RadioBtn {
-  width: 22px;
-  float: right;
-  height: 30px;
-  margin-left: 5px;
-}
-
-.RadioBoxCon {
-  width: 50px;
-  float: right;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .EconomicRadio {
+  width: 145px;
   float: right;
-  margin-bottom: 83px;
 }
 
 .EconomicRadioBox {
-  width: 100px;
+  width: 130px;
   float: right;
+  margin-top: 20px;
 }
 
 .EconomicPar {
-  width: 75%;
+  width: 61%;
   float: right;
-  padding-top: 0px;
 }
 
 .DeclarationPar {
-  width: 75%;
+  width: 84%;
   float: right;
   padding-top: 5px;
   -webkit-box-sizing: border-box;
@@ -372,162 +352,15 @@
   margin-bottom: 0px;
 }
 
-@media only screen and (min-width: 350px) {
-.EconomicPar {
-    padding-top: 7px;
-}
-
-.NameUser {
-    max-width: 320px;
-    padding-right: 5px;
-    float: right;
-}
-}
-
-@media only screen and (min-width: 380px) {
-.WarrCercheTitle {
-    padding-top: 5px;
-    margin-top: 0px;
-}
-
-.EconomicRadio {
-    margin-bottom: 61px;
-}
-
-.NameUser {
-    max-width: 100%;
-}
-
-.NameUser a {
-    font-size: 1.3em;
-}
-
-.NameUser p {
-    font-size: 1.4em;
-}
-}
-
-@media only screen and (min-width: 400px) {
-.EconomicBoxList {
-    width: 55%;
-    margin-left: 15px;
-}
-
-.EconomicBoxList p {
-    font-size: 1.1em;
-}
-
-.RadioBtn {
-    width: 25px;
-    height: 26px;
-    margin-left: 8px;
-}
-
-.EconomicRadioBox {
-  width: 110px;
-}
-
-.EconomicRadio {
-    margin-bottom: 50px;
-}
-
-.RadioBoxCon {
-    width: 52px;
-}
-}
-
-@media only screen and (min-width: 430px) {
-.WarrCercheTitle {
-    width: 75%;
-}
-}
-
-@media only screen and (min-width: 500px) {
-.EconomicBoxList {
-  width: 58%;
-  float: right;
-  margin-left: 30px;
-}
-
-.EconomicBoxList p {
-    font-size: 1.2em;
-}
-
-.RadioBtn {
-  width: 26px;
-  height: 30px;
-  margin-left: 10px;
-}
-
-.EconomicRadioBox {
-  width: 122px;
-}
-
-.EconomicRadio {
-  margin-bottom: 39px;
-}
-
-.RadioBoxCon {
-    width: 61px;
-}
-
-.RadioTitle {
-  font-size: 1.2em;
-}
-}
-
-@media only screen and (min-width: 510px) {
-.EconomicRadio {
-    margin-bottom: 33px;
-}
-
-.EconomicRadioMore {
-   margin-top: 20px;
-}
-}
-
-@media only screen and (min-width: 530px) {
-.EconomicRadioMore {
-   margin-top: 0px;
-}
-}
-
-@media only screen and (min-width: 540px) {
-.EconomicRadio {
-    margin-bottom: 33px;
-}
-
-.EconomicRadioMore {
-   margin-top: 0px;
-}
-}
-
-@media only screen and (min-width: 600px) {
-.EconomicBoxList {
-    width: 60%;
-}
-
-.EconomicRadio {
-    margin-bottom: 30px;
-}
-}
-
-@media only screen and (min-width: 620px) {
-  .EconomicRadio {
-    margin-bottom: 30px !important;
-}
-}
-
 @media only screen and (min-width: 700px) {
   .UserAccountForm {
     padding-top: 20px;
   }
   .NameUser {
-    width: 64%;
+    width: 60%;
     float: right;
     margin-bottom: 0px;
     margin-top: 0px;
-    padding-right: 0px;
   }
   .Logout {
     max-width: 195px;
@@ -541,21 +374,21 @@
     width: 47%;
     margin-left: 30px;
   }
+  .WarrCercheTitle {
+    width: 70%;
+  }
+  .MilitaryRadioCon {
+    padding-right: 20px;
+  }
 
   .InputBoxBginDate {
-	  width: 100% !important;
-	  margin-left: 0px !important;
+	width: 100% !important;
+	margin-left: 0px !important;
    }
 
   .MoreInputBoxBig {
     width: 100% !important;
    }
-
-  .MilBox {
-    width: 20%;
-    margin-bottom: 0px;
-    margin-top: 0px;
-  }
 
 }
 
@@ -576,6 +409,9 @@
     margin-left: 0px;
   }
   /*----------------------------------- Military -------------------------*/
+  .TypeServiceBox {
+    width: 100% !important;
+  }
   .WarrCercheBox {
     width: 100% !important;
     padding-top: 20px;
@@ -584,13 +420,18 @@
     width: 47%;
     margin-left: 30px;
   }
-  
+  .EconomicRadio {
+    margin-bottom: 23px;
+  }
   .EconomicRadioBox {
     margin-top: 0px;
   }
 }
 
 @media only screen and (min-width: 900px) {
+  .UserAccountForm {
+    width: 375px;
+  }
   .accordionSave {
     margin-right: 30px;
     max-width: 285px;
@@ -622,8 +463,8 @@
   }
   /*----------------------------------- Upload File Process -------------------------*/
   .DocreqUpLoudBoxLine {
-    width: 100%;
-    margin-right: 0px;
+    width: 93%;
+    margin-right: 58px;
   }
   /*----------------------------------- WorkingProcess Selcted -------------------------*/
   .WorkingProcess {
@@ -643,26 +484,10 @@
 @media only screen and (min-width: 1000px) {
   .UserAccountForm {
     padding-top: 73px;
-    width: 554px;
   }
   .EconomicRadio {
-    margin-bottom: 13px !important;
+    margin-bottom: 0px;
   }
-}
-
-@media only screen and (min-width: 1010px) {
-.EconomicRadio {
-    margin-bottom: 10px !important;
-}
-
-.EconomicRadioBox {
-    width: 150px;
-}
-
-.EconomicBoxList p {
-    margin-bottom: 13px;
-}
-
 }
 
 @media only screen and (min-width: 1100px) {
@@ -676,17 +501,32 @@
     width: 47%;
     margin-bottom: 0px;
   }
+  .WarrCercheTitle {
+    width: 70%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   /*----------------------------------- Military -------------------------*/
+  .WarrCercheBox {
+    padding-top: 47px;
+  }
   .Warrcheck {
     margin-top: 0px;
+  }
+  .MilitaryRadioCon {
+    padding-right: 38px;
+    float: right;
+    max-width: 50%;
+  }
+  .MilBox {
+    width: 22%;
   }
 }
 
 @media only screen and (min-width: 1250px) {
   .UserAccountForm {
+    width: 500px;
     padding-top: 94px;
   }
   .InputBaginDate, .InputEndDate, .InputTuitionAmount {

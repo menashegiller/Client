@@ -1,0 +1,4 @@
+.isFinished{
+     cursor: not-allowed;
+	 pointer-events: none;  
+}

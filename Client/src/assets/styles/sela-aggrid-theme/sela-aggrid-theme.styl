@@ -4,7 +4,6 @@ ag-style = "sela"
 ag-root-font-family = "Open Sans Hebrew"
 ag-root-font-size = 14px
 
-
 ag-scrollbar-background = unset
 ag-scrollbar-thumb = unset
 
@@ -91,13 +90,15 @@ ag-menu-option-shortcut-padding = 2px 2px 2px 2px
     font-weight: bold
     height: 57px
     padding: 11px 0px!important
+    cursor: pointer
+    overflow: inherit
 
 .ag-filter input, .ag-filter select
     border-radius:0px
     height: 30px
 
 .ag-cell
-    padding-top: 15px!important
+    padding-top: 10px!important
     padding-bottom: 15px!important
     text-align: center
     font-size: 19.2px
@@ -105,6 +106,11 @@ ag-menu-option-shortcut-padding = 2px 2px 2px 2px
     border-bottom-color: #FFFFFF
     border-bottom-style: solid
     border-bottom-width: 3px
+    cursor: pointer
+
+.ag-row:hover
+    background-color: #004467
+    cursor: default;
 
 .ag-row:first
     border-top-color: #FFFFFF
@@ -113,7 +119,32 @@ ag-menu-option-shortcut-padding = 2px 2px 2px 2px
   
 .ag-body
     top: 60px!important
-    height: 276px!important
+    height: 500px!important
 
 .ag-root
-    border: none!important;
+    border: none!important
+.ag-filter-filter
+    width:200px
+
+.ag-header-icon 
+    color: #FFFFFF!important
+    fill: #fff !important
+
+
+.ag-header-cell
+    border:none!important
+
+.ag-header-cell-menu-button
+    display:none
+    background-color: #000
+    cursor: pointer
+    width: 25px
+    position: absolute
+    top: 8px
+    right: 0px
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+

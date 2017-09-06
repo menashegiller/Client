@@ -1,6 +1,11 @@
-accordion {
+/* accordion {
 	 cursor: not-allowed;
 	 pointer-events: none;  
+} */
+
+accordion-heading {
+    cursor: not-allowed;
+    pointer-events: none; 
 }
 /*
   .downIcon, .upIcon, .selectBtn, .hideBlock{

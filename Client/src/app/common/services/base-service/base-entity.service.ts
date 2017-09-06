@@ -13,7 +13,7 @@ export class BaseEntityService extends BaseService {
     get contentHeaders() {
         let headers =  new Headers(this.contentHeadersBase);
         if(this._authService.currentUser){
-            headers.append('Authorization', 'Bearer ' + this._authService.currentUser.token);
+            headers.append('authorization', 'Bearer ' + this._authService.currentUser.token);
         }
         return headers;
     }

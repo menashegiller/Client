@@ -18,10 +18,11 @@ import {AccordionToggle} from "./AccordionToggle";
     template: `
 <div class="accordionHeader No_PaddingRight NoBorderTop BoxStrokeline accordionHover 
     panel panel-default" [class.dropup]="isOpened" [class.disabled]="disabled">
-     <span class="downIcon upIcon icon-05" [class.upIcon]="isOpened" (click)="checkAndToggle()"></span>    
-     <div class="" role="tab" (click)="checkAndToggle()">
+     <span class="downIcon upIcon icon-05" [class.upIcon]="isOpened" (click)="checkAndToggle(idElement)"></span>    
+     <div class="" role="tab" (click)="checkAndToggle(idElement)">
         <a *ngIf="heading" role="button" data-toggle="collapse" [attr.aria-expanded]="isOpened">
-            {{ heading }}</a>
+            {{ heading }}
+        </a>
         <ng-content select="accordion-heading"></ng-content>
         <div class="caret" [style.display]="accordion.showArrows ? '' : 'none'"></div>
      </div>
@@ -54,6 +55,9 @@ export class AccordionGroup {
     @Input()
     isOpened: boolean = false;
 
+    @Input() 
+    idElement: string = '';
+    
     @Output()
     onOpen = new EventEmitter();
 
@@ -73,11 +77,11 @@ export class AccordionGroup {
                 private cdr: ChangeDetectorRef) {
     }
 
-    checkAndToggle() {
+    checkAndToggle(location:string) {
         // if custom toggle element is supplied, then do nothing, custom toggler will take care of it
         if (this.toggler)
             return;
-
+      //  window.location.hash = location;
         this.toggle();
     }
 

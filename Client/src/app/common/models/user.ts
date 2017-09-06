@@ -1,4 +1,6 @@
 import { Docsmodel } from './docsmodel';
+import { Dateclass } from './dateClass';
+
 
 export const enum ROLE{
     SUPER_USER=1,
@@ -9,8 +11,6 @@ export const enum ROLE{
     CONSULTANT,
     FINANCE_DIRECTOR,
     STUDENT
-
-
 }
 
 export class User {
@@ -69,6 +69,23 @@ export class User {
     Certification_Id: number=0;
     TuitionFees: string = '';
     RegistrationDate: Date;
+    CollegeName: string = '';
+    CertificationName: string = '';
+    FormStatus: string = '';
+    DecisionAmount: string = null;
+    DecisionDate: Date;
+    NotServe: number;
+    RegistrationDayString: string;
+    LearningStartString: string;
+    LearningFinishString: string;
+    DecisionDateString: string;
+    wasSaved: boolean = false;
+    BirthDateClass: Dateclass = null; 
+    LearningSratsClass: Dateclass = null; 
+    LearningFinishClass: Dateclass = null; 
+    ArmyDateClass: Dateclass = null; 
+    SignatureDateClass: Dateclass = null; 
+    ShihrurDateClass:  Dateclass = null; 
     constructor() {
        /* this.Email = e;
         this.passWord = p;

@@ -34,13 +34,14 @@
     width: 100%;
     float: right;
     color: #FFFFFF;
-    font-size: 1.3em;
+    font-size: 1em;
     font-weight: bold;
     padding-bottom: 15px;
     padding-top: 15px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    padding-right: 10px;
 }
 
 .downIcon, .upIcon {
@@ -57,8 +58,8 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: absolute;
-  left: 20px;
-  top: 15px;
+  left: 10px;
+  top: 10px;
 }
 
 .upIcon {
@@ -127,9 +128,45 @@
 }
 }
 
+.OnlyNum {
+  width: 100%;
+  float: right;
+  font-size: 0.8em;
+}
+
+@media only screen and (min-width: 400px) {
+.accordionTitle {
+    font-size: 1.1em;
+    padding-right: 20px;
+}
+}
+
+@media only screen and (min-width: 430px) {
+  .accordionTitle {
+    font-size: 1.3em;
+  }
+  
+  .downIcon, .upIcon {
+    top: 14px;
+  }
+}
+
+@media only screen and (min-width: 460px) {
+.OnlyNum {
+    width: 74%;
+    float: none;
+    padding-top: 2px;
+}
+}
 
 @media only screen and (min-width: 700px) {
   .accordionTitle {
     font-size: 1.6em;
   }
-}
+  }
+
+  @media only screen and (min-width: 900px) { 
+  .downIcon, .upIcon {
+    top: 16px;
+  }
+  }

@@ -36,15 +36,13 @@ export class LoginWithEmailComponent {
 
 
     forgot() {
-       // localStorage.setItem('fpState', JSON.stringify({ fp: 0 }) );
-       // localStorage.setItem('fpState', '0' );
-        this.httpService.fpState = 0;
+               this.httpService.fpState = 0;
         this.router.navigate(['/forgetpsw']);
         this.httpService.isGood = 2;
     }
 
     login(user) {
-        event.preventDefault();
+     //   event.preventDefault();
         // this.validationService.validateEmail(user);
         this.emailValid = this.validationService.validateEmail(user.Email);
         this.passValid = this.validationService.validationPassword(user.passWord);

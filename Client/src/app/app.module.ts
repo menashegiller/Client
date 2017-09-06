@@ -1,6 +1,6 @@
 import { NgModule }                 from '@angular/core';
 import { BrowserModule }            from '@angular/platform-browser';
-import { FormsModule }              from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule,HttpModule }   from '@angular/http';
 
 import { AUTH_PROVIDERS }           from 'angular2-jwt';
@@ -21,8 +21,6 @@ import { PasswordDirective }        from 'common/directives/password/password.di
 
 import { HomeComponent }            from './features/home/home.component';
 
-import { StudentFormComponent }            from './features/home/features/employee/studentForm.component';
-
 import { ForgotPasswordComponent }  from './features/forgotPassword/forgotPassword.component';
 import { LoginWithSmsComponent }    from './features/login/loginWithSms/loginWithSms.component';
 import { LoginWithEmailComponent }  from './features/login/loginWithEmail/loginWithEmail.component';
@@ -33,11 +31,14 @@ import { HeaderComponent }          from './shared/features/header/header.compon
 import { FooterComponent }          from './shared/features/footer/footer.component';
 import { TableDecisionsComponent }        from './features/tableDecisions/tableDecisions.component';
 import { FilterReportComponent }        from './features/filterReport/filterReport.component';
-import { FilterComponent }        from './features/filterReport/features/filter/filter.component';
+/*import { FilterComponent }        from './features/filterReport/features/filter/filter.component';*/
 import { ReportComponent }        from './features/filterReport/features/report/report.component';
+import { MenuComponent } from './features/menu/menu.component';
+import { FormTestComponent } from './features/formTest/formTest.component';
+import { StudentFormComponent } from './features/home/features/employee/studentForm.component';
 
+import * as moment_ from 'moment';
 
-import * as moment from 'moment/moment';
 
 @NgModule({
     declarations: [
@@ -55,8 +56,10 @@ import * as moment from 'moment/moment';
         TableDecisionsComponent,
         PdfViewerComponent,
         FilterReportComponent,
-        FilterComponent,
+        // FilterComponent,
         ReportComponent,
+        MenuComponent,
+        FormTestComponent,
         StudentFormComponent
     ],
     imports: [
@@ -68,6 +71,7 @@ import * as moment from 'moment/moment';
         MyDatePickerModule,
         AccordionModule,
         routing,
+        ReactiveFormsModule,
         AgGridModule.withComponents(
             [ReportComponent]
         )/*,

@@ -1,0 +1,53 @@
+.Menu, .MenuMainTitle, .MenuTitle, .MenuTitleSelcted, .MenuPass {
+	width: 100%;
+	float: right;
+}
+
+.MenuPass {
+	border-bottom: 2px solid #333333;
+}
+
+.MenuMainTitle {
+	margin-bottom: 15px;
+}
+
+.MenuMainTitle h2 {
+	font-weight: bold;
+
+}
+
+.MenuTitle {
+	width: 32.9%;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-left: 2px;
+	cursor: pointer;
+}			
+
+.MenuTitle h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.MenuTitleSelcted {
+	background-color: #333333;
+	color: #FFFFFF;
+}
+
+.MenuTitle:hover {
+	background-color: #333333;
+	color: #FFFFFF;	
+}
+
+@media only screen and (min-width: 1250px) {
+.MenuTitle {
+	width: 33.16%;
+}
+}

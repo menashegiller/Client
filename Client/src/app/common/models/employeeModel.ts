@@ -5,5 +5,6 @@ export class Employeemodel {
     Role: number;
     College: number;
     Mobile: string = '';
-    Password: string = '';
+    Password: string = null;
+    PasswordView: string = '';
 }

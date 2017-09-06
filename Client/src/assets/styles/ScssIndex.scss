@@ -22,13 +22,20 @@
   width: 100%;
   float: right;
   display: block !important;
-  p {
-    font-size: 1.5em;
+  margin-bottom: 10px;
+  p, a {
     font-weight: bold;
-    color: #FFFFFF;
+    color: #333333;
+  }
+  p {
+    font-size: 1.4em;
+  }
+  a {
+  font-size: 1em;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
-
 .BoxRelative {
   position: relative;
   float: right;
@@ -69,7 +76,6 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: 10px;
 }
 
 .BackBtn {
@@ -79,13 +85,12 @@
   margin-top: 20px;
   clear: none;
   float: left;
-  display: none;
 }
 
 .box {
   margin-top: 20px;
   clear: none;
-  float: right;
+  float: left;
 }
 
 .CookieTxt {
@@ -152,7 +157,7 @@
 }
 
 @media only screen and (min-width: 700px) {
-  .FormBoxs, .BackTitle {
+  .FormBoxs {
     width: 77.67%;
   }
   .box, .BackBtn {
@@ -176,13 +181,13 @@
 }
 
 @media only screen and (min-width: 800px) {
-  .FormBoxs, .BackTitle {
+  .FormBoxs {
     width: 80.6%;
   }
 }
 
 @media only screen and (min-width: 900px) {
-  .FormBoxs, .BackTitle {
+  .FormBoxs {
     width: 82.6%;
   }
 }
@@ -194,9 +199,6 @@
   .FormBoxs {
     width: 73%;
   }
-  .BackTitle {
-    width: 100%;
-  }
 }
 
 @media only screen and (min-width: 1250px) {
@@ -207,7 +209,6 @@
     width: 77%;
   }
   .BackBox {
-    padding-top: 70px;
     margin-top: 0px;
   }
   .BackBtn {

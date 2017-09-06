@@ -4,13 +4,15 @@ import { Router } from '@angular/router';
 import { User } from 'common/Models/user';
 
 import { DocsmodelForPdf } from 'common/Models/DocsmodelForPdf';
+import { Docsmodel } from 'common/Models/Docsmodel';
 import { Datesmodel } from 'common/Models/datesmodel';
 /*import { Datesmodel } from '../Models/datesmodel';*/
 import { IMyOptions, IMyDateModel } from 'mydatepicker';
 import { MdlDialogService } from 'angular2-mdl';
 import { AuthService } from 'common/services/auth/auth.service';
 /*import { PdfViewerComponent } from 'ng2-pdf-viewer';*/
-import { DomSanitizer,SafeResourceUrl} from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { PdfViewerComponent } from 'ng2-pdf-viewer'; 
 
 @Component({
     moduleId: module.id,
@@ -32,18 +34,20 @@ export class StudentFormComponent implements OnInit {
     filesToUpload: Array<File>;
     arrayNames = Array<string>();
     docsmodelForPdf: DocsmodelForPdf = new DocsmodelForPdf();
+    docsmodel: Docsmodel =  new Docsmodel();
     datesmodel: Datesmodel = new Datesmodel();
     selectedTypeOfService;
     studentId;
     docsValid: boolean = false;
     isBigfile: boolean = false;
-    pageurl:SafeResourceUrl;
+    pageurl: SafeResourceUrl;
     // private locales:Array<string> = new Array('en','he');
     public TypesOfService = [
         { value: 0, display: 'סדיר' },
         { value: 1, display: 'קבע' },
         { value: 2, display: 'לאומי' },
-        { value: 3, display: 'פטור' }
+        { value: 3, display: 'פטור' },
+        { value: 4, display: 'לא שרתתי' }
     ];
     public choices = [
         { value: 1, display: 'כן' },
@@ -56,18 +60,21 @@ export class StudentFormComponent implements OnInit {
     private myDatePickerOptions: IMyOptions = {
         // other options...
         dateFormat: 'dd/mm/yyyy',
-        
+
     };
-/*
-    ngOnChanges(changes: any) {
-        this.saveIsGood = false;
-    }*/
+    /*
+        ngOnChanges(changes: any) {
+            this.saveIsGood = false;
+        }*/
 
     ngOnInit() {
-        console.log('_loginForm-->',this._loginForm);
+        this.Jump();
+        $("#myiframe").contents().find("#myContent");
+
+        console.log('_loginForm-->', this._loginForm);
         let currentYear = new Date().getFullYear();
 
-       this.pageurl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.pdfSrc);
+        this.pageurl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.pdfSrc);
 
 
         for (let i = 10; i >= 0; i--) {
@@ -93,7 +100,7 @@ export class StudentFormComponent implements OnInit {
 
 
         this.httpService.GetEmployees(6, 0).subscribe(
-            res =>{
+            res => {
                 // this.smsState = (<Response>res).ok;
                 this.employeesTemp = res.json().Employees;
             },
@@ -102,13 +109,13 @@ export class StudentFormComponent implements OnInit {
             err => {
                 console.log(err);
             });
-            if(this.authService.currentUser.role < 8  ){
-                this.studentId = this.authService.studentId;
-            }
-            else{
-                this.studentId =this.authService.currentUser.id;
-            }
-        this.httpService.GetUser( this.studentId).subscribe(
+        if (this.authService.currentUser.role < 8) {
+            this.studentId = this.authService.studentId;
+        }
+        else {
+            this.studentId = this.authService.currentUser.id;
+        }
+        this.httpService.GetUser(this.studentId).subscribe(
             res => {
                 let that = this;
                 // this.smsState = (<Response>res).ok;
@@ -122,8 +129,8 @@ export class StudentFormComponent implements OnInit {
                 that.datesmodel.SignatureDate = that.stringToCalendarDate(that.user.SignatureDate);
                 that.datesmodel.ShihrurDate = that.stringToCalendarDate(that.user.ShihrurDate);
                 //      var reader = new FileReader();
-               
-                
+
+
                 that.getFileURL('Bagrut_doc');
                 that.getFileURL('Toar_doc');
                 that.getFileURL('Shihrur_doc');
@@ -137,21 +144,26 @@ export class StudentFormComponent implements OnInit {
                 // that.datesmodel.BirthDate = new Date(that.user.BirthDate);
                 // console.log(this.user);
                 if (res.json().success) {
-                //    localStorage.setItem('id_token', JSON.stringify({ token: res.json().token }));
+                    //    localStorage.setItem('id_token', JSON.stringify({ token: res.json().token }));
                     this.onSelect(this.user.College);
                 }
-               
+
             },
             err => {
                 console.log(err);
             });
-           
+
 
         this.onSelect(this.user.College);
+        if (this.authService.ifPrint) {
+            setTimeout(() => {
+                window.print();
+              },5000);
+        }
     }
 
     constructor(public httpService: HttpService, public router: Router,
-        public authService: AuthService, private domSanitizer:DomSanitizer,
+        public authService: AuthService, private domSanitizer: DomSanitizer,
         public dialogService: MdlDialogService) {
 
         //  this.setLocaleOptions();
@@ -159,23 +171,21 @@ export class StudentFormComponent implements OnInit {
         for (let i = 0; i < 8; i++) {
             this.filesToUpload[i] = new File(['FileList'], 'filenameTemp');
         }
+
        
+
     }
 
 
     getFileURL(propertyName: string) {
-    //  this.user[propertyName] = "http://localhost:5002/public/uploads/" + this.user[propertyName];
-        if(this.user[propertyName]!=null){
-        this.docsmodelForPdf[propertyName] = this.domSanitizer.bypassSecurityTrustResourceUrl("http://localhost:5002/public/uploads/" + this.user[propertyName]);
+        //  this.user[propertyName] = "http://localhost:5002/public/uploads/" + this.user[propertyName];
+        if (this.user[propertyName] != null) {
+            this.docsmodelForPdf[propertyName] = this.domSanitizer.bypassSecurityTrustResourceUrl("http://localhost:5002/public/uploads/" + this.user[propertyName]);
+            this.docsmodel[propertyName] = "http://localhost:5002/public/uploads/" + this.user[propertyName];
         }
-        
+
     }
 
-   
-
-    
-
-  
     onSelect(Id) {
         this.employees = this.employeesTemp
             .filter((item) => item.College == Id);
@@ -190,28 +200,28 @@ export class StudentFormComponent implements OnInit {
     }
 
 
- /* print(): void {
-        let printContents, popupWin;
-        printContents = document.getElementById('print-section').innerHTML;
-        popupWin = window.open('',  'top=20px,left=0,height=100%,width=auto');
-        popupWin.document.open();
-        popupWin.document.write(`
-      <html>
-        <head>
-          <title>Print tab</title>
-           <link rel="stylesheet" href="./home.css">
-         <style>
-
-          </style>
-        </head>
-    <body class='cleanClass' onload="window.print();window.close()">${printContents}</body>
-      </html>`
-        );
-        popupWin.document.close();
-    }*/
-print(){
-    window.print();
-}
+    /* print(): void {
+           let printContents, popupWin;
+           printContents = document.getElementById('print-section').innerHTML;
+           popupWin = window.open('',  'top=20px,left=0,height=100%,width=auto');
+           popupWin.document.open();
+           popupWin.document.write(`
+         <html>
+           <head>
+             <title>Print tab</title>
+              <link rel="stylesheet" href="./home.css">
+            <style>
+   
+             </style>
+           </head>
+       <body class='cleanClass' onload="window.print();window.close()">${printContents}</body>
+         </html>`
+           );
+           popupWin.document.close();
+       }*/
+    print() {
+        window.print();
+    }
 
     stringToCalendarDate(date: Date) {
         let newDate;
@@ -224,4 +234,7 @@ print(){
         }
         return newDate;
     }
+    Jump():void{
+        document.body.scrollTop = 0; 
+     }
 }

@@ -4,7 +4,7 @@
 		<ul *ngIf="!smsState" class="EnterSmsMobile">
 			<li class="EnterPassBox">
 				<p class="inputlabel">אנא הקלד/י טלפון נייד</p>
-				<input class="EnterMobileBox" id="EnterMobile" (focus)="numberState=true;number10=true;" (focusout)="if10(phoneNumber)" [(ngModel)]="phoneNumber" type="text" required name="EnterMobile">	
+				<input class="EnterMobileBox" id="EnterMobile" (focus)="numberState=true;number10=true;" (focusout)="if10(phoneNumber)" [(ngModel)]="phoneNumber" type="text"  name="EnterMobile">	
 			</li>
 			
 			<li class="EnterSmsCodePhoneBtn">

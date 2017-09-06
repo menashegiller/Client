@@ -1,9 +1,12 @@
 @charset "utf-8";
 /* ScssUserformprint */
-  
-@media print {
+
+@media print {    
   * {
     float: none !important;
+  }
+  .DisNone {
+    display: none !important;
   }
   .fixFloatRight {
     float: right !important;
@@ -79,8 +82,11 @@
     float: right !important;
   }
   .Container {
-    max-width: 595px;
+    max-width: 800px;
   }
+/*   .Container {
+    max-width: 595px;
+  } */
   .hideSection {
     display: none;
   }
@@ -88,8 +94,8 @@
     padding-top: 20px !important;
   }
   .BoxTopStrokeline {
-    border-bottom: 0px solid !important;
     border-bottom: none;
+    border-bottom: 1px solid #ffffff !important;
   }
   /* -----------------------רווח פרטים אישיים ---------------------------------*/
   .PersonalInfo {
@@ -137,19 +143,15 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #B3B3B3;
-    padding-bottom: 0px;
-    padding-top: 0px;
+    padding-bottom: 15px;
+    padding-top: 15px;
     padding-right: 20px;
   }
-
   .accordionTitle {
     float: right;
     color: #1A1A1A;
     font-size: 1.5em;
     font-weight: bold;
-  }
-  .BoxTopStrokeline {
-    border-bottom: 1px solid #1A1A1A;
   }
   .accordionContent {
     width: 100%;
@@ -200,10 +202,6 @@
     float: left;
     max-width: 285px;
   }
-.No_DocreqPadding {
-  padding-bottom: 0px !important;
-}
-
   /*----------------------------------- Upload File Process -------------------------*/
   .EmptyIcon, .ChackIcon {
     font-size: 2.5em;
@@ -271,11 +269,7 @@
     content: counters(subsection, ".") ".";
     margin-left: 5px;
   }
-  .WarrCercheckbox {
-    float: right !important;
-  }
-  .WarrCercheTitle {
-    margin-bottom: 30px;
+  .WarrCercheckbox, .WarrCercheTitle {
     float: right !important;
   }
   .dismiss {
@@ -291,7 +285,8 @@
     box-sizing: border-box;
   }
   .WarrCercheBox {
-    padding-top: 20px;
+    width: 100% !important;
+    padding-top: 0px !important;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -307,31 +302,25 @@
     padding-right: 12px;
     padding-top: 10px;
   }
-  .RadioBtn {
-    width: 25px;
-    float: right;
-    height: 30px;
-  }
-  .EconomicBoxList {
-    width: 60%;
-    float: right;
-  }
-  .DeclarationBox {
+  .EconomicBox, .DeclarationBox {
     width: 100%;
     float: right !important;
-/*    -webkit-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin-bottom: 10px;*/
+    margin-bottom: 0px;
   }
   .EconomicRadio {
-    width: 65px;
+    width: 125px;
     float: right !important;
-    text-align: center;
+    margin-bottom: 23px;
   }
   .EconomicRadioBox {
-    width: 130px;
-    float: left !important;
+    width: 23%;
+    float: right !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 35px;
   }
   .EconomicPar {
     width: 61%;
@@ -356,4 +345,104 @@
     margin-top: 20px !important;
     float: right !important;
   }
+  .MilBox {
+    width: 100%;
+    float: right !important;
+    margin-bottom: 10px;
+  }
+  .Warrcheck {
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .userFormInstructions {
+    margin-bottom: 0px !important;
+    margin-top: 15px !important;
+    float: right !important;
+
+  }
+  .EconomicBoxList {
+    width: 60%;
+    float: right !important;
+  }
+  .RadioTitle {
+    float: right !important;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .MilTitle {
+    float: right !important;
+    margin-right: 10px;
+  }
+  .cleanClass .clickEn {
+      display: none;
+  }
+  .MilitaryRadioCon {
+      max-width: 100%;
+      padding-bottom: 0px !important;
+  }
+  .MilitaryRadioBox {
+    height: auto;
+  }
+  .RadioBoxCon {
+    float: right !important;
+  }
+  .EconomicBoxList {
+    width: 67%;
+  }
+  .EconomicBoxList p {
+    margin-bottom: 40px;
+  }
+  .EconomicBox {
+    margin-top: 15px;
+  }
+  .DocreqSelect {
+    max-width: 50px;
+  }
+  .InsideFormBtn {
+    display: none;
+  }
+  .MilitarySerPrint {
+    border-bottom: none !important;
+  }
+  .WarrCercheTitle {
+    padding-top: 10px !important;
+  }
+  .MilitarySer {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  .userFormInstructions {
+    margin-bottom: 5px !important;
+  }
+  .PersonalNum {
+    padding-top: 0px !important;
+  }
+  .accordionContentBox {
+      padding-bottom: 0px !important;
+  }
+  my-date-picker {
+    float: right !important;
+  }
+
+  .inputDateRel {
+    padding-top: 0px !important;
+  }
+
+  .Pdf{
+    display: none;
 }
+  .a4Page{
+    display: block !important;
+  }
+
+  .DocreqUpLoudBoxLine {
+    display: none;
+  }
+
+  .a4PageImage {
+    width: 100%;
+    height: auto !important;
+  }
+}    

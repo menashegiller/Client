@@ -1,17 +1,21 @@
 <div class="MainContent">
 	<div class="Container">
-		<div class="AboutuserForm No_marginButtom">
-			<h1>הגדרת משתמשים</h1>
+		<div class="AboutuserForm">
+			<h1>קצת עלינו</h1>
+			<p>
+				הקרן לעידוד תעסוקה במגזר תעשיות עתירות ידע, מעוניינת לעזור לסטודנטים ללמוד לימודים חוץ אקדמיים.<br/> העזרה הינה דרך הענקת
+				מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
+			</p>
 		</div>
 		<div class="userFormInstructions">
-			<h2 class="InstructionsTitle">לפניך מספר אפשרויות:</h2>
-			<div class="ParagraphBox">
+			<h3>הגדרת משתמשים</h3>
+			<h2>לפניך מספר אפשרויות:</h2>
+			<div class="More_marginTop More_paddingBottom">
 				<p>* להגדיר משתשמש חדש והרשאות שימוש</p>
-				<p>* תוכל לבצע עריכה למשתמש קיים</p>
-				<p>* באפשרותך לבצע סינון בלחיצה על כל שם עמודה</p>
+				<p>* לבצע עריכה למשתמש קיים</p>
 			</div>
 		</div>
-
+		<as-Menu></as-Menu>
 		<div class="newUserContainer">
 			<div class="userFormInstructions No_marginButtom">
 				<h2>הגדרת משתמש חדש (+)</h2>
@@ -20,23 +24,24 @@
 				<as-formEmployee #emplForm [model]='null'></as-formEmployee>
 			</div>
 		</div>
-		
-		<div class="userFormInstructions No_marginButtom">
+
+		<div id="jump"  class="userFormInstructions No_marginButtom" >
 			<h2>עריכת משתמשים</h2>
 		</div>
-	
-		<accordion>
-			<div class="newUserBoxTitle DarkGray NoBorderTop accordionHeaderRaduis BoxStrokeline">
-				<p class="newUserTitle UserPadding">שם מלא</p>
-				<p class="newUserTitle">הרשאות</p>
-				<p class="newUserTitle">אימייל</p>
-				<p class="newUserTitle">מקום עבודה</p>
-			</div>
-			<accordion-group
-					[ngClass]="{'red':  (_employeeForm.wasSave && e === httpService.employees[0]) }"  *ngFor="let e of httpService.employees">
-				<accordion-heading>
+		<div class="newUserBoxTitle DarkGray NoBorderTop accordionHeaderRaduis BoxStrokeline littleMore_marginTop">
+			<p class="newUserTitle UserPadding" [ngClass]="{'EmployTitles':httpService.employees.length > 10,'newUserTitlePadding':httpService.openProperty}">שם מלא</p>
+			<p class="newUserTitle" [ngClass]="{'newUserSmoPadding':httpService.openProperty}">הרשאות</p>
+			<p class="newUserTitle">אימייל</p>
+			<p class="newUserTitle">מקום עבודה</p>
+		</div>
+		<accordion class="Useremploy">
+			
+			<accordion-group  [ngClass]="{'red':  (_employeeForm.wasSave && e === httpService.employees[0]) }"  *ngFor="let e of httpService.employees, let i = index"  >
+				<accordion-heading (click)='buttonClick($event)'  attr.id="{{i}}" >
+ 	 <!-- <a [routerLink]="['/employee']" [fragment]="i" target="_self">    -->
 					<div class="newUserSubTitleBox">
 						<p class="newUserSubTitle" title="FullName">{{e.FullName}}</p>
+						<!-- <a href="#">dsf</a> -->
 					</div>
 					<div class="newUserSubTitleBox">
 						<p title="Permissions">{{e.Role_name}}</p>
@@ -47,7 +52,7 @@
 					<div class="newUserSubTitleBox">
 						<p title="WorkJob">{{e.Name}}</p>
 					</div>
-
+			 	 <!-- </a>   -->
 				</accordion-heading>
 				<div class="accordionContent BoxTopStrokeline BoxStrokeline">
 					<as-formEmployee [model]='e'></as-formEmployee>

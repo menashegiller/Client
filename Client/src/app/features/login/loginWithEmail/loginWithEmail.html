@@ -1,15 +1,15 @@
 <div class="RegUserBoxs RegUserBoxsLine">
-	<div class="EnterTitle"><h4>כניסה עם סיסמה</h4></div>
+	<div class="EnterTitle"><h4>כניסה עם סיסמה / שיחזור סיסמה</h4></div>
 	
 	<form method="post" name="EnterPassform" id="EnterPassform" (ngSubmit)="login(user)" #loginForm="ngForm">
 		<ul class="EnterPass">
 			<li class="EnterPassBox">
-				<p class="inputlabel">אימייל</p>
+				<p class="inputlabel">אימייל (שם משתמש)</p>
 				<input id="EnterPassEmail" (focus)="emailValid = 0" (focusout)="emailValid = validationService.validateEmail(user.Email,emailValid)"
-					autocomplete="on" type="text" name="email" [(ngModel)]="user.Email" #name="ngModel">
+					autocomplete="on" type="text" name="email" [(ngModel)]="user.Email" #name="ngModel"  tabindex=1>
 
 				<div class="EnterPassRemmberMe">
-					<input class="EnterPasscheck" id="EnterPasscheck" type="checkbox" name="EnterPasscheck" [(ngModel)]="authService.rememberMe">
+					<input class="EnterPasscheck" id="EnterPasscheck" type="checkbox" name="EnterPasscheck" [(ngModel)]="authService.rememberMe" >
 					<p>זכור אותי במחשב זה</p>		
 				</div>
 			</li>
@@ -20,11 +20,11 @@
 					<p *ngIf="!hideState" (click)="helpServiceLogin.toggleShow(this)" class="LinkBtn showPass no_underline paddingTop"><span class="SeeIcon icon-02"></span>הסתר סיסמה</p>
 				</div>
 				<input id="EnterPassPassword" [(ngModel)]="user.passWord" (focus)="passValid = 0" (focusout)="passValid = validationService.validationPassword(user.passWord)"
-					name="password" as-password>
+					name="password" as-password  tabindex=2>
 				<div class="EnterPassRestor"><p (click)="forgot()" class='LinkBtn'>שיחזור סיסמה</p></div>
 			</li>
 			<li class="EnterPassBoxBtn">
-				<input class="InsideFormBtn" type="submit" value="כניסה" name="send" title="כניסה">
+				<input class="InsideFormBtn"  type="submit" (click)="login(user)" value="כניסה" name="send" title="כניסה" >
 			</li>
 			<li>
 				<a *ngIf="emailValid==1" (click)="emailValid=0" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>

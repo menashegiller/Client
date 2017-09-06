@@ -26,10 +26,17 @@ export class LoginResolve implements Resolve<any> {
        let curUser = this.authService.currentUser;
        let redirect = '/home';
        
-       if(curUser.role < ROLE.STUDENT){
+       if(curUser.role == ROLE.SUPER_USER){
             redirect = '/employee';
        }
        
+       if(curUser.role == ROLE.FUND_CHAIRMAN ){
+            redirect = '/tableDecisions';
+       }
+
+       if(curUser.role > ROLE.FUND_CHAIRMAN && curUser.role < ROLE.STUDENT ) {
+            redirect = '/filterReport';
+       }
        return redirect;
   } 
 }

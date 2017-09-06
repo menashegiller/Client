@@ -73,7 +73,6 @@
 
 
 Html, body {
-  height: 100%;
   font-family: "Open Sans Hebrew";
   font-size: 1em;
   direction: rtl;
@@ -101,11 +100,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 input, textarea, select {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 H1 {
-  font-size: 2.3em;
+  font-size: 2em;
 }
 
 H2 {
@@ -114,11 +113,10 @@ H2 {
 
 H3 {
   font-size: 1.9em;
-
 }
 
 H4 {
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 p {
@@ -146,6 +144,12 @@ a {
 .NewPassBoxTitle h2 {
   font-size: 2.8em;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 360px) {
+  H1 {
+    font-size: 2.2em;
+  }
 }
 
 @media only screen and (min-width: 450px) {

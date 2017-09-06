@@ -56,13 +56,6 @@ body {
   /* bottom = footer height */
 }
 
-.TextBold {
-  font-weight: bold;
-}
-
-.UnderPass {
-  text-decoration: underline;
-}
 /* --------------------------- Color ----------------------*/
 .Txt-MidGray {
   color: #666666;
@@ -72,20 +65,11 @@ body {
   background-color: #333333 !important;
 }
 
-.LnikUnderline {
-  text-decoration: underline !important;
-  cursor: pointer  !important;
-}
-
 /* --------------------------- Color ----------------------*/
 
 .No_marginLeft {
   margin-left: 0px !important;
   float: left !important;
-}
-
-.No_marginLeftOnly {
-  margin-left: 0px !important;
 }
 
 .No_marginRight {
@@ -102,14 +86,6 @@ body {
 
 .More_marginTop {
   margin-top: 20px !important;
-}
-
-.littleMore_marginTop {
-  margin-top: 10px !important;
-}
-
-.Double_marginTop {
-  margin-top: 40px !important;
 }
 
 .paddingTop {
@@ -147,10 +123,6 @@ body {
 
 .MorePaddingButtom {
   padding-bottom: 20px !important;
-}
-
-.Double_PaddingButtom {
-  padding-bottom: 40px !important;
 }
 
 .No_PaddingButtom {
@@ -235,7 +207,7 @@ form {
 }*/
 
 select {
-  cursor: pointer !important;
+  cursor: pointer;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -254,7 +226,7 @@ input, select, textarea {
   width: 100%;
   height: 50px;
   color: #8a8888;
-  text-indent: 15px;
+  text-indent: 7px;
   font-family: inherit;
   float: right;
   display: block;
@@ -319,7 +291,7 @@ textarea {
 .Erorr {
   p {
     color: rgb(26, 26, 26);
-    font-size: 0.9em;
+    font-size: 1em;
     padding-right: 10px;
   }
   width: 100%;
@@ -355,7 +327,6 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-bottom: 20px;
 }
 
 .FileContainer {
@@ -370,7 +341,7 @@ textarea {
     position: absolute;
     right: 0px;
     top: 0px;
-    cursor: pointer !important;
+    cursor: pointer;
     text-indent: 0px;
     font-size: 0.5px;
   }
@@ -397,10 +368,6 @@ textarea {
 
 .FilelabelSelcted:before {
   content: "החלף קובץ" !important;
-}
-
-.FilelabelDelete:before {
-  content: "הסר קובץ" !important;
 }
 
 .FormBtn, .InsideFormBtn {
@@ -574,16 +541,12 @@ textarea {
   border-bottom: 2px solid #DCDCDC;
 }
 
-.RegUserBoxsComm {
-  padding-bottom: 40px !important;
-}
-
 .RegUserBoxs {
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 }
 
 .LessRegUserBoxs {
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .EnterTitle {
@@ -622,9 +585,9 @@ textarea {
   box-sizing: border-box;
   padding-bottom: 15px;
   padding-top: 15px;
-/*   border-top-left-radius: 10px;
-  border-top-right-radius: 10px; */
-  /* margin-top: 10px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 10px;
 }
 
 @media only screen and (min-width: 450px) {
@@ -637,20 +600,15 @@ textarea {
   .marginButtom {
     margin-bottom: 5px !important;
   }
+  .UpLoudFileBtn {
+    max-width: 285px;
+  }
 }
 
 @media only screen and (min-width: 560px) {
   .marginVolunteer {
     margin-bottom: 5px !important;
   }
-}
-
-@media only screen and (min-width: 600px) {
-.UpLoudFileBtn {
-    max-width: 227px;
-    margin-left: 30px;
-    margin-bottom: 0px;
-}
 }
 
 @media only screen and (min-width: 700px) {
@@ -690,15 +648,6 @@ textarea {
   .BeforFooter {
     height: 120px;
     max-width: 600px;
-  }
-  .UpLoudFileBtn {
-      max-width: 277px;
-  }
-}
-
-@media only screen and (min-width: 720px) {
-  .UpLoudFileBtn {
-      max-width: 285px;
   }
 }
 

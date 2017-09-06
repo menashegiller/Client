@@ -65,6 +65,44 @@
 	margin-bottom: 20px;
 }
 
+.RequestConBox {
+  width: 100%;
+  float: right;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding-right: 10px;
+}
+
+.RequestCon {
+  width: 100%;
+  max-width: 500px;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-right: 5px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RequestBox, .RequestTitel {
+  float: right !important;
+}
+
+.RequestBox {
+  width: 30%;
+}
+
+.RequestTitel {
+  margin-right: 10px;
+}
+
 @media only screen and (min-width: 700px) {
   .newUserTitle {
     font-size: 1.5em;
@@ -73,11 +111,17 @@
   .TableDecisionsTitle {
     width: 20%;
   }
+  
   .TableDecisionsSubTitle {
     width: 17.7%;
   }
+ 
   .TableDecisionsTitle, .TableDecisionsSubTitle p{
     font-size: 1em !important;
+  }
+
+  .RequestCon {
+    padding-right: 15px;
   }
 }
 
@@ -87,11 +131,24 @@
     float: right !important;
     clear: none;
   }
+
+  .RequestCon {
+    padding-right: 5px;
+  }
+
+  .RequestBox {
+    width: 32%;
+  }
 }
+
 
 @media only screen and (min-width: 860px) {
   .TableDecisionsSubTitle {
     width: 18.2%;
+  }
+  
+  .RequestBox {
+    width: 33%;
   }
 }
 
@@ -136,7 +193,8 @@
 
 @media only screen and (min-width: 1300px) {
   .TableDecisionsSubTitle {
-    width: 18.8%;
+    width: 18.7%;
+    text-align: right;
   }
 }
 
