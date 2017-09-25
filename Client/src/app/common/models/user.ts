@@ -86,6 +86,7 @@ export class User {
     ArmyDateClass: Dateclass = null; 
     SignatureDateClass: Dateclass = null; 
     ShihrurDateClass:  Dateclass = null; 
+   
     constructor() {
        /* this.Email = e;
         this.passWord = p;

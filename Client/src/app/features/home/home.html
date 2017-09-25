@@ -26,8 +26,7 @@
 				<p>על מנת למנוע עיכובים בתהליך הרישום:</p>
 				<p>* נא למלא את הפרטים ולצרף את כל המסמכים הנדרשים</p>
 				<p>* בכל שלב ניתן לשמור את הטופס המלא באופן חלקי ולחזור אליו במועד מאוחר יותר להמשך התהליך</p>
-				<p>* חובה למלא את כל השדות עם סימון <span class="UnderPass">באדום</span></p>
-				<p>* חובה למלא את כל השדות עם סימון <span class="UnderPass">בכוכבית</span></p>
+				<p>* חובה למלא את כל השדות עם סימון <span class="TextBold">באדום / בכוכבית</span></p>
 				<p>* אם יחסרו מסמכים נדרשים, וועדת המלגות תחזיר את הבקשה להשלמת המסמכים.
 				</p>
 			</div>
@@ -134,14 +133,15 @@
 							</label>
 							</li>
 							<li class="accordionInputBox InputBoxBig">
-								<p class="inputlabel">*שם ההסמכה/קורס/תואר אליו נרשמת</p>
+								<p class="inputlabel">*שם ההסמכה/מסלול/תואר</p>
 								<!--<input id="qualification" type="text" name="qualification"></li>-->
 								<label class="inputcontent">
-								<span class="selectBtn icon-08"></span>
-								<select  [(ngModel)]="user.Certification_Id" name="Certification" required #Certification="ngModel">
+								<!-- <span class="selectBtn icon-08"></span> -->
+								<input id="DeclarationFirstName" required type="text" [(ngModel)]="user.CertificationName" name="Certification">
+								<!-- <select  [(ngModel)]="user.Certification_Id" name="Certification" required #Certification="ngModel">
 										<option *ngIf='user.Certification_Id == 0' value="0">*תבחר שם ההסמכה</option> 
 										<option *ngFor="let certification of certifications" [value]="certification.Id">{{certification.Name}}</option>
-								</select>
+								</select> -->
 							</label>
 						</ul>
 

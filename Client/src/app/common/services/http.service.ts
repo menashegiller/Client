@@ -109,7 +109,8 @@ export class HttpService extends BaseEntityService {
     params.set('AliyaYear', user.AliyaYear!="0"?user.AliyaYear:null);
     params.set('Adress', user.Adress);
     params.set('Volunteer', user.Volunteer);
-
+    params.set('CertificationName', user.CertificationName);
+    
     params.set('Bagrut_doc', user.Bagrut_doc);
     params.set('Toar_doc', user.Toar_doc);
     params.set('Shihrur_doc', user.Shihrur_doc);

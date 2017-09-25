@@ -229,6 +229,7 @@ var userBL = function () {
                 .input('Certification_Id', sql.Int, req.Certification_Id)
                 .input('TuitionFees', sql.NVarChar, req.TuitionFees)
                 .input('NotServe', sql.Int, req.NotServe)
+                .input('CertificationName',sql.NVarChar,req.CertificationName)
                 .execute('InsertStudentForm')
                 .then(
                 function (recordset) {
