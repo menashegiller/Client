@@ -45,7 +45,7 @@ var mailTexts = function () {
 
     var text = "<div>" + details.TodayDate + "</div>";
     text += "<div style='direction:rtl;'><div> לכבוד</div>";
-    text += "<div>" + details.studentName + "</div>";
+    text += "<div>" + details.studentName + "</div>"; 
     text += "<div>העתק: " + details.consultantName + ", " + details.college + "</div>";
     text += "<br/>";
     text += "<div>" + firstName[0] + " שלום," + "</div>";
