@@ -133,7 +133,7 @@ export class HttpService extends BaseEntityService {
     params.set('Loan', user.Loan);
     params.set('SignatureName', user.SignatureName);
     params.set('SallaryAvg', user.SallaryAvg);
-    params.set('SallaryAvg24', user.SallaryAvg24);
+    params.set('SallaryAvg24', user.SallaryAvg24);+
     params.set('WorkPlace', user.WorkPlace);
     params.set('WorkPlace24', user.WorkPlace24);
     params.set('Employee_Id', user.Employee_Id);
