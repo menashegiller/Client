@@ -37,7 +37,7 @@ var mailTexts = function () {
     text += "<br/>";
     text += "<div style='font-weight: NORMAL; text-decoration:none'>סימוכין " + details.Simuchin + "</div></div>";
     return text;
-  }
+  } 
 
   mailObject.mailCancel = function (dbInfo) {
     var details = dbInfo[0][0];
