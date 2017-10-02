@@ -1,0 +1,74 @@
+<!--<div class="AboutuserForm">
+			<h1>קצת עלינו</h1>
+			<p>
+				הקרן לעידוד תעסוקה במגזר תעשיות עתירות ידע, מעוניינת לעזור לסטודנטים ללמוד לימודים חוץ אקדמיים.<br/> העזרה הינה דרך הענקת
+				מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
+			</p>
+		</div>-->
+<as-Menu></as-Menu>
+<div class="newUserContainer">
+	<div class="userFormInstructions No_marginButtom">
+		<h2>סינון דו”ח סטאטוס מלגות</h2>
+	</div>
+	<div class="newUserBox">
+		<ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+			<li class="userFormInstructions No_marginButtom Txt-MidGray">
+				<h2>סינון לפי תאריך</h2>
+			</li>
+			<li class="accordionInputBox InputBoxBig">
+				<p class="inputlabel">בחר תאריך</p>
+				<div class="FilteReportRadioBox">
+					<div class="FilteReportRadio" *ngFor="let type of TypesOfFiltering">
+						<input class="RadioBtn" [(ngModel)]="filtermodel.FilteringField" type="radio" required name="AcformMilitaryType" [value]="type.value">
+						<p>{{type.display}}</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		<ul class="EnterPass">
+			<li class="userFormInstructions No_marginButtom Txt-MidGray">
+				<h2>אנא ציין/י טווח תאריכים לסינון</h2>
+			</li>
+			<li class="accordionInputBox">
+				<p class="inputlabel">הגדר/י מתאריך</p>
+				<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+				</label>
+				<my-date-picker [options]="myDatePickerOptions" [ngModelOptions]="{standalone: true}" required [(ngModel)]="filtermodel.StartDate"
+				 (dateChanged)="onDateChanged($event, 'StartDateReal')"></my-date-picker>
+			</li>
+
+			<li class="accordionInputBox No_marginLeft">
+				<p class="inputlabel">עד תאריך</p>
+				<label class="inputcontent">
+						<span class="selectBtn icon-07"></span>
+				</label>
+				<my-date-picker [options]="myDatePickerOptionsForLearningFinish" [ngModelOptions]="{standalone: true}" required [(ngModel)]="filtermodel.LastDate"
+				 (dateChanged)="onDateChanged($event, 'LastDateReal')"></my-date-picker>
+			</li>
+
+			<li class="accordionInputBox InputBoxBig">
+				<p class="inputlabel More_marginTop No_marginLeft_Only">* הנתונים למטה הם להצגה בלבד ולא ניתנים לעריכה</p>
+			</li>
+			<li class="accordionSave accordionInputBox No_marginLeft FilteReportBtn">
+				<input class="InsideFormBtn No_marginTop" (click)="filterFunc(filtermodel)" [disabled]="!filtermodel.StartDateReal || !filtermodel.LastDateReal || !filtermodel.FilteringField"
+				 [ngClass]="{'disabledBtn': !filtermodel.StartDateReal || !filtermodel.LastDateReal || !filtermodel.FilteringField}" type="submit"
+				 value="הצג/י" name="send" title="הצג/י">
+				
+			</li>
+			<!-- <li class="accordionSave accordionInputBox No_marginLeft FilteReportBtn No_marginRight">
+				<input class="InsideFormBtn No_marginTop" (click)="clearAll()" [disabled]="!filtered" [ngClass]="{'disabledBtn': !filtered }"
+				 type="submit" value="בטל סינון" name="send" title="בטל סינון">
+			</li> -->
+		</ul>
+
+	</div>
+</div>
+<div class="userFormInstructions"><h2>טבלת סטאטוס תוצאות סינון סטאטוסים</h2></div>
+<a *ngIf='rows == 0' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>לא נמצאו רשומות העונות להגדרות החיפוש שלך</p></a>
+<!--style="width: 200px;"-->
+<div [ngClass]="{'helpForHeight': count<10}"> 
+	<ag-grid-angular #agGrid style="width: 100%; position: relative;" [ngClass]="{'noGrid':rows == 0, 'bigGrid': rows == 1}" class="ag-sela" [gridOptions]="gridOptions" [rowData]="users">
+	</ag-grid-angular>
+</div>

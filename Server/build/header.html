@@ -1,0 +1,75 @@
+<header>
+	<div class="Container">
+		<!--<p>{{message}}</p>
+		<button (click)="logout()" *ngIf="authService.currentUser.isLoggedIn">Logout</button>-->
+		<ul class="TopHeaderContent">
+			<li class="ContainerLogo">
+				<a class="LogoConLink">
+					<div class="LogoIcon icon-01"></div>
+					<div class="LogoTxt">
+						<h1 class="LogoTitle">מערכת מלגות</h1>
+						<h2 class="LogoSubTitle">הקרן לעידוד תעסוקת ישראלים בתעשיות עתירות ידע</h2>
+					</div>
+				</a>
+			</li>
+
+			<li *ngIf="!authService.currentUser.isLoggedIn && httpService.isGood < 1;" class="UserAccount">
+				<div class="UserAccountWrapper">
+					<div class="UserAccountTitle">
+						<h3>יצירת חשבון חדש</h3>
+					</div>
+
+					<form (ngSubmit)="register(user)" #loginForm="ngForm" name="Accountform" id="Accountform">
+						<ul class="FormBoxs">
+							<li class="BoxRelative">
+								<p class="inputlabel Accountlabel">תעודת זהות</p>
+								<input (focus)="isProperID=0" [(ngModel)]="user.UserId" class="AccountBox" id="UserId" type="tel" name="UserId" placeholder="הכנס 9 ספרות של תעודת זהות כולל ספרת ביקורת">
+								<a *ngIf="isProperID==2" (click)="isProperID=0" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+								<p >מס' תעודת הזהות שהוזן אינו תקין. אנא נסה/י שנית</p>
+							</a>
+								<a *ngIf="isProperID==1" (click)="isProperID=0" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+								<p >שדה חובה</p>
+							</a>
+
+							</li>
+
+							<li class="BoxRelative No_marginButtom">
+								<p class="inputlabel Accountlabel">אימייל</p>
+								<input (focus)="isProperID = validationService.validateUserId(user.UserId)" 
+								 [(ngModel)]="user.Email" class="AccountBox" id="Email" type="text" name="email">
+								<a *ngIf="isProperEmail==1" (click)="isProperEmail=0" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+									<p >שדה חובה</p>
+								</a>
+								<a *ngIf="isProperEmail==2" (click)="isProperEmail=0" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>האימייל שהוזן אינו תקין. אנא נסה/י שנית</p></a>
+								<a *ngIf="httpService.isGood== -1" (click)="isProperID=0" class="Erorr no_underline"><span class="ErorrIcon icon-03"></span>
+									<p >  אימייל או תעודת זהות שהזנת קיים במערכת. ניתן לבצע שיחזור סיסמא</p>
+								</a>
+							</li>
+
+						</ul>
+						<div class="box"><input class="FormBtn UserAccountBtn" type="submit" value="יצירת חשבון" name="send" title="יצירת חשבון"></div>
+					</form>
+					<!--<a href="#" class="FormBtn MobileBtn no_underline">יצירת חשבון חדש</a>-->
+					<p class="CookieTxt">בלחיצה על יצירת חשבון, ניתן אישורך לתנאים ומדיניות החברה, כולל שימוש בקבצי Cookie</p>
+				</div>
+
+
+			</li>
+
+			<li *ngIf="authService.currentUser.isLoggedIn&&this.httpService.fpState != 2&&this.httpService.fpState != 3" class="UserAccountForm">
+				<!--&& httpService.isGood == 3-->
+				<div class="NameUser">
+					<p>שלום</p>
+					<a *ngIf="authService.currentUser.fullname" class="EmailUser">{{authService.currentUser.fullname}}</a>
+					<a *ngIf="!authService.currentUser.fullname" class="EmailUser">מועמד/ת</a>
+					&nbsp;&nbsp;| &nbsp;
+				 	<a class="EmailUser LnikUnderline" (click)="forgotpass()" >שינוי סיסמה</a> 
+				</div>
+				<div class="Logout">
+					<div (click)="logout()" class="FormBtn LogoutBtn">יציאה</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!--	<a  [routerLink]="['/student']" >GO TO STUDENT</a>--> 
+</header>
