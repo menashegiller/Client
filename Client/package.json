@@ -1,8 +1,8 @@
 {
-  "name": "angular2-starter",
+  "name": "Scholarships",
   "version": "1.0.1",
-  "author": "Antony Budianto",
-  "description": "Angular 2 Starter with extensible features",
+  "author": "Menashe Giller",
+  "description": "Site for scholarships",
   "main": "src/tmp/app/main.js",
   "repository": {
     "type": "git",
@@ -56,7 +56,6 @@
     "@types/selenium-webdriver": "^2.44.28",
     "ag-grid": "^10.0.1",
     "ag-grid-angular": "^10.0.0",
-    "ag-grid-ng2": "^8.0.0",
     "angular2-datatable": "^0.5.3",
     "angular2-jwt": "^0.2.0",
     "angular2-mdl": "^2.13.2",
