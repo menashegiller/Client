@@ -40,7 +40,7 @@ var mailTexts = function () {
   } 
 
   mailObject.mailCancel = function (dbInfo) {
-    var details = dbInfo[0][0];
+    var details = dbInfo[0][0]; 
     var firstName = details.studentName.split(" ");
 
     var text = "<div>" + details.TodayDate + "</div>";
