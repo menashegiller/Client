@@ -4,7 +4,7 @@ var mailTexts = function () {
 
   var mailObject = {};
 
-  //  mailObject.date='';
+  //  mailObject.date=''; 
   var date
 
   mailObject.mailDecision = function (dbInfo) {
