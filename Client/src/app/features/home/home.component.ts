@@ -410,7 +410,7 @@ export class HomeComponent implements OnInit {
         } else
         if(formdata.form.valid&&formName=='collegeForm'&&this.user.LearningSratsClass&&this.user.LearningFinishClass){
             window.location.hash = location;
-        }else
+        } else
         if(formdata.form.valid&&formName=='docsForm'&& this.docsValid){
             window.location.hash = location;
         }

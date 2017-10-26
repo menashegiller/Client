@@ -62,6 +62,16 @@ export class HttpService extends BaseEntityService {
       .catch((error: any) => { return Observable.throw(error); });;
   }
 
+  getReasons(): Observable<any> {
+    let params = new URLSearchParams();
+   // params.set('email', EmailOrSms);
+    return this.http.post('http://localhost:5002/users/getReasons', params, { headers: this.contentHeaders })
+      .map(res => {
+        return res;
+      })
+      .catch((error: any) => { return Observable.throw(error); });;
+  }
+
   saveNewPassword(passWord1, pid): Observable<any> {
     let params = new URLSearchParams();
 
@@ -89,6 +99,50 @@ export class HttpService extends BaseEntityService {
       })
       .catch((error: any) => { return Observable.throw(error); });;
   }
+
+  SaveWorkerReport(model, pid): Observable<any> {
+    let params = new URLSearchParams();
+  
+    params.set('pid', pid);
+    params.set('isWork', model.isWork);
+    params.set('reasonNotWork', model.reasonNotWork);
+    params.set('workName', model.workName);
+    params.set('employerName', model.employerName);
+    params.set('isWorkOnProfession', model.isWorkOnProfession);
+    params.set('salaryAvg', model.salaryAvg);
+    params.set('workRole', model.workRole);
+    params.set('projectName', model.projectName);
+    params.set('technologics', model.technologics);
+    params.set('lastChange', model.lastChange);
+    params.set('DateObj', model.DateObj);
+
+    return this.http.post('http://localhost:5002/users/SaveWorkerReport', params, { headers: this.contentHeaders })
+    .map(res => {
+      //  this.isLoggedIn = res.json().success;
+
+      return res;
+    })
+    .catch((error: any) => { return Observable.throw(error); });;
+
+  }
+
+
+  GetWorkerReportByPId(pid): Observable<any> {
+    let params = new URLSearchParams();
+  
+    params.set('pid', pid);
+    
+
+    return this.http.post('http://localhost:5002/users/GetWorkerReportByPId', params, { headers: this.contentHeaders })
+    .map(res => {
+      //  this.isLoggedIn = res.json().success;
+
+      return res;
+    })
+    .catch((error: any) => { return Observable.throw(error); });;
+
+  }
+
   saveFormToDB(user, pid): Observable<any> {
     let params = new URLSearchParams();
 

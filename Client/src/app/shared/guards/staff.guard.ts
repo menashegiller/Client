@@ -34,17 +34,17 @@ export class StaffGuard implements CanActivate {
   }
 
 private isStaff(user:any, url: string): boolean {
-    if (user.email === 'menashegiller@gmail.com') 
+  /*   if (user.email === 'menashegiller@gmail.com') 
     { 
         return true; 
-    } else {
+    } else { */
         // Store the attempted URL for redirecting
         this.authService.redirectUrl = url;
 
         // Navigate to the login page with extras
         this.router.navigate(['/login']);
         return false;
-    }
+  //  }
   }
 
 

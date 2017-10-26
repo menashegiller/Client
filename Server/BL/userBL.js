@@ -367,6 +367,28 @@ var userBL = function () {
                 });
         });
     }
+
+    userObject.sqlGetReasons = function (req, callback) {
+        
+        var connection = new sql.Connection(DBConnectionString, function (err) {
+            //console.log(req.email);
+            var request = new sql.Request(connection);
+            request
+                
+                //   .input('IdentityId', sql.NChar, req.IdentityId)
+                .execute('GetReasons')
+                .then(
+                function (recordset) {
+                    callback(recordset);
+                    // console.log('length:'+ recordset.lenth);
+                    //   console.log("recordset: "+recordset);
+
+                }).catch(function (err) {
+                    callback(false); // "The username or password don't match");
+                });
+        });
+    }
+
     userObject.sqlGetAllPersons = function (req, callback) {
         //   var decoded = jwt.verify(req.token, superSecret);
         var connection = new sql.Connection(DBConnectionString, function (err) {
@@ -411,6 +433,56 @@ var userBL = function () {
         });
     }
 
+    
+    userObject.SaveWorkerReport = function (req,callback) {
+        var connection = new sql.Connection(DBConnectionString, function (err) {
+            //console.log(req.email);
+            var request = new sql.Request(connection);
+            request
+                .input('Person_id', sql.Int, req.pid)
+                .input('isWork', sql.Int, req.isWork)
+                .input('reasonNotWork', sql.Int, req.reasonNotWork)
+                .input('employerName', sql.NVarChar, req.employerName)
+                .input('workName', sql.NVarChar, req.workName)
+                .input('isWorkOnProfession', sql.Int, req.isWorkOnProfession)
+                .input('salaryAvg', sql.Int, req.salaryAvg)
+                .input('workRole', sql.NVarChar, req.workRole)
+                .input('projectName', sql.NVarChar, req.projectName)
+                .input('technologics', sql.NVarChar, req.technologics)
+                .input('lastChange', sql.Int, req.lastChange)
+                .input('Date', sql.DateTime2, req.DateObj)
+                .execute('SaveWorkerReport')
+                .then(
+                function (recordset) {
+                    callback(recordset);
+                    // console.log('length:'+ recordset.lenth);
+                    //   console.log("recordset: "+recordset);
+
+                }).catch(function (err) {
+                    callback(false); // "The username or password don't match");
+                });
+        });
+    }
+
+    userObject.GetWorkerReportByPId = function (req,callback) {
+        var connection = new sql.Connection(DBConnectionString, function (err) {
+            //console.log(req.email);
+            var request = new sql.Request(connection);
+            request
+                .input('Pid', sql.Int, req.pid)
+                
+                .execute('GetWorkerReportByPId')
+                .then(
+                function (recordset) {
+                    callback(recordset);
+                    // console.log('length:'+ recordset.lenth);
+                    //   console.log("recordset: "+recordset);
+
+                }).catch(function (err) {
+                    callback(false); // "The username or password don't match");
+                });
+        });
+    }
 
 
     userObject.GetCode = function (number) {
@@ -491,6 +563,8 @@ var userBL = function () {
         return this.GetSynchronousJSONResponse(host + "/MailService/MailService.asmx/SendMail", jsonPostData);
 
     }
+
+
 
     userObject.SendEmailToStudent = function (post, code,type) {
         var postData = MailData;
@@ -602,6 +676,7 @@ var userBL = function () {
 
         this.SendMail(postData);
     }
+
 
     return userObject;
 }

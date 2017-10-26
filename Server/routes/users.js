@@ -24,22 +24,17 @@ var upload = multer({ storage: storage,
                     limits: { fileSize: 2024000 }
                       });
 
-
-// var jwtCheck = jwt({
-//     secret: config.secret
-// });
-// jwtCheck.unless = unless;
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 // router.use(jwtCheck.unless({path: '/users/authenticate' }));
 router.use(jwt({ secret: config.secret}).unless({
-          path: [
-                '/users/authenticate',
-                '/users/loginWithSmsOrEmailCode',
-                '/users/register',
-                '/users/sendCodeServerSide'
-                ]       
-            }
+  path: [
+          '/users/authenticate',
+          '/users/loginWithSmsOrEmailCode',
+          '/users/register',
+          '/users/sendCodeServerSide'
+        ]       
+    }
 ));
 
 
@@ -49,7 +44,7 @@ router.use(function (req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-// Set to true if you need the website to include cookies in the requests sent
+    // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     // res.setHeader('Access-Control-Allow-Credentials', true);
 
@@ -109,7 +104,6 @@ router.post('/upload',
         res.send(req.files);
 });
 
-
 router.post('/saveEmployee', userController.SaveEmployee);
 
 router.post('/getCertifications', userController.GetCertifications);
@@ -118,7 +112,11 @@ router.post('/getRoles', userController.GetRoles);
 
 router.post('/sendDecision', userController.sendDecision);
 
+router.post('/getReasons', userController.getReasons);
 
-// router.post('/upload', userController.Upload);
+router.post('/SaveWorkerReport', userController.SaveWorkerReport);
+
+router.post('/GetWorkerReportByPId', userController.GetWorkerReportByPId);
+
 
 module.exports = router;

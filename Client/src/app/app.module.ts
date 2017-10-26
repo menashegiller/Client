@@ -20,6 +20,7 @@ import { AccordionModule }          from 'common/directives/accordion/index';
 import { PasswordDirective }        from 'common/directives/password/password.directive';
 
 import { HomeComponent }            from './features/home/home.component';
+import { WorkerReportComponent } from './features/workerReport/workerReport.component';
 
 import { ForgotPasswordComponent }  from './features/forgotPassword/forgotPassword.component';
 import { LoginWithSmsComponent }    from './features/login/loginWithSms/loginWithSms.component';
@@ -60,7 +61,8 @@ import * as moment_ from 'moment';
         ReportComponent,
         MenuComponent,
         FormTestComponent,
-        StudentFormComponent
+        StudentFormComponent,
+        WorkerReportComponent
     ],
     imports: [
         BrowserModule,

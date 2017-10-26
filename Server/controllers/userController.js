@@ -291,6 +291,33 @@ var userController = function (user) {
         });
     }
 
+    userObj.getReasons = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+
+            userBL.sqlGetReasons(post, function (recordset) {
+                // if (recordset[0][0].Email != '') {
+
+                //  var token = jwt.sign(post.phoneNumber, superSecret);//, { expiresIn : 60*60*24});
+                res.json({
+                    success: true,
+                    //  email: recordset[0][0].Email,
+                    Reasons: recordset[0]
+                });
+            })
+        });
+    }
+
     userObj.SaveEmployee = function (request, res, next) {
         var body = '';
 
@@ -392,6 +419,56 @@ var userController = function (user) {
                 res.json({
                     success: true,
                     Certifications: recordset[0]
+                });
+
+            })
+        });
+    }
+
+    
+    userObj.GetWorkerReportByPId = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+
+            userBL.GetWorkerReportByPId(post, function (recordset) {
+
+                res.json({
+                    success: true,
+                    report:  recordset[0][0]
+                });
+
+            })
+        });
+    }
+    userObj.SaveWorkerReport = function (request, res, next) {
+        var body = '';
+
+        request.on('data', function (data) {
+            body += data;
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+
+        request.on('end', function () {
+            var post = qs.parse(body);
+
+            userBL.SaveWorkerReport(post, function (recordset) {
+
+                res.json({
+                    success: true
+                   
                 });
 
             })

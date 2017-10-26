@@ -97,7 +97,7 @@ body {
 }
 
 .No_marginTop {
-  margin-top: 0px !important;
+  margin-top: 0px !important; 
 }
 
 .More_marginTop {
@@ -163,6 +163,10 @@ body {
 
 .No_curser {
   cursor: default !important;
+}
+
+.No_Border {
+	border-style: none !important;	
 }
 
 .gridContainer {
@@ -321,11 +325,11 @@ textarea {
     color: rgb(26, 26, 26);
     font-size: 0.9em;
     padding-right: 10px;
+    text-align: center;
   }
   width: 100%;
   float: right;
   height: 40px;
-  text-align: center;
   background-color: #FFFFFF;
   padding-top: 5px;
   margin-top: 5px;
@@ -702,6 +706,14 @@ textarea {
   }
 }
 
+@media only screen and (min-width: 750px){
+  .SelDecisionsOp {
+    margin-top: 0px;
+    float: right !important;
+      clear: none;
+  }
+  }
+
 @media only screen and (min-width: 860px) {
   .EnterPassBox {
     max-width: 31.2%;
@@ -734,6 +746,12 @@ textarea {
   .BeforFooter {
     height: 140px;
   }
+  .No_marginTopWorker {
+    margin-top: 20px !important; 
+  }
+.SelDecisionsOp {
+  width: 22.2% !important;
+}
 }
 
 @media only screen and (min-width: 1000px) {
@@ -751,6 +769,18 @@ textarea {
   }
 }
 
+@media only screen and (min-width: 1100px) {
+  .SelDecisionsOp {
+      width: 22.8% !important;
+  }
+  }
+  
+  @media only screen and (min-width: 1135px){
+  .SelDecisionsOp {
+      width: 22.9% !important;
+  }	
+  }
+
 @media only screen and (min-width: 1200px) {
   .UserAccount {
     max-width: 660px;
@@ -767,6 +797,9 @@ textarea {
   }
   .EnterSmsCodeBtn, .EnterSmsCodePhoneBtn {
     max-width: 65.4%;
+  }
+  .No_marginTopWorker {
+    margin-top: 0px !important; 
   }
 }
 

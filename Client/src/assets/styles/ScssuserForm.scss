@@ -13,7 +13,7 @@
   background-color: white;
 }*/
 
-.Logout, .LogoutBtn, .accordionSave, .accordionSend, .NameUser, .UserAccountForm {
+.Logout, .LogoutBtn, .accordionSave, .accordionSend, .UserAccountForm {
   width: 100%;
   float: left;
   -webkit-box-sizing: border-box;
@@ -26,23 +26,44 @@
   clear: left;
 }
 
-.NameUser {
-  max-width: 250px;
+.NameUser, .EmailUser {
+  width: 100%;
+  float: right;
   margin-bottom: 15px;
   margin-top: 30px;
   padding-right: 10px;
-  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   a {
-    color: #FFFFFF;
-  }
-  p {
-    direction: rtl;
+    color: rgb(255, 255, 255);
+    text-decoration: none !important;
   }
   a:hover {
-    text-decoration: none;
+    text-decoration: underline !important;
+  }
+  p {
+    margin-bottom: 10px;
   }
 }
 
+.NameUser {
+  a {
+    font-size: 1em;
+  }
+  p {
+    font-size: 1.4em;
+  }
+}
+
+.EmailUser {
+  a, p {
+    font-size: 1.2em;
+  }
+  p {
+    float: right;
+  }
+}
 .AboutuserForm {
   width: 100%;
   float: right;
@@ -372,6 +393,54 @@
   margin-bottom: 0px;
 }
 
+/* ------------------------------ Reporting a work  -------------------------------- */
+.WorkConBox, .WorkBox, .WorkCon, .WorkRemak {
+  width: 100%;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.WorkConBox {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+}
+
+.WorkCon {
+  max-width: 580px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 25px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.WorkBox {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.WorkTitle {
+  float: right;
+  margin-right: 10px;
+}
+
+.WorkRemak {
+  margin-top: 20px;
+  h2 {
+    font-weight: bold;
+    font-size: 1.4em;
+    float: right;
+    margin-left: 15px;
+  }
+  p {
+    float: right;
+  }
+}
+/* ------------------------------ Reporting a work  -------------------------------- */
+
 @media only screen and (min-width: 350px) {
 .EconomicPar {
     padding-top: 7px;
@@ -403,7 +472,13 @@
 }
 
 .NameUser p {
-    font-size: 1.4em;
+    font-size: 1.6em;
+}
+
+.EmailUser {
+  a, p{
+    font-size: 1.3em; 
+  }
 }
 }
 
@@ -440,6 +515,10 @@
 .WarrCercheTitle {
     width: 75%;
 }
+
+.EmailUser a, .EmailUser p {
+  font-size: 1.4em;
+}
 }
 
 @media only screen and (min-width: 500px) {
@@ -473,6 +552,10 @@
 
 .RadioTitle {
   font-size: 1.2em;
+}
+
+.EmailUser a, .EmailUser p {
+  font-size: 1.5em;
 }
 }
 
@@ -522,17 +605,23 @@
   .UserAccountForm {
     padding-top: 20px;
   }
-  .NameUser {
+  .NameUser, .EmailUser {
     width: 64%;
     float: right;
     margin-bottom: 0px;
     margin-top: 0px;
     padding-right: 0px;
   }
+  .NameUser p {
+    margin-bottom: 5px;
+  }
+  .EmailUser {
+    margin-top: 20px;
+  }
   .Logout {
     max-width: 195px;
     float: left;
-    padding-top: 4px;
+    padding-top: 15px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -556,6 +645,14 @@
     margin-bottom: 0px;
     margin-top: 0px;
   }
+
+  /* ------------------------------ Reporting a work  -------------------------------- */
+  .WorkBox {
+    width: 50%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}	
+/* ------------------------------ Reporting a work  -------------------------------- */	
 
 }
 
@@ -647,6 +744,15 @@
   }
   .EconomicRadio {
     margin-bottom: 13px !important;
+  }
+  .NameUser p {
+    font-size: 1.5em;
+  } 
+  .NameUser a {
+    font-size: 1.2em;
+  }
+  .Logout {
+    padding-top: 10px;
   }
 }
 

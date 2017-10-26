@@ -17,7 +17,7 @@
 }
 
 .MenuTitle {
-	width: 32.9%;
+	width: 24.5%;
     text-align: center;
     background-color: #FFFFFF;
     border-top-left-radius: 10px;
@@ -33,7 +33,7 @@
 
 .MenuTitle h2 {
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 0.9em;
 }
 
 .MenuTitleSelcted {
@@ -46,8 +46,29 @@
 	color: #FFFFFF;	
 }
 
-@media only screen and (min-width: 1250px) {
+
+@media only screen and (min-width: 560px){
 .MenuTitle {
-	width: 33.16%;
+        width: 24.6%;
+}			
+    
+.MenuTitle h2 {
+        font-size: 1.1em;
 }
+}
+
+@media only screen and (min-width: 700px){
+.MenuTitle {
+        width: 24.7%;
+}			
+    
+.MenuTitle h2 {
+        font-size: 1.2em;
+}
+}
+
+@media only screen and (min-width: 1200px){
+.MenuTitle {
+            width: 24.8%;
+}			
 }

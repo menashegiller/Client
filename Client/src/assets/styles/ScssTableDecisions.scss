@@ -35,10 +35,6 @@
   margin-bottom: 20px;
 }
 
-.SelDecisionsOp {
-  margin-top: 20px;
-}
-
 .RequestDecBtn {
   width: 50%;
   float: right !important;
@@ -126,12 +122,6 @@
 }
 
 @media only screen and (min-width: 750px) {
-  .SelDecisionsOp {
-    margin-top: 0px;
-    float: right !important;
-    clear: none;
-  }
-
   .RequestCon {
     padding-right: 5px;
   }
@@ -155,10 +145,6 @@
 @media only screen and (min-width: 900px) {
   .newUserTitle {
     font-size: 1.28em;
-  }
-
-  .SelDecisionsOp {
-    width: 22%;
   }
   .DecTitle {
   	width: 47.62%;
@@ -196,10 +182,4 @@
     width: 18.7%;
     text-align: right;
   }
-}
-
-@media only screen and (min-width: 1135px){
-.SelDecisionsOp {
-    width: 23%;
-}	
 }

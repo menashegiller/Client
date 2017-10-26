@@ -6,6 +6,7 @@ import { SuperUserGuard } from './shared/guards/superuser.guard';
 
 import { LoginComponent } from './features/login/login.component';
 import { HomeComponent } from './features/home/home.component';
+import { WorkerReportComponent } from './features/workerReport/workerReport.component';
 import { StudentFormComponent } from './features/home/features/employee/studentForm.component';
 import { ForgotPasswordComponent } from './features/forgotPassword/forgotPassword.component';
 import { EmployeeComponent } from './features/employee/employee.component';
@@ -63,7 +64,12 @@ const appRoutes: Routes = [
       path: 'formTest',
   //   canActivate: [ AuthGuard ],
       component: FormTestComponent// ,
-     }
+     },
+     {
+     path: 'workerReport',
+      canActivate: [ AuthGuard ],
+     component: WorkerReportComponent// ,
+    }
 
 ];
 

@@ -86,7 +86,7 @@ module.exports = function () {
         var historyApiFallback = require('connect-history-api-fallback');
         var browserSync = {
             dev: {
-                port: 5002,
+                port: 5003,
                 injectChanges: false,
                 server: {
                     baseDir: './src/',

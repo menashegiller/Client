@@ -50,6 +50,16 @@
   box-sizing: border-box;
 }
 
+/* -----------------------------ReportedBoxHeader ReportedHeader-----------------------------------*/
+.ReportedBoxHeader, .ReportedHeader {
+	padding-right: 0px;
+}
+
+.ReportedBoxHeader p, .ReportedHeader p {
+	width: 240px;
+}
+/* -----------------------------ReportedBoxHeader ReportedHeader-----------------------------------*/
+
 .FilteReportBoxHeader {
   background-color: #333333;
 }
@@ -78,6 +88,32 @@
   font-size: 1.3em;
 }
 
+/* ---------------------------- EffectiveReport --------------------------*/
+.FilteringReportedPhr {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.FilteringReported {
+	width: 100%;
+	margin-left: 0px;
+}
+
+.LeftArrow {
+	font-size: 2em;
+    display: block;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: -15px;
+    margin-top: 5px;
+	transform:  translateX(0%) translateY(0%) rotate(-90deg);
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* ---------------------------- EffectiveReport --------------------------*/
+
 @media only screen and (min-width: 620px) {
   .FilteReportRadio {
     max-width: 33%;
@@ -90,8 +126,50 @@
   }
 }
 
+/* ---------------------------- EffectiveReport --------------------------*/
+@media only screen and (min-width: 750px){
+  .FilteringReported {
+    width: 28.9%;
+  }
+    
+  .LeftArrow {
+      margin-bottom: 0px;
+      margin-top: 52px;
+    transform:  translateX(0%) translateY(0%) rotate(0deg);
+  }
+  }
+  /* ---------------------------- EffectiveReport --------------------------*/
+
 @media only screen and (min-width: 770px) {
   .FilteReportRadio {
     max-width: 200px;
   }
 }
+
+/* ---------------------------- EffectiveReport --------------------------*/
+@media only screen and (min-width: 850px){
+  .FilteringReported {
+    width: 29.5%;
+  }
+  }
+  
+  
+  @media only screen and (min-width: 900px){
+  .FilteringReported {
+    width: 29.7%;
+  }
+  }
+  
+  
+  @media only screen and (min-width: 1000px){
+  .FilteringReported {
+    width: 30%;
+  }
+  }
+  
+  @media only screen and (min-width: 1300px){
+  .FilteringReported {
+      width: 30.8%;
+  }
+  }
+  /* ---------------------------- EffectiveReport --------------------------*/
