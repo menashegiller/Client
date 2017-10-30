@@ -29,11 +29,12 @@ export class MenuComponent {
         } */
         if(window.location.pathname == "/tableDecisions" ) {
             authService.pageName ='tableDecisions';
-        }
-         else if(window.location.pathname == "/filterReport" ){
+        }  else if(window.location.pathname == "/filterReport" ){
             authService.pageName ='filterReport';
         }  else if(window.location.pathname == "/employee" ){
             authService.pageName ='employee';
+        }  else if(window.location.pathname == "/effectiveReport" ){
+            authService.pageName ='effectiveReport';
         } 
     }
 

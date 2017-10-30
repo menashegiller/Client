@@ -102,6 +102,7 @@
 					<p class="inputlabel">מהם הטכנולגיות העיקריות בהן את/ה עוסק/ת?</p>
 					<input type="text" [(ngModel)]="WRmodel.technologics"  #technologics="ngModel" name="technologics">
 				</li>
+				
 			</ul>
 		</div>
 		<ul>
@@ -112,33 +113,18 @@
 			</li>
 
 			<li class="accordionSave">
-				<input [disabled]="allowSending >= 2" [ngClass]="{'disabledBtn': allowSending >= 2}" class="InsideFormBtn No_marginTopWorker" type="button"
+				<input [disabled]="saveIsGood " [ngClass]="{'disabledBtn': saveIsGood}" class="InsideFormBtn No_marginTopWorker" type="button"
 				 value="שמור/י" name="send" title="שמור/י" (click)="SaveWorkerReport(WRmodel,0);">
-				<a *ngIf='showAtten' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו במערכת</p></a>
+				<a *ngIf='saveIsGood' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו במערכת</p></a>
 			</li>
 
 			<li class="accordionSend">
-				<div class="InsideFormBtn accordionBtnSend No_marginTopWorker" title="שליחת דיווח" type="button" (click)="Send(WRmodel);">
-					<p>שליחת דיווח</p>
-				</div>
+				<input [disabled]="saveIsGood " [ngClass]="{'disabledBtn': saveIsGood}" value="שליחת דיווח" class="InsideFormBtn accordionBtnSend No_marginTopWorker" title="שליחת דיווח" type="button" (click)="Send(WRmodel);">
 			</li>
 		</ul>
-
-		<!--	</form>-->
 	</div>
 
-	<ul class="clickEn" [ngClass]="{'hideDiv': this.authService.currentUser.role == 8}">
-		<li class="accordionSave">
-			<div class="InsideFormBtn accordionBtnSend" title="הדפסת בקשה" (click)="print();">
-				<p>הדפסת בקשה</p>
-			</div>
-		</li>
-		<li class="accordionSend">
-			<div class="InsideFormBtn accordionBtnSend" title="חזור" [routerLink]="['/tableDecisions']">
-				<p>חזור</p>
-			</div>
-		</li>
-	</ul>
+	
 
 
 </div>

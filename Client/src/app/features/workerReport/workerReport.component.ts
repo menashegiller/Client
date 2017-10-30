@@ -18,7 +18,7 @@ import { AuthService } from 'common/services/auth/auth.service';
 export class WorkerReportComponent implements OnInit {
     reasons = [];
     reasonsTemp = [];
-
+    saveIsGood: boolean = false;
     liHide: boolean = false;
 
     WRmodel: WorkerReportModel = new WorkerReportModel();
@@ -51,8 +51,8 @@ export class WorkerReportComponent implements OnInit {
                 res => {
                     let that = this;
                     // this.smsState = (<Response>res)
-                    if(res.json().report){
-                        that.WRmodel = res.json().report;
+                    if(res.report){
+                        that.WRmodel = res.report;
                     }
                     that.WRmodel.DateObj = new Date();
                 },
@@ -72,12 +72,17 @@ export class WorkerReportComponent implements OnInit {
       
      
     }
-    SaveWorkerReport(model){
+    SaveWorkerReport(model,last){
         let pid = this.authService.currentUser.id;
+        let lastChange = this.httpService.wordersReportEntity.lastChange;
+        let ID = this.httpService.wordersReportEntity.id;
         model.DateObj = new Date();
-        this.httpService.SaveWorkerReport(model, pid).subscribe(
+        
+        this.httpService.SaveWorkerReport(model, pid, last, ID, lastChange).subscribe(
             res => {
-               // this.saveIsGood = res.json().success;
+                if(last == 1){
+                    this.saveIsGood = res.json().success;
+                }
                /*  if(ifAten){
                     this.showAtten = res.json().success;
                 
@@ -102,8 +107,11 @@ export class WorkerReportComponent implements OnInit {
         
              result.subscribe(() => 
              {
-                this.SaveWorkerReport(model);
-             }
+                this.SaveWorkerReport(model,1);
+             },
+             (err: any) => {
+             console.log('declined');
+             });
     }
        
 }

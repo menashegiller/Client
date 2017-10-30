@@ -450,6 +450,8 @@ var userBL = function () {
                 .input('projectName', sql.NVarChar, req.projectName)
                 .input('technologics', sql.NVarChar, req.technologics)
                 .input('lastChange', sql.Int, req.lastChange)
+                .input('newlastChange', sql.Int, req.newlastChange)
+                .input('id', sql.Int, req.id)
                 .input('Date', sql.DateTime2, req.DateObj)
                 .execute('SaveWorkerReport')
                 .then(

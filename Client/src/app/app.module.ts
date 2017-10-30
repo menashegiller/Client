@@ -34,6 +34,8 @@ import { TableDecisionsComponent }        from './features/tableDecisions/tableD
 import { FilterReportComponent }        from './features/filterReport/filterReport.component';
 /*import { FilterComponent }        from './features/filterReport/features/filter/filter.component';*/
 import { ReportComponent }        from './features/filterReport/features/report/report.component';
+import { EffectiveReportComponent }        from './features/EffectiveReport/EffectiveReport.component';
+import { ReportEffectiveReportComponent }        from './features/EffectiveReport/features/ReportEffectiveReport/ReportEffectiveReport.component';
 import { MenuComponent } from './features/menu/menu.component';
 import { FormTestComponent } from './features/formTest/formTest.component';
 import { StudentFormComponent } from './features/home/features/employee/studentForm.component';
@@ -62,7 +64,9 @@ import * as moment_ from 'moment';
         MenuComponent,
         FormTestComponent,
         StudentFormComponent,
-        WorkerReportComponent
+        WorkerReportComponent,
+        ReportEffectiveReportComponent,
+        EffectiveReportComponent
     ],
     imports: [
         BrowserModule,

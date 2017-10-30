@@ -14,6 +14,7 @@ import { TableDecisionsComponent } from './features/tableDecisions/tableDecision
 import { FilterReportComponent } from './features/filterReport/filterReport.component';
 import { LoginResolve } from './shared/resolvers/login.resolver';
 import { FormTestComponent } from './features/formTest/formTest.component';
+import { EffectiveReportComponent }  from './features/EffectiveReport/EffectiveReport.component';
 
 const appRoutes: Routes = [
     { 
@@ -69,7 +70,13 @@ const appRoutes: Routes = [
      path: 'workerReport',
       canActivate: [ AuthGuard ],
      component: WorkerReportComponent// ,
+    },
+    {
+        path: 'effectiveReport',
+         canActivate: [ SuperUserGuard ],
+        component: EffectiveReportComponent// ,
     }
+    
 
 ];
 

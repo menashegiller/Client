@@ -9,10 +9,17 @@ import 'rxjs/add/observable/throw';
 import { LocalStorage } from 'common/modules/webStorage/index';
 import { BaseEntityService } from './base-service/base-entity.service';
 // import * as $ from 'jquery';
+
+export interface IReport{
+  id: number;
+  lastChange: number;
+}
+
 @Injectable()
 export class HttpService extends BaseEntityService {
   @LocalStorage() public fpState: number = 0;
   @LocalStorage() public isEmployee: boolean = true;
+  @LocalStorage() public wordersReportEntity:IReport;
   fullname:string;
   colleges = [];
   roles = [];
@@ -24,6 +31,8 @@ export class HttpService extends BaseEntityService {
   rows: number ;
   opened = [];
   openProperty: boolean = false;
+
+
   constructor(injector: Injector, private http: Http) {
     super(injector);
   }
@@ -100,9 +109,10 @@ export class HttpService extends BaseEntityService {
       .catch((error: any) => { return Observable.throw(error); });;
   }
 
-  SaveWorkerReport(model, pid): Observable<any> {
+  SaveWorkerReport(model, pid, last, ID,lastChange): Observable<any> {
     let params = new URLSearchParams();
   
+    
     params.set('pid', pid);
     params.set('isWork', model.isWork);
     params.set('reasonNotWork', model.reasonNotWork);
@@ -113,8 +123,10 @@ export class HttpService extends BaseEntityService {
     params.set('workRole', model.workRole);
     params.set('projectName', model.projectName);
     params.set('technologics', model.technologics);
-    params.set('lastChange', model.lastChange);
+    params.set('lastChange', lastChange);
+    params.set('newlastChange', last);
     params.set('DateObj', model.DateObj);
+    params.set('id', ID);
 
     return this.http.post('http://localhost:5002/users/SaveWorkerReport', params, { headers: this.contentHeaders })
     .map(res => {
@@ -135,9 +147,12 @@ export class HttpService extends BaseEntityService {
 
     return this.http.post('http://localhost:5002/users/GetWorkerReportByPId', params, { headers: this.contentHeaders })
     .map(res => {
-      //  this.isLoggedIn = res.json().success;
-
-      return res;
+      let resObj = res.json();
+      this.wordersReportEntity = {
+        'id':  resObj.report.id,
+        'lastChange': resObj.report.lastChange
+      };
+      return resObj;
     })
     .catch((error: any) => { return Observable.throw(error); });;
 
