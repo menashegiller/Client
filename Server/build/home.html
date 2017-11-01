@@ -32,11 +32,6 @@
 			</div>
 		</div>
 
-		<!--<form #loginForm="ngForm" (ngSubmit)="saveAll(user)" name="Accordionform" id="Accordionform">
--->
-
-		<!--<form #loginForm="ngForm" name="Accordionform" id="Accordionform" >-->
-
 		<!--on-mouseover='over()'-->
 		<accordion [showArrows]="true">
 		
@@ -101,13 +96,6 @@
 					<a *ngIf="formInvalid"  class="Erorr no_underline Double_marginTop"><span class="ErorrIcon icon-03"></span><p>נא למלא את כל השדות המסומנים באדום / לצרף קובץ</p></a>
 				</div>
 					
-			</accordion-group>
-
-			<accordion-group  *ngIf="user.FormStatus == 2||user.FormStatus == 3 || user.FormStatus == 4">
-				<accordion-heading >
-					<p class="accordionTitle">דיווח על מקום עבודה</p>
-				</accordion-heading>
-				<div class="accordionContent BoxTopStrokeline BoxStrokeline"></div>
 			</accordion-group>
 
 			<accordion-group  [ngClass]="{'hideDiv': user.FormStatus!=1&&user.FormStatus!=5}" 
@@ -699,31 +687,30 @@
 		</accordion>
 		<!-- <ul [ngClass]="{'hideDiv': this.authService.currentUser.role < 8 || user.FormStatus>1}"> -->
 			<ul>
-			<li>
-				<p><span class="TextBold">חשוב לזכור !!!</span>&nbsp;&nbsp;
-				צריך למלא את כל הנתונים הנדרשים לפני שליחת הדיווח</p>
+			<li [ngClass]="{'hideDiv': user.FormStatus!=1&&user.FormStatus!=5&&this.authService.currentUser.role == 8}">
+					<p><span class="TextBold">חשוב לזכור !!!</span>&nbsp;&nbsp;
+					צריך למלא את כל הנתונים הנדרשים לפני שליחת הדיווח</p>
 			</li>
+			<li [ngClass]="{'hideDiv': user.FormStatus<2||user.FormStatus>4}">
+					<p><span class="TextBold">לפני שליחת הדיווח !!!</span>&nbsp;&nbsp;
+						נא לוודא שכל השדות מלאים</p>
+			</li>
+
 			<li class="accordionSave">
 				<input [disabled]="allowSending >= 2" [ngClass]="{'disabledBtn': allowSending >= 2}" class="InsideFormBtn" type="button" value="שמור/י" name="send" title="שמור/י" (click)="saveAll(user,true);">
 				<!---->
 				<a *ngIf='showAtten' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו במערכת</p></a>
 			</li>
 			<li class="accordionSend">
-				<!--[disabled] = "loginForm.dirty"-->
-				<input *ngIf="user.FormStatus==1||user.FormStatus == 5" (click)="sendtoStudent();" [ngClass]="{'disabledBtn': !saveIsGood||detailsForm.form.invalid||collegeForm.form.invalid||armyForm.form.invalid||(allowSending >= 2)||!user.SignatureName}"
+			
+				<input (click)="sendtoStudent();" [ngClass]="{'disabledBtn': !saveIsGood||detailsForm.form.invalid||collegeForm.form.invalid||armyForm.form.invalid||(allowSending >= 2)||!user.SignatureName}"
 				 [disabled]="!saveIsGood||detailsForm.form.invalid||collegeForm.form.invalid||armyForm.form.invalid||(allowSending >= 2)||!user.SignatureName" class="InsideFormBtn accordionBtnSend popBtn"
 				 data-pop="popbtn1" type="button" value="שליחת בקשה" name="send" title="שליחת בקשה">
 				<a *ngIf='allowSending == 2' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הבקשה נשלחה</p></a>
 			</li>
 
-			<li class="accordionSend" *ngIf="user.FormStatus==2||user.FormStatus==3||user.FormStatus==4">
-					<div class="InsideFormBtn accordionBtnSend" title="שליחת דיווח">
-						<p>שליחת דיווח</p>
-					</div>
-			</li>	
+			
 		</ul>
-
-		<!--	</form>-->
 	</div>
 
 	<ul class="clickEn" [ngClass]="{'hideDiv': this.authService.currentUser.role == 8}">

@@ -52,7 +52,7 @@ export class AuthService extends BaseService {
         let params = new URLSearchParams();
         params.set('email', user.Email);
         params.set('pass', user.passWord);
-        return this.http.post('http://localhost:5002/users/authenticate', params, { headers: this.contentHeadersBase })
+        return this.http.post('/users/authenticate', params, { headers: this.contentHeadersBase })
                     .map(res => {
                       // this.currentUser = res.json();????
 
@@ -81,7 +81,7 @@ loginWithSmsOrEmailCode( passWord,emailOrSms,pid): Observable<any> {
         params.set('pid', pid);
         params.set('Code', passWord);
         params.set('SmsOrEmail',emailOrSms);
-        return this.http.post('http://localhost:5002/users/loginWithSmsOrEmailCode', params, { headers: this.contentHeadersBase })
+        return this.http.post('/users/loginWithSmsOrEmailCode', params, { headers: this.contentHeadersBase })
                   .map(res => {
 
                     let resObj = res.json();

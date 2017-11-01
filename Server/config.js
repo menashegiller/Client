@@ -1,9 +1,13 @@
 module.exports = {
     'secret': 'SWFGSewrsdXVCQEWRdsftdgewtw',
     'ConnectionString' : {
-    user: 'SQLlocaladm',
-    password:'eKJcA6yj',
-    database:'Scholarships',
-    server:'10.1.1.13'
+    user: 'sqldb',
+    password:'MilgaDbsql12!',
+    database:'milga_test',
+    server:'milgadbsrv.database.windows.net' ,
+    port: 1433,
+    options: {
+       encrypt: true
+   }
 }
 };

@@ -2,7 +2,8 @@
 	<li class="MenuMainTitle"><h2>לפניך תפריט אפשרויות</h2></li><!--superuser-->
 	<li class="MenuTitle" (click)='route("employee")'  [ngClass]="{'MenuTitleSelcted': authService.pageName =='employee'}"><h2>משתמשים</h2></li>
 	<li class="MenuTitle"  (click)='route("filterReport")' [ngClass]="{'MenuTitleSelcted': authService.pageName =='filterReport'}"><h2>סטאטוסים</h2></li>
-	<li class="MenuTitle No_marginLeftOnly"  (click)='route("tableDecisions")' [ngClass]="{'MenuTitleSelcted': authService.pageName =='tableDecisions'}"><h2>החלטות וועדה</h2></li>
+	<li class="MenuTitle"  (click)='route("tableDecisions")' [ngClass]="{'MenuTitleSelcted': authService.pageName =='tableDecisions'}"><h2>החלטות וועדה</h2></li>
+	<li class="MenuTitle"  (click)='route("effectiveReport")' [ngClass]="{'MenuTitleSelcted': authService.pageName =='effectiveReport'}"><h2>דוחות</h2></li>
 </ul>
 
 <ul class="Menu MenuPass" *ngIf="authService.currentUser.role == 2">

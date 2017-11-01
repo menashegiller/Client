@@ -126,24 +126,20 @@
   }
 }
 
-/* ---------------------------- EffectiveReport --------------------------*/
-@media only screen and (min-width: 750px){
-  .FilteringReported {
-    width: 28.9%;
-  }
-    
-  .LeftArrow {
-      margin-bottom: 0px;
-      margin-top: 52px;
-    transform:  translateX(0%) translateY(0%) rotate(0deg);
-  }
-  }
-  /* ---------------------------- EffectiveReport --------------------------*/
-
 @media only screen and (min-width: 770px) {
   .FilteReportRadio {
     max-width: 200px;
   }
+
+  .FilteringReported {
+    width: 28.9%;
+  }
+
+  .LeftArrow {
+    margin-bottom: 0px;
+    margin-top: 52px;
+    transform:  translateX(0%) translateY(0%) rotate(0deg);
+  }  
 }
 
 /* ---------------------------- EffectiveReport --------------------------*/
@@ -167,7 +163,13 @@
   }
   }
   
-  @media only screen and (min-width: 1300px){
+  @media only screen and (min-width: 1100px){
+    .FilteringReported {
+      width: 30.4%;
+    }
+    }
+
+  @media only screen and (min-width: 1250px){
   .FilteringReported {
       width: 30.8%;
   }

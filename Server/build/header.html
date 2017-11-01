@@ -58,13 +58,18 @@
 
 			<li *ngIf="authService.currentUser.isLoggedIn&&this.httpService.fpState != 2&&this.httpService.fpState != 3" class="UserAccountForm">
 				<!--&& httpService.isGood == 3-->
-				<div class="NameUser">
-					<p>שלום</p>
-					<a *ngIf="authService.currentUser.fullname" class="EmailUser">{{authService.currentUser.fullname}}</a>
-					<a *ngIf="!authService.currentUser.fullname" class="EmailUser">מועמד/ת</a>
-					&nbsp;&nbsp;| &nbsp;
-				 	<a class="EmailUser LnikUnderline" (click)="forgotpass()" >שינוי סיסמה</a> 
+				<div class="NameUser hideDiv">
+					<p *ngIf="authService.currentUser.fullname" class="EmailUserWorker">שלום, {{authService.currentUser.fullname}}</p>
+					<a class="LnikUnderline" (click)="forgotpass()" >שינוי סיסמה</a> &nbsp;&nbsp;| &nbsp;
+				 	<a class="LnikUnderline" (click)="forgotpass()" >עדכון פרטים אישיים</a> 
 				</div>
+				
+				<div class="EmailUser">
+						<p class="EmailUserWorker" *ngIf="authService.currentUser.fullname">שלום, {{authService.currentUser.fullname}} &nbsp;&nbsp;| &nbsp;</p>
+						<p class="EmailUserWorker" *ngIf="!authService.currentUser.fullname">שלום, מועמד/ת &nbsp;&nbsp;| &nbsp;</p>
+						<a class="LnikUnderline" (click)="forgotpass()" >שינוי סיסמה</a> 
+				</div>
+
 				<div class="Logout">
 					<div (click)="logout()" class="FormBtn LogoutBtn">יציאה</div>
 				</div>

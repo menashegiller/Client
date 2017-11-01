@@ -52,7 +52,7 @@ export class HttpService extends BaseEntityService {
 
     params.set('contactInfo', contactInfo);
     params.set('EmailOrSms', EmailOrSms);
-    return this.http.post('http://localhost:5002/users/sendCodeServerSide', params, { headers: this.contentHeaders })
+    return this.http.post('/users/sendCodeServerSide', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -64,7 +64,7 @@ export class HttpService extends BaseEntityService {
   getCode(): Observable<any> {
     let params = new URLSearchParams();
    // params.set('email', EmailOrSms);
-    return this.http.post('http://localhost:5002/users/getCode', params, { headers: this.contentHeaders })
+    return this.http.post('/users/getCode', params, { headers: this.contentHeaders })
       .map(res => {
         return res;
       })
@@ -74,7 +74,7 @@ export class HttpService extends BaseEntityService {
   getReasons(): Observable<any> {
     let params = new URLSearchParams();
    // params.set('email', EmailOrSms);
-    return this.http.post('http://localhost:5002/users/getReasons', params, { headers: this.contentHeaders })
+    return this.http.post('/users/getReasons', params, { headers: this.contentHeaders })
       .map(res => {
         return res;
       })
@@ -86,7 +86,7 @@ export class HttpService extends BaseEntityService {
 
     params.set('passWord', passWord1);
     params.set('pid', pid);
-    return this.http.post('http://localhost:5002/users/SaveNewPassword', params, { headers: this.contentHeaders })
+    return this.http.post('/users/SaveNewPassword', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -100,7 +100,7 @@ export class HttpService extends BaseEntityService {
     params.set('email', email);
     params.set('fullname', name);
 
-    return this.http.post('http://localhost:5002/users/CloseForChanges', params, { headers: this.contentHeaders })
+    return this.http.post('/users/CloseForChanges', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -128,7 +128,7 @@ export class HttpService extends BaseEntityService {
     params.set('DateObj', model.DateObj);
     params.set('id', ID);
 
-    return this.http.post('http://localhost:5002/users/SaveWorkerReport', params, { headers: this.contentHeaders })
+    return this.http.post('/users/SaveWorkerReport', params, { headers: this.contentHeaders })
     .map(res => {
       //  this.isLoggedIn = res.json().success;
 
@@ -145,7 +145,7 @@ export class HttpService extends BaseEntityService {
     params.set('pid', pid);
     
 
-    return this.http.post('http://localhost:5002/users/GetWorkerReportByPId', params, { headers: this.contentHeaders })
+    return this.http.post('/users/GetWorkerReportByPId', params, { headers: this.contentHeaders })
     .map(res => {
       let resObj = res.json();
       this.wordersReportEntity = {
@@ -219,7 +219,7 @@ export class HttpService extends BaseEntityService {
     //  params.set('Email', user.Email);
     params.set('TuitionFees', user.TuitionFees);
 
-    return this.http.post('http://localhost:5002/users/saveForm', params, { headers: this.contentHeaders })
+    return this.http.post('/users/saveForm', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -232,7 +232,7 @@ export class HttpService extends BaseEntityService {
     let params = new URLSearchParams();
 
     params.set('College', College);
-    return this.http.post('http://localhost:5002/users/getCertifications', params, { headers: this.contentHeaders })
+    return this.http.post('/users/getCertifications', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -249,7 +249,7 @@ export class HttpService extends BaseEntityService {
     params.set('isCollege', isCollege);
 
     if (this.colleges.length == 0) {
-      return this.http.post('http://localhost:5002/users/getColleges', params, new RequestOptions({ headers: this.contentHeaders }))
+      return this.http.post('/users/getColleges', params, new RequestOptions({ headers: this.contentHeaders }))
         .map(res => {
           //  this.isLoggedIn = res.json().success;
           this.colleges = res.json().Colleges;
@@ -266,7 +266,7 @@ export class HttpService extends BaseEntityService {
     let params = new URLSearchParams();
     params.set('token', token);
     if (this.roles.length == 0) {
-      return this.http.post('http://localhost:5002/users/getRoles', params, { headers: this.contentHeaders })
+      return this.http.post('/users/getRoles', params, { headers: this.contentHeaders })
         .map(res => {
           //  this.isLoggedIn = res.json().success;
           this.roles = res.json().Roles;
@@ -287,7 +287,7 @@ export class HttpService extends BaseEntityService {
     params.set('Role', Role);
     params.set('College', College);
 
-    return this.http.post('http://localhost:5002/users/getEmployees', params, { headers: this.contentHeaders })
+    return this.http.post('/users/getEmployees', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
         this.employees = res.json().Employees;
@@ -306,7 +306,7 @@ export class HttpService extends BaseEntityService {
     params.set('College', employeeForm.College);
     params.set('Mobile', employeeForm.Mobile);
     params.set('Password', employeeForm.PasswordView); //if PasswordView == null in sql will not save it
-    return this.http.post('http://localhost:5002/users/saveEmployee', params, { headers: this.contentHeaders })
+    return this.http.post('/users/saveEmployee', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -320,7 +320,7 @@ export class HttpService extends BaseEntityService {
 
     params.set('pid', pid);
     //  params.set('token', token);
-    return this.http.post('http://localhost:5002/users/GetUser', params, { headers: this.contentHeaders })
+    return this.http.post('/users/GetUser', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -336,7 +336,7 @@ export class HttpService extends BaseEntityService {
     params.set('id', id);
     params.set('page', page);
 
-    return this.http.post('http://localhost:5002/users/GetAllUsers', params, { headers: this.contentHeaders })
+    return this.http.post('/users/GetAllUsers', params, { headers: this.contentHeaders })
       .map(res => {
         //  this.isLoggedIn = res.json().success;
 
@@ -354,7 +354,7 @@ export class HttpService extends BaseEntityService {
     params.set('password', obj.PasswordView);
     params.set('name', obj.FullName);
 
-    return this.http.post('http://localhost:5002/users/postEmailtoEmployee', params, { headers: this.contentHeaders }).map(res => {
+    return this.http.post('/users/postEmailtoEmployee', params, { headers: this.contentHeaders }).map(res => {
       //  localStorage.setItem('id_token', res.json().token);
       return res;
     })
@@ -373,7 +373,7 @@ export class HttpService extends BaseEntityService {
     params.set('College', employeeForm.College);
     params.set('Mobile', employeeForm.Mobile);
     params.set('Password', employeeForm.PasswordView); //if PasswordView == null in sql will not save it
-    return this.http.post('http://localhost:5002/users/saveAndSendEmailtoNewEmployee', params, { headers: this.contentHeaders }).map(res => {
+    return this.http.post('/users/saveAndSendEmailtoNewEmployee', params, { headers: this.contentHeaders }).map(res => {
       //  localStorage.setItem('id_token', res.json().token);
       return res;
     })
@@ -386,7 +386,7 @@ export class HttpService extends BaseEntityService {
 
     params.set('emailadress', user.Email);
     params.set('IdentityId', user.UserId);
-    return this.http.post('http://localhost:5002/users/register', params, { headers: this.contentHeaders })
+    return this.http.post('/users/register', params, { headers: this.contentHeaders })
       .map(res => {
         let result = res.json();
         if (result.success) {
@@ -416,7 +416,7 @@ export class HttpService extends BaseEntityService {
     params.set('DecisionAmount', Temp);
     params.set('DecisionReasons', user.DecisionReasons);
 
-    return this.http.post('http://localhost:5002/users/sendDecision', params, { headers: this.contentHeaders })
+    return this.http.post('/users/sendDecision', params, { headers: this.contentHeaders })
       .map(res => {
         return res;
       })

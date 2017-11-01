@@ -1,0 +1,130 @@
+<div class="MainContent" [ngClass]="{'home': allowSending == 2}">
+	<div class="Container">
+		<div class="AboutuserForm">
+			<h1>קצת עלינו</h1>
+
+			<p>
+				הקרן לעידוד תעסוקה במגזר תעשיות עתירות ידע, מעוניינת לעזור לסטודנטים ללמוד לימודים חוץ אקדמיים.<br/> העזרה הינה דרך הענקת
+				מלגות כספיות, על פי תקציב רבעוני הקיים בקרן והמנוהל על-ידה.
+			</p>
+		</div>
+		
+		<div class="userFormInstructions" title="00">
+			<h2 class="More_marginTop">חשוב לזכור!!!</h2>
+			<p>* בכל שלב ניתן לשמור את הטופס באופן חלקי ולחזור אליו במועד מאוחר יותר להמשך דיווח </p>
+			<p>* אם הנתונים שדיווחת בחודש שעבר זהים לחודש הנוכחי יש באפשרותך לבצע עדכון ושליחת דיווח</p>
+		</div>
+		
+		<div class="accordionHeader BoxStrokeline accordionHeaderOne accordionHeaderRaduis"><p class="accordionTitle">דיווח על מקום עבודה</p></div>
+		<div class="accordionContent BoxStrokeline">
+			<ul class="EnterPass RegUserBoxs RegUserBoxsLine">
+				<li class="accordionInputBox InputBoxBig">
+					<p class="inputlabel">תאריך</p>
+					<div class="WorkConBox">
+						<div class="WorkCon">
+							<p>{{WRmodel.DateObj| date: 'dd/MM/yyyy'}}</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="accordionInputBox" >
+					<p class="inputlabel">ב- 3 החודשים האחרונים</p>
+					<ul class="WorkConBox">
+						<li class="WorkCon" >
+							<div class="WorkBox">
+								<input class="RadioBtn" type="radio" name="AcWorkType" [value]="1" [(ngModel)]="WRmodel.isWork" name="AcformMilitaryType" #isWork="ngModel">
+								<p class="WorkTitle">עבדתי</p>
+							</div>
+							<div class="WorkBox">
+								<input class="RadioBtn" type="radio" name="AcWorkType" [value]="0"  [(ngModel)]="WRmodel.isWork" name="AcformMilitaryType" #isWork="ngModel">
+								<p class="WorkTitle">לא עבדתי</p>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="accordionInputBox No_marginLeft"  *ngIf="WRmodel.isWork==1">
+						<p class="inputlabel">
+							שם המעסיק (מתלוש שכר)
+						</p>
+						<input type="text" [(ngModel)]="WRmodel.employerName">
+				</li>
+
+				<li class="accordionInputBox No_marginLeft " *ngIf="WRmodel.isWork==0">
+						<p class="inputlabel">לא עבדתי מכיוון ש...</p>
+						<label class="inputcontent">
+							<span class="selectBtn icon-08"></span>
+							<select [(ngModel)]="WRmodel.reasonNotWork" name="isWork2" #reasonNotWork="ngModel" >
+								<option *ngFor="let r of reasons;" [value]="r.id" [selected]="r.id == WRmodel.reasonNotWork">{{r.reason}}</option>
+							</select>
+						</label>
+				</li>
+				
+				
+				<li class="accordionInputBox No_marginLeft" [ngClass]="{'InputBoxBig': WRmodel.isWork==1}"  *ngIf="WRmodel.isWork==1">
+					<p class="inputlabel">
+						שם מקום העבודה (שונה משם המעסיק)
+					</p>
+					<input type="text" [(ngModel)]="WRmodel.workName">
+				</li>
+			</ul>
+
+			<ul class="EnterPass">
+				<li class="accordionInputBox">
+					<p class="inputlabel">האם את/ה עובד/ת בתחום שלמדת?</p>
+					<ul class="WorkConBox">
+						<li class="WorkCon">
+							<div class="WorkBox">
+								<input class="RadioBtn" type="radio" [(ngModel)]="WRmodel.isWorkOnProfession" name="isWorkOnProfession" [value]="1" #isWorkOnProfession="ngModel">
+								<p class="WorkTitle">כן</p>
+							</div>
+							<div class="WorkBox">
+								<input class="RadioBtn" type="radio" [(ngModel)]="WRmodel.isWorkOnProfession" name="isWorkOnProfession" [value]="0" #isWorkOnProfession="ngModel">
+								<p class="WorkTitle">לא</p>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="accordionInputBox No_marginLeft">
+					<p class="inputlabel">
+						שכר ברוטו ממוצע 3 חודשים האחרונים
+					</p>
+					<input type="number" [(ngModel)]="WRmodel.salaryAvg"  #salaryAvg="ngModel" name="salaryAvg" id="salaryAvg">
+				</li>
+				<li class="accordionInputBox">
+					<p class="inputlabel">תפקיד</p>
+					<input type="text" [(ngModel)]="WRmodel.workRole"  #workRole="ngModel" name="workRole">
+				</li>
+				<li class="accordionInputBox No_marginLeft">
+					<p class="inputlabel">שם הפרויקט</p>
+					<input type="text" [(ngModel)]="WRmodel.projectName"  #projectName="ngModel" name="projectName">
+				</li>
+				<li class="accordionInputBox InputBoxBig">
+					<p class="inputlabel">מהם הטכנולגיות העיקריות בהן את/ה עוסק/ת?</p>
+					<input type="text" [(ngModel)]="WRmodel.technologics"  #technologics="ngModel" name="technologics">
+				</li>
+				
+			</ul>
+		</div>
+		<ul>
+			<li class="RemarkBox">
+				<p class="TextBold">לפני שליחת הדיווח !!!</p>
+				<p>* באפשרותך לבצע שמור ולחזור פעם אחרת להמשך הדיווח</p>
+				<p>* נא לוודא שכל השדות מלאים</p>
+			</li>
+
+			<li class="accordionSave">
+				<input [disabled]="saveIsGood " [ngClass]="{'disabledBtn': saveIsGood}" class="InsideFormBtn No_marginTopWorker" type="button"
+				 value="שמור/י" name="send" title="שמור/י" (click)="SaveWorkerReport(WRmodel,0);">
+				<a *ngIf='saveIsGood' class="Erorr no_underline"><span class="ErorrIcon icon-03"></span><p>הנתונים נשמרו במערכת</p></a>
+			</li>
+
+			<li class="accordionSend">
+				<input [disabled]="saveIsGood " [ngClass]="{'disabledBtn': saveIsGood}" value="שליחת דיווח" class="InsideFormBtn accordionBtnSend No_marginTopWorker" title="שליחת דיווח" type="button" (click)="Send(WRmodel);">
+			</li>
+		</ul>
+	</div>
+
+	
+
+
+</div>
